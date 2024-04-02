@@ -1,4 +1,4 @@
-# FarmSim
+# CitySim
 Group project for ICS4U
 
 ## Purpose
