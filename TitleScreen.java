@@ -10,6 +10,7 @@ public class TitleScreen extends World
 {
     Label titleLabel = new Label ("City Simulator", 75);
     Label startLabel = new Label ("Press <enter> to begin", 45);
+    
     /**
      * Constructor for objects of class TitleScreen.
      * 
@@ -17,16 +18,16 @@ public class TitleScreen extends World
     public TitleScreen()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1); 
+        super(1280, 720, 1); 
         
-        addObject(titleLabel, 300, 60);
-        addObject(startLabel, 300, 200);
+        addObject(titleLabel, getWidth()/2, getHeight()/2-60);
+        addObject(startLabel, getWidth()/2, getHeight()/2+60);
     }
     
     public void act()
     {
         if (Greenfoot.isKeyDown("enter")){
-            MyWorld world = new MyWorld();
+            MainWorld world = new MainWorld(getWidth(), getHeight());
             Greenfoot.setWorld(world);
         }
     }
