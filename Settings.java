@@ -28,5 +28,10 @@ public class Settings extends World
             MainWorld mainWorld = new MainWorld(getWidth(), getHeight());
             Greenfoot.setWorld(mainWorld);
         }
+        addButtons();
+    }
+    
+    public void addButtons(){
+        addObject(new AddButton(), 1000, 500);
     }
 }
