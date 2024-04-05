@@ -23,9 +23,15 @@ public class Settings extends World
     
     public void act()
     {
+        Greenfoot.delay(10);
         if (Greenfoot.isKeyDown("enter")){
             MainWorld mainWorld = new MainWorld(getWidth(), getHeight());
             Greenfoot.setWorld(mainWorld);
         }
+        addButtons();
+    }
+    
+    public void addButtons(){
+        addObject(new AddButton(), 1000, 500);
     }
 }
