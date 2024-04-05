@@ -1,0 +1,27 @@
+name: Enforce Code Style
+
+on:
+  pull_request:
+
+jobs:
+  format:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Download Google Java Format
+        uses: google/google-java-format@v1
+        with:
+          skip-commit: true  # Skip automatic commit by the action
+
+      - name: Format Java code
+        run: |
+          ./gradlew clean findbugs jacocoTestReport  # Adjust commands if needed
+          ./gradlew spotlessApply  # Adjust commands if needed
+
+      - name: Commit formatted code
+        run: |
+          git config --local user.name "GitHub Actions Bot"
+          git config --local user.email "adrianlee+githubactionbot@adrian40.xyz"
+          git commit -am "Apply Google Java Format"
+          git push
