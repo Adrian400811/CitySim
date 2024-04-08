@@ -1,11 +1,12 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
  * Write a description of class Settings here.
- * 
- * @author (your name) 
+ *
+ * @author (your name)
  * @version (a version number or a date)
  */
+
 public class Settings extends World
 {
     Label title = new Label ("Settings", 45);
@@ -45,6 +46,7 @@ public class Settings extends World
         addObject(new SubtractButton("CWI"), getWidth()/2-300, 420);
         
         addObject(new NextButton(),getWidth()-110, 650);
+     }
         
-    }
+
 }
