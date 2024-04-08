@@ -22,9 +22,9 @@ public class Settings extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(width, height, 1);
         addObject(title, getWidth()/10, 60);
-        addObject (sustainable, 450, 180);
-        addObject (economic, 450, 300);
-        addObject (community, 450, 420);
+        addObject (sustainable, getWidth()/2, 180);
+        addObject (economic, getWidth()/2, 300);
+        addObject (community, getWidth()/2, 420);
     }
     
     public void act()
@@ -38,14 +38,14 @@ public class Settings extends World
     }
     
     public void spawnButtons(){
-        addObject(new AddButton("SI"), 650, 180);
-        addObject(new SubtractButton("SI"), 250, 180);
+        addObject(new AddButton("SI"), getWidth()/2+300, 180);
+        addObject(new SubtractButton("SI"), getWidth()/2-300, 180);
         
-        addObject(new AddButton("EPR"), 725, 300);
-        addObject(new SubtractButton("EPR"), 175, 300);
+        addObject(new AddButton("EPR"), getWidth()/2+300, 300);
+        addObject(new SubtractButton("EPR"), getWidth()/2-300, 300);
         
-        addObject(new AddButton("CWI"), 725, 420);
-        addObject(new SubtractButton("CWI"), 175, 420);
+        addObject(new AddButton("CWI"), getWidth()/2+300, 420);
+        addObject(new SubtractButton("CWI"), getWidth()/2-300, 420);
         
     }
 }
