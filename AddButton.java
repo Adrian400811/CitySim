@@ -12,15 +12,16 @@ public class AddButton extends Button
     private GreenfootImage unclickedButton = new GreenfootImage("Adjust_Up_Button_01.png");
     private GreenfootImage clickedButton = new GreenfootImage("Adjust_Up_Button_02.png");
     
+    private String type = "";
+    
     public AddButton(String type){
         if (type.equals("SI")){
-            
+            this.type = "SI";
         } else if (type.equals("EPR")){
-            
-        } else if (type.equals("WBI")){
-            
+            this.type = "EPR";
+        } else if (type.equals("CWI")){
+            this.type = "CWI";
         }
-        
     }
     
     
@@ -32,9 +33,16 @@ public class AddButton extends Button
     {
         if (Greenfoot.mouseClicked(this)){
             setImage(clickedButton);
-        }
-        else {
+            if (type.equals("SI")){
+                MainWorld.changeSI(1);
+            } else if (type.equals("CWI")){
+                MainWorld.changeCWI(1);
+            } else if (type.equals("EPR")){
+                MainWorld.changeEPR(1);
+            }
+        } else {
             setImage(unclickedButton);
         }
     }
+    
 }
