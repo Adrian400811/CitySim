@@ -8,12 +8,17 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Energy extends Industry
 {
+    private int level=1; //defualt varible
+    GreenfootImage im=new GreenfootImage("images/Industry/Energy_L"+level+".png");
     /**
      * Act - do whatever the Energy wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    public Energy(){
+        
+    }
     public void act()
     {
-        // Add your action code here.
+        setImage(im);
     }
 }
