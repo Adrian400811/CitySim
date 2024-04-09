@@ -7,6 +7,8 @@ import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version (a version number or a date)
  */
 public class Button extends Actor {
+    
+  protected int SI, EPR, CWI;  
 
   public Button() {}
 
@@ -15,4 +17,16 @@ public class Button extends Actor {
    * button gets pressed in the environment.
    */
   public void act() {}
+  
+  protected int getSI(){
+      return SI;
+  }
+  
+  protected int getCWI(){
+      return CWI;
+  }
+  
+  protected int getEPR(){
+      return EPR;
+  }
 }

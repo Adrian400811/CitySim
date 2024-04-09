@@ -12,6 +12,8 @@ public class AddButton extends Button {
   private GreenfootImage clickedButton = new GreenfootImage("Adjust_Up_Button_02.png");
 
   private String type = "";
+  
+
 
   public AddButton(String type) {
     if (type.equals("SI")) {
@@ -21,28 +23,27 @@ public class AddButton extends Button {
     } else if (type.equals("CWI")) {
       this.type = "CWI";
     }
+    SI = 0;
+    CWI = 0;
+    EPR = 0;
+  }
 
-    
-    
-    /**
-     * Act - do whatever the AddButton wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act()
-    {
-        MainWorld main = new MainWorld(0,0);
-        if (Greenfoot.mouseClicked(this)){
-            setImage(clickedButton);
-            if (type.equals("SI")){
-                main.changeSI(1);
-            } else if (type.equals("CWI")){
-                main.changeCWI(1);
-            } else if (type.equals("EPR")){
-                main.changeEPR(1);
-            }
-        } else {
-            setImage(unclickedButton);
-        }
+  /**
+   * Act - do whatever the AddButton wants to do. This method is called whenever the 'Act' or 'Run'
+   * button gets pressed in the environment.
+   */
+  public void act() {
+    if (Greenfoot.mouseClicked(this)) {
+      setImage(clickedButton);
+      if (type.equals("SI")) {
+        SI+=1;
+      } else if (type.equals("CWI")) {
+        CWI+=1;
+      } else if (type.equals("EPR")) {
+        EPR+=1;
+      }
+    } else {
+      setImage(unclickedButton);
     }
   }
 }
