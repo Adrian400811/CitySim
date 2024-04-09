@@ -1,8 +1,8 @@
 name: Format
 
-on: 
-  pull_request: 
-    branches: [format-check]
+on:
+  push:
+    branches: [ format-check ]
 
 jobs:
 
