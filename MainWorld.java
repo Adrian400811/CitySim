@@ -28,6 +28,8 @@ public class MainWorld extends World {
     SI = 0;
     EPR = 0;
     CWI = 0;
+    
+    addObject(new Storm(), getWidth()/2, getHeight()/2);
   }
 
   // adjusters
