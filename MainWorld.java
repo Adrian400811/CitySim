@@ -9,10 +9,10 @@ import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class MainWorld extends World {
   Label title = new Label("MainWorld", 45);
 
-  private int SI;
-  private int EPR;
-  private int CWI;
-  private int totalCoin;
+  private static int SI;
+  private static int EPR;
+  private static int CWI;
+  private static int totalCoin;
 
   private int[] industryCount = {0, 0, 0, 0, 0, 0, 0, 0, 0};
 
@@ -24,18 +24,22 @@ public class MainWorld extends World {
     // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
     super(width, height, 1);
     addObject(title, getWidth() / 10, 60);
+
+    SI = 0;
+    EPR = 0;
+    CWI = 0;
   }
 
   // adjusters
-  public void changeSI(int delta) {
+  public static void changeSI(int delta) {
     SI += delta;
   }
 
-  public void changeEPR(int delta) {
+  public static void changeEPR(int delta) {
     EPR += delta;
   }
 
-  public void changeCWI(int delta) {
+  public static void changeCWI(int delta) {
     CWI += delta;
   }
 

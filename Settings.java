@@ -11,6 +11,7 @@ public class Settings extends World {
   Label sustainable = new Label("Sustainability Index", 45);
   Label economic = new Label("Economic Prosperity Rating", 45);
   Label community = new Label("Community Well-being Index", 45);
+  Label next = new Label("Next", 45);
 
   /** Constructor for objects of class Settings. */
   public Settings(int width, int height) {
@@ -20,14 +21,10 @@ public class Settings extends World {
     addObject(sustainable, getWidth() / 2, 180);
     addObject(economic, getWidth() / 2, 300);
     addObject(community, getWidth() / 2, 420);
+    addObject(next, getWidth() - 175, 650);
   }
 
   public void act() {
-    Greenfoot.delay(10);
-    if (Greenfoot.isKeyDown("enter")) {
-      MainWorld mainWorld = new MainWorld(getWidth(), getHeight());
-      Greenfoot.setWorld(mainWorld);
-    }
     spawnButtons();
   }
 
@@ -40,5 +37,7 @@ public class Settings extends World {
 
     addObject(new AddButton("CWI"), getWidth() / 2 + 300, 420);
     addObject(new SubtractButton("CWI"), getWidth() / 2 - 300, 420);
+
+    addObject(new NextButton(), getWidth() - 110, 650);
   }
 }
