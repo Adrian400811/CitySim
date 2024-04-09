@@ -31,14 +31,15 @@ public class AddButton extends Button
      */
     public void act()
     {
+        MainWorld main = new MainWorld(0,0);
         if (Greenfoot.mouseClicked(this)){
             setImage(clickedButton);
             if (type.equals("SI")){
-                MainWorld.changeSI(1);
+                main.changeSI(1);
             } else if (type.equals("CWI")){
-                MainWorld.changeCWI(1);
+                main.changeCWI(1);
             } else if (type.equals("EPR")){
-                MainWorld.changeEPR(1);
+                main.changeEPR(1);
             }
         } else {
             setImage(unclickedButton);
