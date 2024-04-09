@@ -15,7 +15,7 @@ public class MainWorld extends World
     private int CWI;
     private int totalCoin;
     
-    private int[] industryCount = {0,0,0,0,0,0,0,0,0};
+    private Industry[] industry;
     // 0 Energy, 1 Minerals, 2 Agriculture, 3 Conservation, 4 Manufacturing
     // 5 Recreation, 6 Technology, 7 Development, 8 Education
     
@@ -23,11 +23,38 @@ public class MainWorld extends World
      * Constructor for objects of class MyWorld.
      * 
      */
-    public  MainWorld(int width, int height)
+    public MainWorld(int width, int height)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(width, height, 1); 
         addObject(title, getWidth()/10, 60);
+        industry = new Industry[9];
+        prepareIndustries();
+    }
+    
+    public void prepareIndustries(){
+        for(int i=0; i<9; i++){
+            switch (i){
+                case 0:
+                    industry[i] = new AdvancedManufacturing();
+                case 1:
+                    industry[i] = new AgricultureAndFood();
+                case 2:
+                    industry[i] = new EducationAndResearch();
+                case 3:
+                    industry[i] = new Energy();
+                case 4:
+                    industry[i] = new ForestryAndConservation();
+                case 5:
+                    industry[i] = new MiningAndMaterial();
+                case 6:
+                    industry[i] = new TechnologyAndInnovation();
+                case 7:
+                    industry[i] = new TourismAndRecreation();
+                case 8:
+                    industry[i] = new UrbanDevelopment();
+            }
+        }
     }
     
     // adjusters
@@ -62,9 +89,5 @@ public class MainWorld extends World
     
     public int getTotalCoin(){
         return totalCoin;
-    }
-    
-    public int getIndustryCount(int type){
-        return industryCount[type];
     }
 }
