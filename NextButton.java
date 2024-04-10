@@ -20,8 +20,6 @@ public class NextButton extends Button {
   public void act() {
     if (Greenfoot.mouseClicked(this)) {
       setImage(clickedButton);
-      MainWorld main = new MainWorld(1280, 720);
-      Greenfoot.setWorld(main);
     } else {
       setImage(unclickedButton);
     }
