@@ -8,6 +8,8 @@ import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MainWorld extends World {
   Label title = new Label("MainWorld", 45);
+  Label index = new Label("", 45);
+  Button nextBtn = new NextButton();
 
   private int SI;
   private int EPR;
@@ -23,13 +25,25 @@ public class MainWorld extends World {
   public MainWorld(int width, int height, int SI, int CWI, int EPR) {
     // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
     super(width, height, 1);
-    addObject(title, getWidth() / 10, 60);
-    industry = new Industry[9];
-    prepareIndustries();
 
     this.SI = SI;
     this.CWI = CWI;
     this.EPR = EPR;
+    
+    // for dev use
+    addObject(index, getWidth()/2, getHeight()/2);
+    index.setValue("SI"+SI+"EPR"+EPR+"CWI"+CWI);
+    addObject(nextBtn, getWidth() - 110, 650);
+    
+    addObject(title, getWidth() / 10, 60);
+    industry = new Industry[9];
+    prepareIndustries();
+  }
+  
+  public void act(){
+      if (nextBtn != null && nextBtn.checkClicked()) {
+      end();
+    }
   }
 
   public void prepareIndustries() {
@@ -57,6 +71,11 @@ public class MainWorld extends World {
     }
   }
 
+  public void end() {
+      EndWorld ew = new EndWorld(getWidth(), getHeight(), SI, EPR, CWI);
+      Greenfoot.setWorld(ew);
+  }
+  
   // adjusters
   public void changeSI(int delta) {
     SI += delta;
