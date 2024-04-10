@@ -11,10 +11,13 @@ public class MainWorld extends World {
   Label index = new Label("", 45);
   Button nextBtn = new NextButton();
 
-  private int SI;
-  private int EPR;
-  private int CWI;
+  Label cycle = new Label("Day", 45);
+  Label cycleNum = new Label("", 45);
+
+  private int SI, EPR, CWI;
   private int totalCoin;
+  private int numOfCycles;
+  private int timeElapsed;
 
   private Industry[] industry;
 
@@ -23,13 +26,19 @@ public class MainWorld extends World {
 
   /** Constructor for objects of class MyWorld. */
   public MainWorld(int width, int height, int SI, int CWI, int EPR) {
-    // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
     super(width, height, 1);
+    addObject(title, getWidth() / 10, 60);
+    addObject(cycle, getWidth() - 115, 60);
+    addObject(cycleNum, getWidth() - 60, 60);
+    industry = new Industry[9];
+    prepareIndustries();
+
+    numOfCycles = 0;
 
     this.SI = SI;
     this.CWI = CWI;
     this.EPR = EPR;
-    
+
     // for dev use
     addObject(index, getWidth()/2, getHeight()/2);
     index.setValue("SI"+SI+"EPR"+EPR+"CWI"+CWI);
@@ -38,12 +47,36 @@ public class MainWorld extends World {
     addObject(title, getWidth() / 10, 60);
     industry = new Industry[9];
     prepareIndustries();
+
+    timeElapsed = 0;
   }
-  
-  public void act(){
-      if (nextBtn != null && nextBtn.checkClicked()) {
+
+  public void act() {
+    timeElapsed++;
+
+    if (numOfCycles == 0) {
+      updateCycles();
+    } else if (timeElapsed >= (55 * 20)) {
+      updateCycles();
+      timeElapsed = 0;
+    }
+
+    if (nextBtn != null && nextBtn.checkClicked()) {
       end();
     }
+  }
+
+  public void updateCycles() {
+    cycleNum.setValue(numOfCycles);
+    if (numOfCycles % 2 == 0) {
+
+    } else {
+      if (numOfCycles == 6) {
+        end();
+      }
+      if (numOfCycles == 1 || numOfCycles == 3) {}
+    }
+    numOfCycles++;
   }
 
   public void prepareIndustries() {
