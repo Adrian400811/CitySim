@@ -11,20 +11,8 @@ public class SubtractButton extends Button {
   private GreenfootImage unclickedButton = new GreenfootImage("Adjust_Up_Button_01.png");
   private GreenfootImage clickedButton = new GreenfootImage("Adjust_Up_Button_02.png");
 
-  private String type = "";
-  
+  public SubtractButton() {
 
-  public SubtractButton(String type) {
-    if (type.equals("SI")) {
-      this.type = "SI";
-    } else if (type.equals("EPR")) {
-      this.type = "EPR";
-    } else if (type.equals("CWI")) {
-      this.type = "CWI";
-    }
-    SI = 0;
-    CWI = 0;
-    EPR = 0;
   }
 
   /**
@@ -34,13 +22,6 @@ public class SubtractButton extends Button {
   public void act() {
     if (Greenfoot.mouseClicked(this)) {
       setImage(clickedButton);
-      if (type.equals("SI")) {
-        SI-=1;
-      } else if (type.equals("CWI")) {
-        CWI-=1;
-      } else if (type.equals("EPR")) {
-        EPR-=1;
-      }
     } else {
       setImage(unclickedButton);
     }
