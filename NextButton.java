@@ -10,11 +10,8 @@ public class NextButton extends Button {
 
   private GreenfootImage unclickedButton = new GreenfootImage("Confirm_Button_01.png");
   private GreenfootImage clickedButton = new GreenfootImage("Confirm_Button_02.png");
-  
-  public NextButton(){
-      
-  }
 
+  public NextButton() {}
 
   /**
    * Act - do whatever the NextButton wants to do. This method is called whenever the 'Act' or 'Run'

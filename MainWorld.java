@@ -26,7 +26,7 @@ public class MainWorld extends World {
     addObject(title, getWidth() / 10, 60);
     industry = new Industry[9];
     prepareIndustries();
-    
+
     this.SI = SI;
     this.CWI = CWI;
     this.EPR = EPR;
