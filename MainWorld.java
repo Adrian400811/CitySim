@@ -8,11 +8,15 @@ import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MainWorld extends World {
   Label title = new Label("MainWorld", 45);
+  Label cycle = new Label("Day", 45);
+  Label cycleNum = new Label("", 45);
 
   private int SI;
   private int EPR;
   private int CWI;
   private int totalCoin;
+  private int numOfCycles;
+  private int timeElapsed;
 
   private Industry[] industry;
 
@@ -24,13 +28,48 @@ public class MainWorld extends World {
     // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
     super(width, height, 1);
     addObject(title, getWidth() / 10, 60);
+    addObject(cycle, getWidth()-115, 60);
+    addObject(cycleNum, getWidth() - 60, 60);
     industry = new Industry[9];
     prepareIndustries();
+    
+    numOfCycles = 0;
 
     this.SI = SI;
     this.CWI = CWI;
     this.EPR = EPR;
+    
+    timeElapsed = 0;
   }
+  
+  public void act(){
+    timeElapsed++;
+    
+    if (numOfCycles == 0){
+        updateCycles();
+    } else if (timeElapsed >= (55 * 20)){
+        updateCycles();
+        timeElapsed = 0;
+    }
+  }
+  
+  public void updateCycles(){
+      cycleNum.setValue(numOfCycles);
+      if (numOfCycles % 2 == 0){
+          
+      } else {
+          if (numOfCycles == 6){
+              EndWorld end = new EndWorld();
+              Greenfoot.setWorld(end);
+          }
+          if (numOfCycles == 1 || numOfCycles == 3){
+
+          }
+      }
+      numOfCycles++;
+  }
+  
+  
 
   public void prepareIndustries() {
     for (int i = 0; i < 9; i++) {
