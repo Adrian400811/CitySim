@@ -40,10 +40,10 @@ public class MainWorld extends World {
     this.EPR = EPR;
 
     // for dev use
-    addObject(index, getWidth()/2, getHeight()/2);
-    index.setValue("SI"+SI+"EPR"+EPR+"CWI"+CWI);
+    addObject(index, getWidth() / 2, getHeight() / 2);
+    index.setValue("SI" + SI + "EPR" + EPR + "CWI" + CWI);
     addObject(nextBtn, getWidth() - 110, 650);
-    
+
     addObject(title, getWidth() / 10, 60);
     industry = new Industry[9];
     prepareIndustries();
@@ -105,10 +105,10 @@ public class MainWorld extends World {
   }
 
   public void end() {
-      EndWorld ew = new EndWorld(getWidth(), getHeight(), SI, EPR, CWI);
-      Greenfoot.setWorld(ew);
+    EndWorld ew = new EndWorld(getWidth(), getHeight(), SI, EPR, CWI);
+    Greenfoot.setWorld(ew);
   }
-  
+
   // adjusters
   public void changeSI(int delta) {
     SI += delta;
