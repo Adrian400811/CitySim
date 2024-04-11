@@ -7,9 +7,15 @@ import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version (a version number or a date)
  */
 public class MainWorld extends World {
+ 
   Label title = new Label("MainWorld", 45);
   Label cycle = new Label("Day", 45);
   Label cycleNum = new Label("", 45);
+  
+  Label money = new Label("Money", 45);
+  Label moneyNum = new Label("", 45);
+  
+  Button nextBtn = new NextButton();
 
   private int SI;
   private int EPR;
@@ -39,17 +45,34 @@ public class MainWorld extends World {
     this.CWI = CWI;
     this.EPR = EPR;
     
+    addObject(money, getWidth()/2, 60);
+    addObject(moneyNum,getWidth()/2 + 100, 60);
+
+    // for dev use
+    addObject(index, getWidth() / 2, getHeight() / 2);
+    index.setValue("SI" + SI + "EPR" + EPR + "CWI" + CWI);
+    addObject(nextBtn, getWidth() - 110, 650);
+
+    addObject(title, getWidth() / 10, 60);
+    industry = new Industry[9];
+    prepareIndustries();
+
     timeElapsed = 0;
   }
   
   public void act(){
     timeElapsed++;
     
-    if (numOfCycles == 0){
-        updateCycles();
-    } else if (timeElapsed >= (55 * 20)){
-        updateCycles();
-        timeElapsed = 0;
+
+    if (numOfCycles == 0) {
+      updateCycles();
+    } else if (timeElapsed >= (1 * 20)) {
+      updateCycles();
+      timeElapsed = 0;
+    }
+
+    if (nextBtn != null && nextBtn.checkClicked()) {
+      end();
     }
   }
   
@@ -63,10 +86,36 @@ public class MainWorld extends World {
               Greenfoot.setWorld(end);
           }
           if (numOfCycles == 1 || numOfCycles == 3){
-
+              
           }
       }
       numOfCycles++;
+  }
+  
+
+  public void updateCycles() {
+    moneyNum.setValue("$" + getTotalCoin());
+    cycleNum.setValue(numOfCycles);
+    if (numOfCycles == 6) {
+        end();
+    } else {
+      if (numOfCycles % 2 == 0) {
+        
+      }
+      if (numOfCycles % 2 != 0){
+        
+      }
+    }
+    numOfCycles++;
+  }
+  
+  public void generateIncome(){
+      
+  }
+  
+  public void end() {
+      EndWorld ew = new EndWorld(getWidth(), getHeight(), SI, EPR, CWI);
+      Greenfoot.setWorld(ew);
   }
   
   
