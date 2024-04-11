@@ -1,4 +1,5 @@
 #Greenfoot project file
+class.EndWorld.image=MinecraftDirtBackground.jpg
 class.Settings.image=MinecraftDirtBackground.jpg
 class.TitleScreen.image=MinecraftDirtBackground.jpg
 dependency1.from=TitleScreen
@@ -78,7 +79,7 @@ target13.height=70
 target13.name=Energy
 target13.showInterface=false
 target13.type=ClassTarget
-target13.width=120
+target13.width=160
 target13.x=0
 target13.y=0
 target14.height=70
@@ -179,7 +180,6 @@ target7.type=ClassTarget
 target7.width=150
 target7.x=0
 target7.y=0
-target8.height=70
 target8.name=TitleScreen
 target8.showInterface=false
 target8.type=ClassTarget
