@@ -1,4 +1,4 @@
-name: Format
+name: FormatFix
 
 on:
   push:
