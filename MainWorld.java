@@ -7,16 +7,16 @@ import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version (a version number or a date)
  */
 public class MainWorld extends World {
- 
+
   Label title = new Label("MainWorld", 45);
   Label index = new Label("", 45);
 
   Label cycle = new Label("Day", 45);
   Label cycleNum = new Label("", 45);
-  
+
   Label money = new Label("Money", 45);
   Label moneyNum = new Label("", 45);
-  
+
   Button nextBtn = new NextButton();
 
   private int SI, EPR, CWI;
@@ -35,8 +35,8 @@ public class MainWorld extends World {
     addObject(title, getWidth() / 10, 60);
     addObject(cycle, getWidth() - 115, 60);
     addObject(cycleNum, getWidth() - 60, 60);
-    addObject(money, getWidth()/2, 60);
-    addObject(moneyNum,getWidth()/2 + 100, 60);
+    addObject(money, getWidth() / 2, 60);
+    addObject(moneyNum, getWidth() / 2 + 100, 60);
     industry = new Industry[9];
     prepareIndustries();
 
@@ -54,7 +54,7 @@ public class MainWorld extends World {
     timeElapsed = 0;
   }
 
-    public void act(){
+  public void act() {
     timeElapsed++;
 
     if (numOfCycles == 0) {
@@ -73,21 +73,16 @@ public class MainWorld extends World {
     moneyNum.setValue("$" + getTotalCoin());
     cycleNum.setValue(numOfCycles);
     if (numOfCycles == 6) {
-        end();
+      end();
     } else {
-      if (numOfCycles % 2 == 0) {
-        
-      }
-      if (numOfCycles % 2 != 0){
-        
-      }
+      if (numOfCycles % 2 == 0) {}
+
+      if (numOfCycles % 2 != 0) {}
     }
     numOfCycles++;
   }
-  
-  public void generateIncome(){
-      
-  }
+
+  public void generateIncome() {}
 
   public void prepareIndustries() {
     for (int i = 0; i < 9; i++) {
