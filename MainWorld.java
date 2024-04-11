@@ -9,6 +9,9 @@ import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class MainWorld extends World {
  
   Label title = new Label("MainWorld", 45);
+  Label index = new Label("", 45);
+  Button nextBtn = new NextButton();
+
   Label cycle = new Label("Day", 45);
   Label cycleNum = new Label("", 45);
   
@@ -17,9 +20,7 @@ public class MainWorld extends World {
   
   Button nextBtn = new NextButton();
 
-  private int SI;
-  private int EPR;
-  private int CWI;
+  private int SI, EPR, CWI;
   private int totalCoin;
   private int numOfCycles;
   private int timeElapsed;
@@ -31,38 +32,31 @@ public class MainWorld extends World {
 
   /** Constructor for objects of class MyWorld. */
   public MainWorld(int width, int height, int SI, int CWI, int EPR) {
-    // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
     super(width, height, 1);
     addObject(title, getWidth() / 10, 60);
-    addObject(cycle, getWidth()-115, 60);
+    addObject(cycle, getWidth() - 115, 60);
     addObject(cycleNum, getWidth() - 60, 60);
+    addObject(money, getWidth()/2, 60);
+    addObject(moneyNum,getWidth()/2 + 100, 60);
     industry = new Industry[9];
     prepareIndustries();
-    
+
     numOfCycles = 0;
 
     this.SI = SI;
     this.CWI = CWI;
     this.EPR = EPR;
-    
-    addObject(money, getWidth()/2, 60);
-    addObject(moneyNum,getWidth()/2 + 100, 60);
 
     // for dev use
     addObject(index, getWidth() / 2, getHeight() / 2);
     index.setValue("SI" + SI + "EPR" + EPR + "CWI" + CWI);
     addObject(nextBtn, getWidth() - 110, 650);
 
-    addObject(title, getWidth() / 10, 60);
-    industry = new Industry[9];
-    prepareIndustries();
-
     timeElapsed = 0;
   }
-  
-  public void act(){
+
+  public void act() {
     timeElapsed++;
-    
 
     if (numOfCycles == 0) {
       updateCycles();
@@ -75,21 +69,18 @@ public class MainWorld extends World {
       end();
     }
   }
-  
-  public void updateCycles(){
-      cycleNum.setValue(numOfCycles);
-      if (numOfCycles % 2 == 0){
-          
-      } else {
-          if (numOfCycles == 6){
-              EndWorld end = new EndWorld();
-              Greenfoot.setWorld(end);
-          }
-          if (numOfCycles == 1 || numOfCycles == 3){
-              
-          }
+
+  public void updateCycles() {
+    cycleNum.setValue(numOfCycles);
+    if (numOfCycles % 2 == 0) {
+
+    } else {
+      if (numOfCycles == 6) {
+        end();
       }
-      numOfCycles++;
+      if (numOfCycles == 1 || numOfCycles == 3) {}
+    }
+    numOfCycles++;
   }
   
 
@@ -117,8 +108,6 @@ public class MainWorld extends World {
       EndWorld ew = new EndWorld(getWidth(), getHeight(), SI, EPR, CWI);
       Greenfoot.setWorld(ew);
   }
-  
-  
 
   public void prepareIndustries() {
     for (int i = 0; i < 9; i++) {
@@ -143,6 +132,11 @@ public class MainWorld extends World {
           industry[i] = new UrbanDevelopment();
       }
     }
+  }
+
+  public void end() {
+    EndWorld ew = new EndWorld(getWidth(), getHeight(), SI, EPR, CWI);
+    Greenfoot.setWorld(ew);
   }
 
   // adjusters
