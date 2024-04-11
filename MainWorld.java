@@ -10,7 +10,6 @@ public class MainWorld extends World {
  
   Label title = new Label("MainWorld", 45);
   Label index = new Label("", 45);
-  Button nextBtn = new NextButton();
 
   Label cycle = new Label("Day", 45);
   Label cycleNum = new Label("", 45);
@@ -55,7 +54,7 @@ public class MainWorld extends World {
     timeElapsed = 0;
   }
 
-  public void act() {
+    public void act(){
     timeElapsed++;
 
     if (numOfCycles == 0) {
@@ -69,20 +68,6 @@ public class MainWorld extends World {
       end();
     }
   }
-
-  public void updateCycles() {
-    cycleNum.setValue(numOfCycles);
-    if (numOfCycles % 2 == 0) {
-
-    } else {
-      if (numOfCycles == 6) {
-        end();
-      }
-      if (numOfCycles == 1 || numOfCycles == 3) {}
-    }
-    numOfCycles++;
-  }
-  
 
   public void updateCycles() {
     moneyNum.setValue("$" + getTotalCoin());
@@ -102,11 +87,6 @@ public class MainWorld extends World {
   
   public void generateIncome(){
       
-  }
-  
-  public void end() {
-      EndWorld ew = new EndWorld(getWidth(), getHeight(), SI, EPR, CWI);
-      Greenfoot.setWorld(ew);
   }
 
   public void prepareIndustries() {
