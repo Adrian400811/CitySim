@@ -32,13 +32,4 @@ public class UrbanDevelopment extends Industry {
     checkImage();
   }
   
-  public void checkImage(){
-      if (level == 1){
-          setImage(L1);
-      } else if (level == 2){ 
-          setImage(L2);
-      } else if (level == 3){
-          setImage(L3);
-      }
-  }
 }
