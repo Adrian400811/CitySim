@@ -44,4 +44,8 @@ public abstract class Industry extends Actor {
     double grandTotal = totalIncome; // + bonus;
     return grandTotal;
   }
+
+  public void levelUp() {
+    level++;
+  }
 }
