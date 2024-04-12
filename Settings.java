@@ -44,7 +44,7 @@ public class Settings extends World {
     addObject(sustainable, getWidth() / 4, 180);
     addObject(economic, getWidth() / 4, 300);
     addObject(community, getWidth() / 4, 420);
-    addObject(industryTitle, getWidth()/10*6, 60);
+    addObject(industryTitle, getWidth() / 10 * 6, 60);
     addObject(next, getWidth() - 175, 650);
   }
 
@@ -60,31 +60,32 @@ public class Settings extends World {
       }
       addObject(indexButton[i], getWidth() / 4 + (225 * dir), btnY[i / 2]);
     }
-    
+
     addObject(nextBtn, getWidth() - 110, 650);
   }
-  
-  public void spawnIndustryGrid(){
-      industryButton = new IndustryButton[9];
-      for(int i=0; i<9; i++){
-          industryButton[i] = new IndustryButton(i);
-          int upDown = 0;
-          if(i==1|i==4|i==7){
-              dir = 0;
-          } else if (i==2|i==5|i==8){
-              dir = 1;
-          } else {
-              dir = -1;
-          }
-          if(i<3){
-              upDown = -1;
-          } else if (i>2 && i<6){
-              upDown = 0;
-          } else {
-              upDown = 1;
-          }
-          addObject(industryButton[i], getWidth()/4*3+(135*dir), getHeight()/2+(135*upDown));
+
+  public void spawnIndustryGrid() {
+    industryButton = new IndustryButton[9];
+    for (int i = 0; i < 9; i++) {
+      industryButton[i] = new IndustryButton(i);
+      int upDown = 0;
+      if (i == 1 | i == 4 | i == 7) {
+        dir = 0;
+      } else if (i == 2 | i == 5 | i == 8) {
+        dir = 1;
+      } else {
+        dir = -1;
       }
+      if (i < 3) {
+        upDown = -1;
+      } else if (i > 2 && i < 6) {
+        upDown = 0;
+      } else {
+        upDown = 1;
+      }
+      addObject(
+          industryButton[i], getWidth() / 4 * 3 + (135 * dir), getHeight() / 2 + (135 * upDown));
+    }
   }
 
   public void checkPressed() {
