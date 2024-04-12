@@ -8,7 +8,7 @@ import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public abstract class Industry extends Actor {
   private MainWorld mw;
-  private int level = 0;
+  protected int level = 0;
   private int coins = 0;
   private int count = 0;
   private int type;
@@ -16,6 +16,8 @@ public abstract class Industry extends Actor {
 
   private double[] growthRate = {1.2, 1.1, 1.3, 1.2, 1.1, 1.3, 1.3, 1.1, 1.2};
   private double[] lvlMultipliers = {1.0, 1.5, 2.0};
+  
+  protected abstract void checkImage();
 
   public Industry(int SI, int EPR, int CWI, int type) {
     this.SI = SI;

@@ -7,15 +7,20 @@ import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version (a version number or a date)
  */
 public class Energy extends Industry {
-  private int level = 1; // defualt varible
-  GreenfootImage im = new GreenfootImage("images/Industry/Energy_L" + level + ".png");
   private int SI = +2;
   private int EPR = +2;
   private int CWI = +1;
   private int type = 3;
+  
+  private GreenfootImage L1;
+  private GreenfootImage L2;
+  private GreenfootImage L3;
 
   public Energy() {
     super(+2, +2, +1, 3);
+    L1 = new GreenfootImage("images/Industry/Energy_L1.png");
+    L2 = new GreenfootImage("images/Industry/Energy_L2.png");
+    L3 = new GreenfootImage("images/Industry/Energy_L3.png");
   }
 
   /**
@@ -23,6 +28,16 @@ public class Energy extends Industry {
    * button gets pressed in the environment.
    */
   public void act() {
-    setImage(im);
+    checkImage();
+  }
+  
+  public void checkImage(){
+      if (level == 1){
+          setImage(L1);
+      } else if (level == 2){ 
+          setImage(L2);
+      } else if (level == 3){
+          setImage(L3);
+      }
   }
 }

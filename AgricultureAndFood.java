@@ -11,9 +11,16 @@ public class AgricultureAndFood extends Industry {
   private int EPR = +2;
   private int CWI = +2;
   private int type = 1;
+  
+  private GreenfootImage L1;
+  private GreenfootImage L2;
+  private GreenfootImage L3;
 
   public AgricultureAndFood() {
     super(+1, +2, +2, 1);
+    L1 = new GreenfootImage("images/Industry/AgricultureAndFood_L1.png");
+    L2 = new GreenfootImage("images/Industry/AgricultureAndFood_L2.png");
+    L3 = new GreenfootImage("images/Industry/AgricultureAndFood_L3.png");
   }
 
   /**
@@ -21,6 +28,16 @@ public class AgricultureAndFood extends Industry {
    * or 'Run' button gets pressed in the environment.
    */
   public void act() {
-    // Add your action code here.
+    checkImage();
+  }
+  
+  public void checkImage(){
+      if (level == 1){
+          setImage(L1);
+      } else if (level == 2){ 
+          setImage(L2);
+      } else if (level == 3){
+          setImage(L3);
+      }
   }
 }

@@ -11,9 +11,16 @@ public class AdvancedManufacturing extends Industry {
   private int EPR = +3;
   private int CWI = +1;
   private int type = 0;
+  
+  private GreenfootImage L1;
+  private GreenfootImage L2;
+  private GreenfootImage L3;
 
   public AdvancedManufacturing() {
     super(-1, +3, +1, 0);
+    L1 = new GreenfootImage("images/Industry/AdvancedAndManufacturing_L1.png");
+    L2 = new GreenfootImage("images/Industry/AdvancedAndManufacturing_L2.png");
+    L3 = new GreenfootImage("images/Industry/AdvancedAndManufacturing_L3.png");
   }
 
   /**
@@ -21,6 +28,17 @@ public class AdvancedManufacturing extends Industry {
    * 'Act' or 'Run' button gets pressed in the environment.
    */
   public void act() {
-    // Add your action code here.
+    checkImage();
   }
+  
+  public void checkImage(){
+      if (level == 1){
+          setImage(L1);
+      } else if (level == 2){ 
+          setImage(L2);
+      } else if (level == 3){
+          setImage(L3);
+      }
+  }
+  
 }
