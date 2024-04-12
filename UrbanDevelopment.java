@@ -18,10 +18,11 @@ public class UrbanDevelopment extends Industry {
   
   public UrbanDevelopment() {
     super(-2, +2, +1, 8);
-    L1 = new GreenfootImage("images/Industry/UrbanDev_L1.png");
-    L2 = new GreenfootImage("images/Industry/UrbanDev_L2.png");
-    L3 = new GreenfootImage("images/Industry/UrbanDev_L3.png");
+    L1 = new GreenfootImage("images/Industry/UrbanDev1.png");
+    L2 = new GreenfootImage("images/Industry/UrbanDev2.png");
+    L3 = new GreenfootImage("images/Industry/UrbanDev3.png");
   }
+  
 
   /**
    * Act - do whatever the UrbanDevelopment wants to do. This method is called whenever the 'Act' or

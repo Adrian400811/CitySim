@@ -19,9 +19,9 @@ public class EducationAndResearch extends Industry {
   
   public EducationAndResearch() {
     super(+2, +2, +3, 2);
-    L1 = new GreenfootImage("images/Industry/EducationAndResearch_L1.png");
-    L2 = new GreenfootImage("images/Industry/EducationAndResearch_L2.png");
-    L3 = new GreenfootImage("images/Industry/EducationAndResearch_L3.png");
+    L1 = new GreenfootImage("images/Industry/Education1.png");
+    L2 = new GreenfootImage("images/Industry/Education2.png");
+    L3 = new GreenfootImage("images/Industry/Education3.png");
   }
 
   /**

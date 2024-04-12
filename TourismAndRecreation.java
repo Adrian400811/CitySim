@@ -18,9 +18,9 @@ public class TourismAndRecreation extends Industry {
 
   public TourismAndRecreation() {
     super(+2, +2, +2, 7);
-    L1 = new GreenfootImage("images/Industry/TourismAndRecreation_L1.png");
-    L2 = new GreenfootImage("images/Industry/TourismAndRecreation_L2.png");
-    L3 = new GreenfootImage("images/Industry/TourismAndRecreation_L3.png");
+    L1 = new GreenfootImage("images/Industry/Recreation1.png");
+    L2 = new GreenfootImage("images/Industry/Recreation2.png");
+    L3 = new GreenfootImage("images/Industry/Recreation3.png");
   }
 
   /**

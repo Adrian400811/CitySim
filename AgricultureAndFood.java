@@ -18,9 +18,10 @@ public class AgricultureAndFood extends Industry {
 
   public AgricultureAndFood() {
     super(+1, +2, +2, 1);
-    L1 = new GreenfootImage("images/Industry/AgricultureAndFood_L1.png");
-    L2 = new GreenfootImage("images/Industry/AgricultureAndFood_L2.png");
-    L3 = new GreenfootImage("images/Industry/AgricultureAndFood_L3.png");
+    L1 = new GreenfootImage("images/Industry/Agriculture1.png");
+    L2 = new GreenfootImage("images/Industry/Agriculture2.png");
+    L3 = new GreenfootImage("images/Industry/Agriculture3.png");
+
   }
 
   /**

@@ -13,7 +13,7 @@ public abstract class Industry extends Actor {
   private int count = 0;
   private int type;
   private int SI, EPR, CWI;
-
+  
   private double[] growthRate = {1.2, 1.1, 1.3, 1.2, 1.1, 1.3, 1.3, 1.1, 1.2};
   private double[] lvlMultipliers = {1.0, 1.5, 2.0};
   

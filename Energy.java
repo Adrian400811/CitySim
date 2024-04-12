@@ -18,9 +18,9 @@ public class Energy extends Industry {
 
   public Energy() {
     super(+2, +2, +1, 3);
-    L1 = new GreenfootImage("images/Industry/Energy_L1.png");
-    L2 = new GreenfootImage("images/Industry/Energy_L2.png");
-    L3 = new GreenfootImage("images/Industry/Energy_L3.png");
+    L1 = new GreenfootImage("images/Industry/Energy1.png");
+    L2 = new GreenfootImage("images/Industry/Energy2.png");
+    L3 = new GreenfootImage("images/Industry/Energy3.png");
   }
 
   /**
