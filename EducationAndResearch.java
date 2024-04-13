@@ -12,8 +12,16 @@ public class EducationAndResearch extends Industry {
   private int CWI = +3;
   private int type = 2;
 
+  
+  private GreenfootImage L1;
+  private GreenfootImage L2;
+  private GreenfootImage L3;
+  
   public EducationAndResearch() {
     super(+2, +2, +3, 2);
+    L1 = new GreenfootImage("images/Industry/Education1.png");
+    L2 = new GreenfootImage("images/Industry/Education2.png");
+    L3 = new GreenfootImage("images/Industry/Education3.png");
   }
 
   /**
@@ -21,6 +29,7 @@ public class EducationAndResearch extends Industry {
    * 'Act' or 'Run' button gets pressed in the environment.
    */
   public void act() {
-    // Add your action code here.
+    checkImage();
   }
+  
 }

@@ -11,9 +11,16 @@ public class TechnologyAndInnovation extends Industry {
   private int EPR = +3;
   private int CWI = +3;
   private int type = 6;
+  
+  private GreenfootImage L1;
+  private GreenfootImage L2;
+  private GreenfootImage L3;
 
   public TechnologyAndInnovation() {
     super(+2, +3, +3, 6);
+    L1 = new GreenfootImage("images/Industry/Technology1.png");
+    L2 = new GreenfootImage("images/Industry/Technology2.png");
+    L3 = new GreenfootImage("images/Industry/Technology3.png");
   }
 
   /**
@@ -21,6 +28,7 @@ public class TechnologyAndInnovation extends Industry {
    * 'Act' or 'Run' button gets pressed in the environment.
    */
   public void act() {
-    // Add your action code here.
+    checkImage();
   }
+  
 }

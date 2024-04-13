@@ -11,9 +11,16 @@ public class ForestryAndConservation extends Industry {
   private int EPR = +1;
   private int CWI = +2;
   private int type = 4;
+  
+  private GreenfootImage L1;
+  private GreenfootImage L2;
+  private GreenfootImage L3;
 
   public ForestryAndConservation() {
     super(+3, +1, +2, 4);
+    L1 = new GreenfootImage("images/Industry/Forestry1.png");
+    L2 = new GreenfootImage("images/Industry/Forestry2.png");
+    L3 = new GreenfootImage("images/Industry/Forestry3.png");
   }
 
   /**
@@ -21,6 +28,7 @@ public class ForestryAndConservation extends Industry {
    * 'Act' or 'Run' button gets pressed in the environment.
    */
   public void act() {
-    // Add your action code here.
+    checkImage();
   }
+  
 }

@@ -11,9 +11,16 @@ public class TourismAndRecreation extends Industry {
   private int EPR = +2;
   private int CWI = +2;
   private int type = 7;
+  
+  private GreenfootImage L1;
+  private GreenfootImage L2;
+  private GreenfootImage L3;
 
   public TourismAndRecreation() {
     super(+2, +2, +2, 7);
+    L1 = new GreenfootImage("images/Industry/Recreation1.png");
+    L2 = new GreenfootImage("images/Industry/Recreation2.png");
+    L3 = new GreenfootImage("images/Industry/Recreation3.png");
   }
 
   /**
@@ -22,5 +29,7 @@ public class TourismAndRecreation extends Industry {
    */
   public void act() {
     // Add your action code here.
+    checkImage();
   }
+  
 }
