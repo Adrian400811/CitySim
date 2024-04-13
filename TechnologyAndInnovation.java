@@ -11,7 +11,7 @@ public class TechnologyAndInnovation extends Industry {
   private int EPR = +3;
   private int CWI = +3;
   private int type = 6;
-  
+
   private GreenfootImage L1;
   private GreenfootImage L2;
   private GreenfootImage L3;
@@ -30,5 +30,4 @@ public class TechnologyAndInnovation extends Industry {
   public void act() {
     checkImage();
   }
-  
 }

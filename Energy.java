@@ -11,7 +11,7 @@ public class Energy extends Industry {
   private int EPR = +2;
   private int CWI = +1;
   private int type = 3;
-  
+
   private GreenfootImage L1;
   private GreenfootImage L2;
   private GreenfootImage L3;
@@ -30,5 +30,4 @@ public class Energy extends Industry {
   public void act() {
     checkImage();
   }
-  
 }

@@ -13,10 +13,10 @@ public abstract class Industry extends Actor {
   private int count = 0;
   private int type;
   private int SI, EPR, CWI;
-  
+
   private double[] growthRate = {1.2, 1.1, 1.3, 1.2, 1.1, 1.3, 1.3, 1.1, 1.2};
   private double[] lvlMultipliers = {1.0, 1.5, 2.0};
-  
+
   protected GreenfootImage L1;
   protected GreenfootImage L2;
   protected GreenfootImage L3;
@@ -35,15 +35,15 @@ public abstract class Industry extends Actor {
   public void act() {
     // Add your action code here.
   }
-  
-  public void checkImage(){
-      if (level == 1){
-          setImage(L1);
-      } else if (level == 2){ 
-          setImage(L2);
-      } else if (level == 3){
-          setImage(L3);
-      }
+
+  public void checkImage() {
+    if (level == 1) {
+      setImage(L1);
+    } else if (level == 2) {
+      setImage(L2);
+    } else if (level == 3) {
+      setImage(L3);
+    }
   }
 
   public void addedToWorld(World w) {

@@ -11,7 +11,7 @@ public class ForestryAndConservation extends Industry {
   private int EPR = +1;
   private int CWI = +2;
   private int type = 4;
-  
+
   private GreenfootImage L1;
   private GreenfootImage L2;
   private GreenfootImage L3;
@@ -30,5 +30,4 @@ public class ForestryAndConservation extends Industry {
   public void act() {
     checkImage();
   }
-  
 }

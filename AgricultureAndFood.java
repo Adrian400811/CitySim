@@ -11,7 +11,7 @@ public class AgricultureAndFood extends Industry {
   private int EPR = +2;
   private int CWI = +2;
   private int type = 1;
-  
+
   private GreenfootImage L1;
   private GreenfootImage L2;
   private GreenfootImage L3;
@@ -21,7 +21,6 @@ public class AgricultureAndFood extends Industry {
     L1 = new GreenfootImage("images/Industry/Agriculture1.png");
     L2 = new GreenfootImage("images/Industry/Agriculture2.png");
     L3 = new GreenfootImage("images/Industry/Agriculture3.png");
-
   }
 
   /**
@@ -31,5 +30,4 @@ public class AgricultureAndFood extends Industry {
   public void act() {
     checkImage();
   }
-  
 }

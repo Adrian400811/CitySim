@@ -11,7 +11,7 @@ public class TourismAndRecreation extends Industry {
   private int EPR = +2;
   private int CWI = +2;
   private int type = 7;
-  
+
   private GreenfootImage L1;
   private GreenfootImage L2;
   private GreenfootImage L3;
@@ -31,5 +31,4 @@ public class TourismAndRecreation extends Industry {
     // Add your action code here.
     checkImage();
   }
-  
 }

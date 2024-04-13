@@ -11,7 +11,7 @@ public class AdvancedManufacturing extends Industry {
   private int EPR = +3;
   private int CWI = +1;
   private int type = 0;
-  
+
   private GreenfootImage L1;
   private GreenfootImage L2;
   private GreenfootImage L3;
@@ -30,6 +30,4 @@ public class AdvancedManufacturing extends Industry {
   public void act() {
     checkImage();
   }
-  
-  
 }

@@ -12,11 +12,10 @@ public class EducationAndResearch extends Industry {
   private int CWI = +3;
   private int type = 2;
 
-  
   private GreenfootImage L1;
   private GreenfootImage L2;
   private GreenfootImage L3;
-  
+
   public EducationAndResearch() {
     super(+2, +2, +3, 2);
     L1 = new GreenfootImage("images/Industry/Education1.png");
@@ -31,5 +30,4 @@ public class EducationAndResearch extends Industry {
   public void act() {
     checkImage();
   }
-  
 }
