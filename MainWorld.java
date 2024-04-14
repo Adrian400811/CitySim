@@ -14,7 +14,6 @@ public class MainWorld extends World {
   Label cycle = new Label("Day", 45);
   Label cycleNum = new Label("", 45);
 
-  Label money = new Label("Money", 45);
   Label moneyNum = new Label("", 45);
 
   Button nextBtn = new NextButton();
@@ -36,8 +35,7 @@ public class MainWorld extends World {
     addObject(title, getWidth() / 10, 60);
     addObject(cycle, getWidth() - 115, 60);
     addObject(cycleNum, getWidth() - 60, 60);
-    addObject(money, getWidth() / 2, 60);
-    addObject(moneyNum, getWidth() / 2 + 100, 60);
+    addObject(moneyNum, getWidth() / 2, 60);
     industry = new Industry[9];
     prepareIndustries();
 
@@ -60,10 +58,10 @@ public class MainWorld extends World {
 
     if (numOfCycles == 0) {
       updateCycles();
-      moneyNum.setValue("$" + getTotalCoin());
-    } else if (timeElapsed >= (1 * 20)) {
+      moneyNum.setValue("Money: $" + getTotalCoin());
+    } else if (timeElapsed >= (15 * 20)) {
       updateCycles();
-      moneyNum.setValue("$" + getTotalCoin());
+      moneyNum.setValue("Money: $" + getTotalCoin());
       timeElapsed = 0;
     }
 
@@ -97,24 +95,31 @@ public class MainWorld extends World {
       switch (i) {
         case 0:
           industry[i] = new AdvancedManufacturing();
-          addObject(industry[i], getWidth()/5*2, getHeight()/5*4);
+          addObject(industry[i], getWidth()/5*2, getHeight()/2-144);
         case 1:
           industry[i] = new AgricultureAndFood();
-          addObject(industry[i], getWidth()/5*3, getHeight()/5*4);
+          addObject(industry[i], getWidth()/5*2+144, getHeight()/2-144);
         case 2:
           industry[i] = new EducationAndResearch();
+          addObject(industry[i], getWidth()/5*2+288, getHeight()/2-144);
         case 3:
           industry[i] = new Energy();
+          addObject(industry[i], getWidth()/5*2, getHeight()/2);
         case 4:
           industry[i] = new ForestryAndConservation();
+          addObject(industry[i], getWidth()/5*2+144, getHeight()/2);
         case 5:
           industry[i] = new MiningAndMaterial();
+          addObject(industry[i], getWidth()/5*2+288, getHeight()/2);
         case 6:
           industry[i] = new TechnologyAndInnovation();
+          addObject(industry[i], getWidth()/5*2, getHeight()/2+144);
         case 7:
           industry[i] = new TourismAndRecreation();
+          addObject(industry[i], getWidth()/5*2+144, getHeight()/2+144);
         case 8:
           industry[i] = new UrbanDevelopment();
+          addObject(industry[i], getWidth()/5*2+288, getHeight()/2+144);
       }
     }
   }

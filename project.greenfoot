@@ -1,5 +1,6 @@
 #Greenfoot project file
 class.EndWorld.image=MinecraftDirtBackground.jpg
+class.MainWorld.image=StoneBrickBackground.jpg
 class.Settings.image=MinecraftDirtBackground.jpg
 class.TitleScreen.image=MinecraftDirtBackground.jpg
 dependency1.from=TitleScreen
