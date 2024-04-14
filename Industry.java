@@ -8,7 +8,7 @@ import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public abstract class Industry extends Actor {
   private MainWorld mw;
-  protected int level = 0;
+  protected int level = 1;
   private int coins = 0;
   private int count = 0;
   private int type;

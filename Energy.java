@@ -12,9 +12,6 @@ public class Energy extends Industry {
   private int CWI = +1;
   private int type = 3;
   
-  private GreenfootImage L1;
-  private GreenfootImage L2;
-  private GreenfootImage L3;
 
   public Energy() {
     super(+2, +2, +1, 3);

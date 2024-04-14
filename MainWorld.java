@@ -19,10 +19,11 @@ public class MainWorld extends World {
 
   Button nextBtn = new NextButton();
 
-  private int SI, EPR, CWI;
+  private static int SI, EPR, CWI;
   private int totalCoin;
   private int numOfCycles;
   private int timeElapsed;
+  private int dir;
 
   private Industry[] industry;
 
@@ -59,8 +60,10 @@ public class MainWorld extends World {
 
     if (numOfCycles == 0) {
       updateCycles();
+      moneyNum.setValue("$" + getTotalCoin());
     } else if (timeElapsed >= (1 * 20)) {
       updateCycles();
+      moneyNum.setValue("$" + getTotalCoin());
       timeElapsed = 0;
     }
 
@@ -70,27 +73,34 @@ public class MainWorld extends World {
   }
 
   public void updateCycles() {
-    moneyNum.setValue("$" + getTotalCoin());
     cycleNum.setValue(numOfCycles);
     if (numOfCycles == 6) {
       end();
     } else {
       if (numOfCycles % 2 == 0) {}
 
-      if (numOfCycles % 2 != 0) {}
+      if (numOfCycles % 2 != 0) {
+        generateIncome();
+      }
     }
     numOfCycles++;
   }
 
-  public void generateIncome() {}
+  public void generateIncome() {
+    for (int i = 0; i < 9; i++){
+        changeTotalCoin((int)industry[i].income());
+    }
+  }
 
   public void prepareIndustries() {
     for (int i = 0; i < 9; i++) {
       switch (i) {
         case 0:
           industry[i] = new AdvancedManufacturing();
+          addObject(industry[i], getWidth()/5*2, getHeight()/5*4);
         case 1:
           industry[i] = new AgricultureAndFood();
+          addObject(industry[i], getWidth()/5*3, getHeight()/5*4);
         case 2:
           industry[i] = new EducationAndResearch();
         case 3:
@@ -115,15 +125,15 @@ public class MainWorld extends World {
   }
 
   // adjusters
-  public void changeSI(int delta) {
+  public static void changeSI(int delta) {
     SI += delta;
   }
 
-  public void changeEPR(int delta) {
+  public static void changeEPR(int delta) {
     EPR += delta;
   }
 
-  public void changeCWI(int delta) {
+  public static void changeCWI(int delta) {
     CWI += delta;
   }
 
@@ -132,15 +142,15 @@ public class MainWorld extends World {
   }
 
   // getters
-  public int getSI() {
+  public static int getSI() {
     return SI;
   }
 
-  public int getEPR() {
+  public static int getEPR() {
     return EPR;
   }
 
-  public int getCWI() {
+  public static int getCWI() {
     return CWI;
   }
 
