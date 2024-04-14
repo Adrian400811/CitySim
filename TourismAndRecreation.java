@@ -11,7 +11,7 @@ public class TourismAndRecreation extends Industry {
   private int EPR = +2;
   private int CWI = +2;
   private int type = 7;
-  
+
 
   public TourismAndRecreation() {
     super(+2, +2, +2, 7);
@@ -28,5 +28,4 @@ public class TourismAndRecreation extends Industry {
     // Add your action code here.
     checkImage();
   }
-  
 }

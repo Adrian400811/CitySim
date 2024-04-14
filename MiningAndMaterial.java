@@ -11,7 +11,7 @@ public class MiningAndMaterial extends Industry {
   private int EPR = +2;
   private int CWI = -1;
   private int type = 5;
-  
+
 
   public MiningAndMaterial() {
     super(-2, +2, -1, 5);
@@ -28,5 +28,4 @@ public class MiningAndMaterial extends Industry {
     // Add your action code here.
     checkImage();
   }
-  
 }

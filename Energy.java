@@ -11,7 +11,7 @@ public class Energy extends Industry {
   private int EPR = +2;
   private int CWI = +1;
   private int type = 3;
-  
+
 
   public Energy() {
     super(+2, +2, +1, 3);
@@ -27,5 +27,4 @@ public class Energy extends Industry {
   public void act() {
     checkImage();
   }
-  
 }
