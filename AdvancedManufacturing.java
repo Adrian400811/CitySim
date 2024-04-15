@@ -14,9 +14,9 @@ public class AdvancedManufacturing extends Industry {
 
   public AdvancedManufacturing() {
     super(-1, +3, +1, 0);
-    L1 = new GreenfootImage("images/Industry/Manufacturing1.png");
-    L2 = new GreenfootImage("images/Industry/Manufacturing2.png");
-    L3 = new GreenfootImage("images/Industry/Manufacturing3.png");
+    L1 = new GreenfootImage("images/industry/Manufacturing1.png");
+    L2 = new GreenfootImage("images/industry/Manufacturing2.png");
+    L3 = new GreenfootImage("images/industry/Manufacturing3.png");
   }
 
   /**

@@ -14,9 +14,9 @@ public class MiningAndMaterial extends Industry {
 
   public MiningAndMaterial() {
     super(-2, +2, -1, 5);
-    L1 = new GreenfootImage("images/Industry/Material1.png");
-    L2 = new GreenfootImage("images/Industry/Material2.png");
-    L3 = new GreenfootImage("images/Industry/Material3.png");
+    L1 = new GreenfootImage("images/industry/Material1.png");
+    L2 = new GreenfootImage("images/industry/Material2.png");
+    L3 = new GreenfootImage("images/industry/Material3.png");
   }
 
   /**

@@ -14,9 +14,9 @@ public class ForestryAndConservation extends Industry {
 
   public ForestryAndConservation() {
     super(+3, +1, +2, 4);
-    L1 = new GreenfootImage("images/Industry/Forestry1.png");
-    L2 = new GreenfootImage("images/Industry/Forestry2.png");
-    L3 = new GreenfootImage("images/Industry/Forestry3.png");
+    L1 = new GreenfootImage("images/industry/Forestry1.png");
+    L2 = new GreenfootImage("images/industry/Forestry2.png");
+    L3 = new GreenfootImage("images/industry/Forestry3.png");
   }
 
   /**

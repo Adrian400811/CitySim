@@ -14,9 +14,9 @@ public class UrbanDevelopment extends Industry {
 
   public UrbanDevelopment() {
     super(-2, +2, +1, 8);
-    L1 = new GreenfootImage("images/Industry/UrbanDev1.png");
-    L2 = new GreenfootImage("images/Industry/UrbanDev2.png");
-    L3 = new GreenfootImage("images/Industry/UrbanDev3.png");
+    L1 = new GreenfootImage("images/industry/UrbanDev1.png");
+    L2 = new GreenfootImage("images/industry/UrbanDev2.png");
+    L3 = new GreenfootImage("images/industry/UrbanDev3.png");
   }
 
   /**
