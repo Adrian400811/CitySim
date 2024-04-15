@@ -19,12 +19,12 @@ public class MainWorld extends World {
   Button nextBtn = new NextButton();
 
   private static int SI, EPR, CWI;
-  private int totalCoin;
+  private static int totalCoin;
   private int numOfCycles;
   private int timeElapsed;
   private int dir;
 
-  private Industry[] industry;
+  private static Industry[] industry;
 
   // 0 Energy, 1 Minerals, 2 Agriculture, 3 Conservation, 4 Manufacturing
   // 5 Recreation, 6 Technology, 7 Development, 8 Education
@@ -56,10 +56,11 @@ public class MainWorld extends World {
   public void act() {
     timeElapsed++;
 
+    moneyNum.setValue("Money: $" + getTotalCoin());
     if (numOfCycles == 0) {
       updateCycles();
       moneyNum.setValue("Money: $" + getTotalCoin());
-    } else if (timeElapsed >= (15 * 20)) {
+    } else if (timeElapsed >= (10 * 20)) {
       updateCycles();
       moneyNum.setValue("Money: $" + getTotalCoin());
       timeElapsed = 0;
@@ -142,7 +143,7 @@ public class MainWorld extends World {
     CWI += delta;
   }
 
-  public void changeTotalCoin(int delta) {
+  public static void changeTotalCoin(int delta) {
     totalCoin += delta;
   }
 
@@ -159,7 +160,44 @@ public class MainWorld extends World {
     return CWI;
   }
 
-  public int getTotalCoin() {
+  public static int getTotalCoin() {
     return totalCoin;
   }
+  
+  public static int getAdvancedManufacturingLevel(){
+      return industry[0].getLevel();
+  }
+  
+  public static int getAgricultureAndFoodLevel(){
+      return industry[1].getLevel();
+  }
+  
+  public static int getEducationAndResearchLevel(){
+      return industry[2].getLevel();
+  }
+  
+  public static int getEnergyLevel(){
+      return industry[3].getLevel();
+  }
+  
+  public static int getForestryAndConservationLevel(){
+      return industry[4].getLevel();
+  }
+  
+  public static int getMiningAndMaterialLevel(){
+      return industry[5].getLevel();
+  }
+  
+  public static int getTechnologyAndInnovationLevel(){
+      return industry[6].getLevel();
+  }
+  
+  public static int getTourismAndRecreationLevel(){
+      return industry[7].getLevel();
+  }
+  
+  public static int getUrbanDevelopmentLevel(){
+      return industry[8].getLevel();
+  }
+  
 }

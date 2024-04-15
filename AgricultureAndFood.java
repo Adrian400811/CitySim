@@ -24,6 +24,20 @@ public class AgricultureAndFood extends Industry {
    * or 'Run' button gets pressed in the environment.
    */
   public void act() {
+    checkNextLevel();
     checkImage();
+  }
+  
+  public void checkNextLevel(){
+      if (MainWorld.getTotalCoin() >= 800 && level == 0){
+          levelUp();
+          MainWorld.changeTotalCoin(-800);
+      } else if (MainWorld.getTotalCoin() >= 1200 && level == 1){
+          levelUp();
+          MainWorld.changeTotalCoin(-1200);
+      } else if (MainWorld.getTotalCoin() >= 600 && level == 2){
+          levelUp();
+          MainWorld.changeTotalCoin(-600);
+      }
   }
 }
