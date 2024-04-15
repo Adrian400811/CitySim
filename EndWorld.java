@@ -19,13 +19,12 @@ public class EndWorld extends World {
     this.SI = SI;
     this.EPR = EPR;
     this.CWI = CWI;
-    
+
     siLevel = calculateLevel(SI);
     eprLevel = calculateLevel(EPR);
     cwiLevel = calculateLevel(CWI);
-    
-    
-    addObject(index, getWidth()/2, getHeight()/2-60);
+
+    addObject(index, getWidth() / 2, getHeight() / 2 - 60);
     index.setValue("SI: " + SI + " EPR: " + EPR + " CWI: " + CWI);
     addObject(level, getWidth()/2, getHeight()/2+60);
     level.setValue("SI: " + printLevel(siLevel) + " EPR: " + printLevel(eprLevel) + " CWI: " + printLevel(cwiLevel));
