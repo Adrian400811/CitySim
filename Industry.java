@@ -10,7 +10,7 @@ public abstract class Industry extends Actor {
   private MainWorld mw;
   protected int level = 1;
   private int coins = 0;
-  private int count = 100;
+  private int count = 1000;
   private int type;
   private int SI, EPR, CWI;
 
@@ -65,4 +65,9 @@ public abstract class Industry extends Actor {
   public void levelUp() {
     level++;
   }
+  
+  public int getLevel(){
+    return level;
+  }
+  
 }

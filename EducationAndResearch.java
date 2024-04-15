@@ -24,6 +24,21 @@ public class EducationAndResearch extends Industry {
    * 'Act' or 'Run' button gets pressed in the environment.
    */
   public void act() {
+    checkNextLevel();
     checkImage();
   }
+  
+  public void checkNextLevel(){
+      if (MainWorld.getTotalCoin() >= 1300 && level == 0){
+          levelUp();
+          MainWorld.changeTotalCoin(-1300);
+      } else if (MainWorld.getTotalCoin() >= 1950 && level == 1){
+          levelUp();
+          MainWorld.changeTotalCoin(-1950);
+      } else if (MainWorld.getTotalCoin() >= 975 && level == 2){
+          levelUp();
+          MainWorld.changeTotalCoin(-975);
+      }
+  }
+
 }
