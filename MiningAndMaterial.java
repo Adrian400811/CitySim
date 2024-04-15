@@ -12,7 +12,6 @@ public class MiningAndMaterial extends Industry {
   private int CWI = -1;
   private int type = 5;
 
-
   public MiningAndMaterial() {
     super(-2, +2, -1, 5);
     L1 = new GreenfootImage("images/Industry/Material1.png");

@@ -85,8 +85,8 @@ public class MainWorld extends World {
   }
 
   public void generateIncome() {
-    for (int i = 0; i < 9; i++){
-        changeTotalCoin((int)industry[i].income());
+    for (int i = 0; i < 9; i++) {
+      changeTotalCoin((int) industry[i].income());
     }
   }
 
@@ -95,31 +95,31 @@ public class MainWorld extends World {
       switch (i) {
         case 0:
           industry[i] = new AdvancedManufacturing();
-          addObject(industry[i], getWidth()/5*2, getHeight()/2-144);
+          addObject(industry[i], getWidth() / 5 * 2, getHeight() / 2 - 144);
         case 1:
           industry[i] = new AgricultureAndFood();
-          addObject(industry[i], getWidth()/5*2+144, getHeight()/2-144);
+          addObject(industry[i], getWidth() / 5 * 2 + 144, getHeight() / 2 - 144);
         case 2:
           industry[i] = new EducationAndResearch();
-          addObject(industry[i], getWidth()/5*2+288, getHeight()/2-144);
+          addObject(industry[i], getWidth() / 5 * 2 + 288, getHeight() / 2 - 144);
         case 3:
           industry[i] = new Energy();
-          addObject(industry[i], getWidth()/5*2, getHeight()/2);
+          addObject(industry[i], getWidth() / 5 * 2, getHeight() / 2);
         case 4:
           industry[i] = new ForestryAndConservation();
-          addObject(industry[i], getWidth()/5*2+144, getHeight()/2);
+          addObject(industry[i], getWidth() / 5 * 2 + 144, getHeight() / 2);
         case 5:
           industry[i] = new MiningAndMaterial();
-          addObject(industry[i], getWidth()/5*2+288, getHeight()/2);
+          addObject(industry[i], getWidth() / 5 * 2 + 288, getHeight() / 2);
         case 6:
           industry[i] = new TechnologyAndInnovation();
-          addObject(industry[i], getWidth()/5*2, getHeight()/2+144);
+          addObject(industry[i], getWidth() / 5 * 2, getHeight() / 2 + 144);
         case 7:
           industry[i] = new TourismAndRecreation();
-          addObject(industry[i], getWidth()/5*2+144, getHeight()/2+144);
+          addObject(industry[i], getWidth() / 5 * 2 + 144, getHeight() / 2 + 144);
         case 8:
           industry[i] = new UrbanDevelopment();
-          addObject(industry[i], getWidth()/5*2+288, getHeight()/2+144);
+          addObject(industry[i], getWidth() / 5 * 2 + 288, getHeight() / 2 + 144);
       }
     }
   }

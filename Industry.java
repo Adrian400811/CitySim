@@ -36,19 +36,17 @@ public abstract class Industry extends Actor {
     // Add your action code here.
   }
 
-  
-  public void checkImage(){
-      if (level == 1){
-          L1.scale(144,144);
-          setImage(L1);
-      } else if (level == 2){ 
-          L2.scale(144,144);
-          setImage(L2);
-      } else if (level == 3){
-          L3.scale(144,144);
-          setImage(L3);
-      }
-
+  public void checkImage() {
+    if (level == 1) {
+      L1.scale(144, 144);
+      setImage(L1);
+    } else if (level == 2) {
+      L2.scale(144, 144);
+      setImage(L2);
+    } else if (level == 3) {
+      L3.scale(144, 144);
+      setImage(L3);
+    }
   }
 
   public void addedToWorld(World w) {

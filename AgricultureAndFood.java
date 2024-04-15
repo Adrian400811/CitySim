@@ -12,7 +12,6 @@ public class AgricultureAndFood extends Industry {
   private int CWI = +2;
   private int type = 1;
 
-
   public AgricultureAndFood() {
     super(+1, +2, +2, 1);
     L1 = new GreenfootImage("images/Industry/Agriculture1.png");

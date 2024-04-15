@@ -12,7 +12,6 @@ public class ForestryAndConservation extends Industry {
   private int CWI = +2;
   private int type = 4;
 
-
   public ForestryAndConservation() {
     super(+3, +1, +2, 4);
     L1 = new GreenfootImage("images/Industry/Forestry1.png");
