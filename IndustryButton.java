@@ -36,12 +36,12 @@ public class IndustryButton extends Button {
   public void act() {
     // Add your action code here.
   }
-  
-  public void toggle(){
-      if(toggleState){
-          toggleState = false;
-      } else {
-          toggleState = true;
-      }
+
+  public void toggle() {
+    if (toggleState) {
+      toggleState = false;
+    } else {
+      toggleState = true;
+    }
   }
 }

@@ -46,7 +46,7 @@ public class MainWorld extends World {
     this.EPR = EPR;
 
     // for dev use
-    addObject(index, getWidth()/4*3, getHeight()/2);
+    addObject(index, getWidth() / 4 * 3, getHeight() / 2);
     index.setValue("SI     " + SI + "\nEPR  " + EPR + "\nCWI " + CWI);
     addObject(nextBtn, getWidth() - 110, 650);
 
