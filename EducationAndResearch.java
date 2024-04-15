@@ -27,18 +27,17 @@ public class EducationAndResearch extends Industry {
     checkNextLevel();
     checkImage();
   }
-  
-  public void checkNextLevel(){
-      if (MainWorld.getTotalCoin() >= 1300 && level == 0){
-          levelUp();
-          MainWorld.changeTotalCoin(-1300);
-      } else if (MainWorld.getTotalCoin() >= 1950 && level == 1){
-          levelUp();
-          MainWorld.changeTotalCoin(-1950);
-      } else if (MainWorld.getTotalCoin() >= 975 && level == 2){
-          levelUp();
-          MainWorld.changeTotalCoin(-975);
-      }
-  }
 
+  public void checkNextLevel() {
+    if (MainWorld.getTotalCoin() >= 1300 && level == 0) {
+      levelUp();
+      MainWorld.changeTotalCoin(-1300);
+    } else if (MainWorld.getTotalCoin() >= 1950 && level == 1) {
+      levelUp();
+      MainWorld.changeTotalCoin(-1950);
+    } else if (MainWorld.getTotalCoin() >= 975 && level == 2) {
+      levelUp();
+      MainWorld.changeTotalCoin(-975);
+    }
+  }
 }

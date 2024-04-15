@@ -28,17 +28,17 @@ public class TourismAndRecreation extends Industry {
     checkNextLevel();
     checkImage();
   }
-  
-  public void checkNextLevel(){
-      if (MainWorld.getTotalCoin() >= 700 && level == 0){
-          levelUp();
-          MainWorld.changeTotalCoin(-700);
-      } else if (MainWorld.getTotalCoin() >= 1050 && level == 1){
-          levelUp();
-          MainWorld.changeTotalCoin(-1050);
-      } else if (MainWorld.getTotalCoin() >= 525 && level == 2){
-          levelUp();
-          MainWorld.changeTotalCoin(-525);
-      }
+
+  public void checkNextLevel() {
+    if (MainWorld.getTotalCoin() >= 700 && level == 0) {
+      levelUp();
+      MainWorld.changeTotalCoin(-700);
+    } else if (MainWorld.getTotalCoin() >= 1050 && level == 1) {
+      levelUp();
+      MainWorld.changeTotalCoin(-1050);
+    } else if (MainWorld.getTotalCoin() >= 525 && level == 2) {
+      levelUp();
+      MainWorld.changeTotalCoin(-525);
+    }
   }
 }

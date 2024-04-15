@@ -27,17 +27,17 @@ public class Energy extends Industry {
     checkNextLevel();
     checkImage();
   }
-  
-  public void checkNextLevel(){
-      if (MainWorld.getTotalCoin() >= 1200 && level == 0){
-          levelUp();
-          MainWorld.changeTotalCoin(-1200);
-      } else if (MainWorld.getTotalCoin() >= 1800 && level == 1){
-          levelUp();
-          MainWorld.changeTotalCoin(-1800);
-      } else if (MainWorld.getTotalCoin() >= 900 && level == 2){
-          levelUp();
-          MainWorld.changeTotalCoin(-900);
-      }
+
+  public void checkNextLevel() {
+    if (MainWorld.getTotalCoin() >= 1200 && level == 0) {
+      levelUp();
+      MainWorld.changeTotalCoin(-1200);
+    } else if (MainWorld.getTotalCoin() >= 1800 && level == 1) {
+      levelUp();
+      MainWorld.changeTotalCoin(-1800);
+    } else if (MainWorld.getTotalCoin() >= 900 && level == 2) {
+      levelUp();
+      MainWorld.changeTotalCoin(-900);
+    }
   }
 }

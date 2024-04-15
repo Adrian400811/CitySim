@@ -27,17 +27,19 @@ public class AdvancedManufacturing extends Industry {
     checkNextLevel();
     checkImage();
   }
-  
-  public void checkNextLevel(){
-      if (MainWorld.getTotalCoin() >= 2000 && level == 0){
-          levelUp();
-          MainWorld.changeTotalCoin(-2000);
-      } else if (MainWorld.getTotalCoin() >= 3000 && level == 1){
-          levelUp();
-          MainWorld.changeTotalCoin(-3000);
-      } else if (MainWorld.getTotalCoin() >= 1500 && level == 2 && MainWorld.getTechnologyAndInnovationLevel() >= 2){
-          levelUp();
-          MainWorld.changeTotalCoin(-1500);
-      }
+
+  public void checkNextLevel() {
+    if (MainWorld.getTotalCoin() >= 2000 && level == 0) {
+      levelUp();
+      MainWorld.changeTotalCoin(-2000);
+    } else if (MainWorld.getTotalCoin() >= 3000 && level == 1) {
+      levelUp();
+      MainWorld.changeTotalCoin(-3000);
+    } else if (MainWorld.getTotalCoin() >= 1500
+        && level == 2
+        && MainWorld.getTechnologyAndInnovationLevel() >= 2) {
+      levelUp();
+      MainWorld.changeTotalCoin(-1500);
+    }
   }
 }

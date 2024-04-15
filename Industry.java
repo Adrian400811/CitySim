@@ -65,9 +65,8 @@ public abstract class Industry extends Actor {
   public void levelUp() {
     level++;
   }
-  
-  public int getLevel(){
+
+  public int getLevel() {
     return level;
   }
-  
 }

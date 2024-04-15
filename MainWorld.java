@@ -163,41 +163,40 @@ public class MainWorld extends World {
   public static int getTotalCoin() {
     return totalCoin;
   }
-  
-  public static int getAdvancedManufacturingLevel(){
-      return industry[0].getLevel();
+
+  public static int getAdvancedManufacturingLevel() {
+    return industry[0].getLevel();
   }
-  
-  public static int getAgricultureAndFoodLevel(){
-      return industry[1].getLevel();
+
+  public static int getAgricultureAndFoodLevel() {
+    return industry[1].getLevel();
   }
-  
-  public static int getEducationAndResearchLevel(){
-      return industry[2].getLevel();
+
+  public static int getEducationAndResearchLevel() {
+    return industry[2].getLevel();
   }
-  
-  public static int getEnergyLevel(){
-      return industry[3].getLevel();
+
+  public static int getEnergyLevel() {
+    return industry[3].getLevel();
   }
-  
-  public static int getForestryAndConservationLevel(){
-      return industry[4].getLevel();
+
+  public static int getForestryAndConservationLevel() {
+    return industry[4].getLevel();
   }
-  
-  public static int getMiningAndMaterialLevel(){
-      return industry[5].getLevel();
+
+  public static int getMiningAndMaterialLevel() {
+    return industry[5].getLevel();
   }
-  
-  public static int getTechnologyAndInnovationLevel(){
-      return industry[6].getLevel();
+
+  public static int getTechnologyAndInnovationLevel() {
+    return industry[6].getLevel();
   }
-  
-  public static int getTourismAndRecreationLevel(){
-      return industry[7].getLevel();
+
+  public static int getTourismAndRecreationLevel() {
+    return industry[7].getLevel();
   }
-  
-  public static int getUrbanDevelopmentLevel(){
-      return industry[8].getLevel();
+
+  public static int getUrbanDevelopmentLevel() {
+    return industry[8].getLevel();
   }
-  
 }
