@@ -19,49 +19,49 @@ public class EndWorld extends World {
     this.SI = SI;
     this.EPR = EPR;
     this.CWI = CWI;
-    
+
     siLevel = calculateLevel(SI);
     eprLevel = calculateLevel(EPR);
     cwiLevel = calculateLevel(CWI);
-    
-    
-    addObject(index, getWidth()/2, getHeight()/2-60);
+
+    addObject(index, getWidth() / 2, getHeight() / 2 - 60);
     index.setValue("SI: " + SI + " EPR: " + EPR + " CWI: " + CWI);
-    addObject(level, getWidth()/2, getHeight()/2+60);
-    level.setValue("SI: " + printLevel(SI) + " EPR: " + printLevel(EPR) + " CWI: " + printLevel(CWI));
+    addObject(level, getWidth() / 2, getHeight() / 2 + 60);
+    level.setValue(
+        "SI: " + printLevel(SI) + " EPR: " + printLevel(EPR) + " CWI: " + printLevel(CWI));
   }
-  
-  public int calculateLevel(int score){
-      int level = 0;
-      if (SI > 30){
-          level = 4;
-      } else if (SI > 20){
-          level = 3;
-      } else if (SI > 11){
-          level = 2;
-      } else if (SI > 0){
-          level = 1;
-      } else {
-          level = 0;
-      }
-      
-      return level;
+
+  public int calculateLevel(int score) {
+    int level = 0;
+    if (SI > 30) {
+      level = 4;
+    } else if (SI > 20) {
+      level = 3;
+    } else if (SI > 11) {
+      level = 2;
+    } else if (SI > 0) {
+      level = 1;
+    } else {
+      level = 0;
+    }
+
+    return level;
   }
-  
-  public String printLevel(int level){
-      String levelText = "";
-      switch (level){
-          case 1:
-              levelText = "LOW";
-          case 2:
-              levelText = "MID";
-          case 3:
-              levelText = "HI";
-          case 4:
-              levelText = "EX";
-          default:
-              levelText = "NONE";
-      }
-      return levelText;
+
+  public String printLevel(int level) {
+    String levelText = "";
+    switch (level) {
+      case 1:
+        levelText = "LOW";
+      case 2:
+        levelText = "MID";
+      case 3:
+        levelText = "HI";
+      case 4:
+        levelText = "EX";
+      default:
+        levelText = "NONE";
+    }
+    return levelText;
   }
 }
