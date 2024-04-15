@@ -9,6 +9,7 @@ import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class IndustryButton extends Button {
   private GreenfootImage image;
   private int type;
+  protected boolean toggleState = false;
   private String[] icons = {
     "Manufacturing",
     "Agriculture",
@@ -34,8 +35,13 @@ public class IndustryButton extends Button {
    */
   public void act() {
     // Add your action code here.
-    if (Greenfoot.mouseClicked(this)) {
-      System.out.println("clicked" + type);
+  }
+
+  public void toggle() {
+    if (toggleState) {
+      toggleState = false;
+    } else {
+      toggleState = true;
     }
   }
 }

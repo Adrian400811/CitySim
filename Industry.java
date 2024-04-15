@@ -8,9 +8,9 @@ import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public abstract class Industry extends Actor {
   private MainWorld mw;
-  protected int level = 0;
+  protected int level = 1;
   private int coins = 0;
-  private int count = 0;
+  private int count = 100;
   private int type;
   private int SI, EPR, CWI;
 
@@ -38,10 +38,13 @@ public abstract class Industry extends Actor {
 
   public void checkImage() {
     if (level == 1) {
+      L1.scale(144, 144);
       setImage(L1);
     } else if (level == 2) {
+      L2.scale(144, 144);
       setImage(L2);
     } else if (level == 3) {
+      L3.scale(144, 144);
       setImage(L3);
     }
   }
