@@ -14,9 +14,9 @@ public class AgricultureAndFood extends Industry {
 
   public AgricultureAndFood() {
     super(+1, +2, +2, 1);
-    L1 = new GreenfootImage("images/Industry/Agriculture1.png");
-    L2 = new GreenfootImage("images/Industry/Agriculture2.png");
-    L3 = new GreenfootImage("images/Industry/Agriculture3.png");
+    L1 = new GreenfootImage("images/industry/Agriculture1.png");
+    L2 = new GreenfootImage("images/industry/Agriculture2.png");
+    L3 = new GreenfootImage("images/industry/Agriculture3.png");
   }
 
   /**
@@ -24,6 +24,20 @@ public class AgricultureAndFood extends Industry {
    * or 'Run' button gets pressed in the environment.
    */
   public void act() {
+    checkNextLevel();
     checkImage();
+  }
+
+  public void checkNextLevel() {
+    if (MainWorld.getTotalCoin() >= 800 && level == 0) {
+      levelUp();
+      MainWorld.changeTotalCoin(-800);
+    } else if (MainWorld.getTotalCoin() >= 1200 && level == 1) {
+      levelUp();
+      MainWorld.changeTotalCoin(-1200);
+    } else if (MainWorld.getTotalCoin() >= 600 && level == 2) {
+      levelUp();
+      MainWorld.changeTotalCoin(-600);
+    }
   }
 }

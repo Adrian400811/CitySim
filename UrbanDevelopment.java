@@ -14,9 +14,9 @@ public class UrbanDevelopment extends Industry {
 
   public UrbanDevelopment() {
     super(-2, +2, +1, 8);
-    L1 = new GreenfootImage("images/Industry/UrbanDev1.png");
-    L2 = new GreenfootImage("images/Industry/UrbanDev2.png");
-    L3 = new GreenfootImage("images/Industry/UrbanDev3.png");
+    L1 = new GreenfootImage("images/industry/UrbanDev1.png");
+    L2 = new GreenfootImage("images/industry/UrbanDev2.png");
+    L3 = new GreenfootImage("images/industry/UrbanDev3.png");
   }
 
   /**
@@ -25,6 +25,23 @@ public class UrbanDevelopment extends Industry {
    */
   public void act() {
     // Add your action code here.
+    checkNextLevel();
     checkImage();
+  }
+
+  public void checkNextLevel() {
+    if (MainWorld.getTotalCoin() >= 1700 && level == 0) {
+      levelUp();
+      MainWorld.changeTotalCoin(-1700);
+    } else if (MainWorld.getTotalCoin() >= 2550 && level == 1) {
+      levelUp();
+      MainWorld.changeTotalCoin(-2550);
+    } else if (MainWorld.getTotalCoin() >= 1275
+        && level == 2
+        && MainWorld.getForestryAndConservationLevel() >= 2
+        && MainWorld.getEnergyLevel() >= 2) {
+      levelUp();
+      MainWorld.changeTotalCoin(-1275);
+    }
   }
 }
