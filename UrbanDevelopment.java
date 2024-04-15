@@ -12,10 +12,6 @@ public class UrbanDevelopment extends Industry {
   private int CWI = +1;
   private int type = 8;
 
-  private GreenfootImage L1;
-  private GreenfootImage L2;
-  private GreenfootImage L3;
-
   public UrbanDevelopment() {
     super(-2, +2, +1, 8);
     L1 = new GreenfootImage("images/Industry/UrbanDev1.png");

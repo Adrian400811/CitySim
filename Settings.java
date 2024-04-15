@@ -36,7 +36,7 @@ public class Settings extends World {
   }
 
   public void act() {
-    checkPressed();
+    checkPressedButton();
   }
 
   public void spawnText() {
@@ -88,7 +88,7 @@ public class Settings extends World {
     }
   }
 
-  public void checkPressed() {
+  public void checkPressedButton() {
     for (int i = 0; i < indexButton.length; i++) {
       if (i % 2 == 0) {
         dir = 1;

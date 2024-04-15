@@ -14,15 +14,15 @@ public class MainWorld extends World {
   Label cycle = new Label("Day", 45);
   Label cycleNum = new Label("", 45);
 
-  Label money = new Label("Money", 45);
   Label moneyNum = new Label("", 45);
 
   Button nextBtn = new NextButton();
 
-  private int SI, EPR, CWI;
+  private static int SI, EPR, CWI;
   private int totalCoin;
   private int numOfCycles;
   private int timeElapsed;
+  private int dir;
 
   private Industry[] industry;
 
@@ -35,8 +35,7 @@ public class MainWorld extends World {
     addObject(title, getWidth() / 10, 60);
     addObject(cycle, getWidth() - 115, 60);
     addObject(cycleNum, getWidth() - 60, 60);
-    addObject(money, getWidth() / 2, 60);
-    addObject(moneyNum, getWidth() / 2 + 100, 60);
+    addObject(moneyNum, getWidth() / 2, 60);
     industry = new Industry[9];
     prepareIndustries();
 
@@ -59,8 +58,10 @@ public class MainWorld extends World {
 
     if (numOfCycles == 0) {
       updateCycles();
-    } else if (timeElapsed >= (1 * 20)) {
+      moneyNum.setValue("Money: $" + getTotalCoin());
+    } else if (timeElapsed >= (15 * 20)) {
       updateCycles();
+      moneyNum.setValue("Money: $" + getTotalCoin());
       timeElapsed = 0;
     }
 
@@ -70,41 +71,55 @@ public class MainWorld extends World {
   }
 
   public void updateCycles() {
-    moneyNum.setValue("$" + getTotalCoin());
     cycleNum.setValue(numOfCycles);
     if (numOfCycles == 6) {
       end();
     } else {
       if (numOfCycles % 2 == 0) {}
 
-      if (numOfCycles % 2 != 0) {}
+      if (numOfCycles % 2 != 0) {
+        generateIncome();
+      }
     }
     numOfCycles++;
   }
 
-  public void generateIncome() {}
+  public void generateIncome() {
+    for (int i = 0; i < 9; i++){
+        changeTotalCoin((int)industry[i].income());
+    }
+  }
 
   public void prepareIndustries() {
     for (int i = 0; i < 9; i++) {
       switch (i) {
         case 0:
           industry[i] = new AdvancedManufacturing();
+          addObject(industry[i], getWidth()/5*2, getHeight()/2-144);
         case 1:
           industry[i] = new AgricultureAndFood();
+          addObject(industry[i], getWidth()/5*2+144, getHeight()/2-144);
         case 2:
           industry[i] = new EducationAndResearch();
+          addObject(industry[i], getWidth()/5*2+288, getHeight()/2-144);
         case 3:
           industry[i] = new Energy();
+          addObject(industry[i], getWidth()/5*2, getHeight()/2);
         case 4:
           industry[i] = new ForestryAndConservation();
+          addObject(industry[i], getWidth()/5*2+144, getHeight()/2);
         case 5:
           industry[i] = new MiningAndMaterial();
+          addObject(industry[i], getWidth()/5*2+288, getHeight()/2);
         case 6:
           industry[i] = new TechnologyAndInnovation();
+          addObject(industry[i], getWidth()/5*2, getHeight()/2+144);
         case 7:
           industry[i] = new TourismAndRecreation();
+          addObject(industry[i], getWidth()/5*2+144, getHeight()/2+144);
         case 8:
           industry[i] = new UrbanDevelopment();
+          addObject(industry[i], getWidth()/5*2+288, getHeight()/2+144);
       }
     }
   }
@@ -115,15 +130,15 @@ public class MainWorld extends World {
   }
 
   // adjusters
-  public void changeSI(int delta) {
+  public static void changeSI(int delta) {
     SI += delta;
   }
 
-  public void changeEPR(int delta) {
+  public static void changeEPR(int delta) {
     EPR += delta;
   }
 
-  public void changeCWI(int delta) {
+  public static void changeCWI(int delta) {
     CWI += delta;
   }
 
@@ -132,15 +147,15 @@ public class MainWorld extends World {
   }
 
   // getters
-  public int getSI() {
+  public static int getSI() {
     return SI;
   }
 
-  public int getEPR() {
+  public static int getEPR() {
     return EPR;
   }
 
-  public int getCWI() {
+  public static int getCWI() {
     return CWI;
   }
 

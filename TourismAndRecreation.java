@@ -12,9 +12,6 @@ public class TourismAndRecreation extends Industry {
   private int CWI = +2;
   private int type = 7;
 
-  private GreenfootImage L1;
-  private GreenfootImage L2;
-  private GreenfootImage L3;
 
   public TourismAndRecreation() {
     super(+2, +2, +2, 7);

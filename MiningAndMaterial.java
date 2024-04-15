@@ -12,15 +12,12 @@ public class MiningAndMaterial extends Industry {
   private int CWI = -1;
   private int type = 5;
 
-  private GreenfootImage L1;
-  private GreenfootImage L2;
-  private GreenfootImage L3;
 
   public MiningAndMaterial() {
     super(-2, +2, -1, 5);
     L1 = new GreenfootImage("images/Industry/Material1.png");
     L2 = new GreenfootImage("images/Industry/Material2.png");
-    L3 = new GreenfootImage("images/Industry/Material.png");
+    L3 = new GreenfootImage("images/Industry/Material3.png");
   }
 
   /**
