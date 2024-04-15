@@ -26,42 +26,75 @@ public class EndWorld extends World {
 
     addObject(index, getWidth() / 2, getHeight() / 2 - 60);
     index.setValue("SI: " + SI + " EPR: " + EPR + " CWI: " + CWI);
-    addObject(level, getWidth() / 2, getHeight() / 2 + 60);
-    level.setValue(
-        "SI: " + printLevel(SI) + " EPR: " + printLevel(EPR) + " CWI: " + printLevel(CWI));
+    addObject(level, getWidth()/2, getHeight()/2+60);
+    level.setValue("SI: " + printLevel(siLevel) + " EPR: " + printLevel(eprLevel) + " CWI: " + printLevel(cwiLevel));
   }
-
-  public int calculateLevel(int score) {
-    int level = 0;
-    if (SI > 30) {
-      level = 4;
-    } else if (SI > 20) {
-      level = 3;
-    } else if (SI > 11) {
-      level = 2;
-    } else if (SI > 0) {
-      level = 1;
-    } else {
-      level = 0;
-    }
-
-    return level;
+  
+  public int calculateLevel(int score){
+      int level = 0;
+      if (score > 30){
+          level = 4;
+      } else if (score > 20){
+          level = 3;
+      } else if (score > 11){
+          level = 2;
+      } else if (score > 0){
+          level = 1;
+      } else {
+          level = 0;
+      }
+      System.out.println(level);
+      return level;
   }
-
-  public String printLevel(int level) {
-    String levelText = "";
-    switch (level) {
-      case 1:
-        levelText = "LOW";
-      case 2:
-        levelText = "MID";
-      case 3:
-        levelText = "HI";
-      case 4:
-        levelText = "EX";
-      default:
-        levelText = "NONE";
-    }
-    return levelText;
+  
+  public String printLevel(int level){
+      String levelText = "";
+      switch (level){
+          default:
+              levelText = "NONE";
+              break;
+          case 1:
+              levelText = "LOW";
+              break;
+          case 2:
+              levelText = "MID";
+              break;
+          case 3:
+              levelText = "HI";
+              break;
+          case 4:
+              levelText = "EX";
+              break;
+      }
+      System.out.println(levelText);
+      return levelText;
+  }
+  
+  public boolean[] getAchievements(){
+      boolean[] achievement = {false, false, false, false, false, false, false, false, false};
+      if(siLevel >= 3){
+          achievement[0] = true;
+      }
+      if(eprLevel >= 3){
+          achievement[1] = true;
+      }
+      if(cwiLevel >= 3){
+          achievement[2] = true;
+      }
+      if(siLevel >= 2 && eprLevel >= 2 && cwiLevel >= 2){
+          achievement[3] = true;
+      }
+      if(siLevel >= 3 && eprLevel >= 3 && cwiLevel >= 3){
+          achievement[4] = true;
+      }
+      // if(){}
+      if(siLevel>=3 && !(eprLevel >=3 && cwiLevel >=3)){
+          achievement[6] = true;
+      }
+      if(cwiLevel>=3 && !(siLevel >=3 && eprLevel >=3)){
+          achievement[7] = true;
+      }
+      // if(){}
+      return achievement;
   }
 }

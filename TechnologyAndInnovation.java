@@ -14,9 +14,9 @@ public class TechnologyAndInnovation extends Industry {
 
   public TechnologyAndInnovation() {
     super(+2, +3, +3, 6);
-    L1 = new GreenfootImage("images/Industry/Technology1.png");
-    L2 = new GreenfootImage("images/Industry/Technology2.png");
-    L3 = new GreenfootImage("images/Industry/Technology3.png");
+    L1 = new GreenfootImage("images/industry/Technology1.png");
+    L2 = new GreenfootImage("images/industry/Technology2.png");
+    L3 = new GreenfootImage("images/industry/Technology3.png");
   }
 
   /**
