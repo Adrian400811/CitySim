@@ -30,7 +30,7 @@ public class MainWorld extends World {
   // 5 Recreation, 6 Technology, 7 Development, 8 Education
 
   /** Constructor for objects of class MyWorld. */
-  public MainWorld(int width, int height, int SI, int CWI, int EPR) {
+  public MainWorld(int width, int height, int SI, int CWI, int EPR, boolean[] selIndustry) {
     super(width, height, 1);
     addObject(title, getWidth() / 10, 60);
     addObject(cycle, getWidth() - 115, 60);
@@ -46,8 +46,8 @@ public class MainWorld extends World {
     this.EPR = EPR;
 
     // for dev use
-    addObject(index, getWidth() / 2, getHeight() / 2);
-    index.setValue("SI" + SI + "EPR" + EPR + "CWI" + CWI);
+    addObject(index, getWidth()/4*3, getHeight()/2);
+    index.setValue("SI     " + SI + "\nEPR  " + EPR + "\nCWI " + CWI);
     addObject(nextBtn, getWidth() - 110, 650);
 
     timeElapsed = 0;

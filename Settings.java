@@ -20,6 +20,9 @@ public class Settings extends World {
   private int buttonCount = 6;
   private Button[] indexButton;
   private IndustryButton[] industryButton;
+  private boolean[] selectedIndustry = new boolean[9];
+  private int selectCount = 0;
+  
 
   private int SI, EPR, CWI;
 
@@ -109,8 +112,22 @@ public class Settings extends World {
         }
       }
     }
-    if (nextBtn != null && nextBtn.checkClicked()) {
-      MainWorld main = new MainWorld(getWidth(), getHeight(), SI, CWI, EPR);
+    for (int i=0; i<industryButton.length; i++){
+        IndustryButton button = industryButton[i];
+        if (button != null && industryButton[i].checkClicked()){
+            if (!button.toggleState){
+                button.toggle();
+                selectedIndustry[i] = true;
+                selectCount ++;
+            } else if (button.toggleState) {
+                button.toggle();
+                selectedIndustry[i] = false;
+                selectCount --;
+            }
+        }
+    }
+    if (nextBtn != null && nextBtn.checkClicked() && selectCount < 6 && selectCount > 3) {
+      MainWorld main = new MainWorld(getWidth(), getHeight(), SI, CWI, EPR, selectedIndustry);
       Greenfoot.setWorld(main);
     }
   }
