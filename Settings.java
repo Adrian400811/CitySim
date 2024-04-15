@@ -125,7 +125,7 @@ public class Settings extends World {
         }
       }
     }
-    if (nextBtn != null && nextBtn.checkClicked() && selectCount < 6 && selectCount > 3) {
+    if (nextBtn != null && nextBtn.checkClicked() && selectCount <= 6 && selectCount >= 3) {
       MainWorld main = new MainWorld(getWidth(), getHeight(), SI, CWI, EPR, selectedIndustry);
       Greenfoot.setWorld(main);
     }
