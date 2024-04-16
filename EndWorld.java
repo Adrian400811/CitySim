@@ -11,14 +11,16 @@ public class EndWorld extends World {
   Label level = new Label("", 45);
   private int SI, EPR, CWI;
   private int siLevel, eprLevel, cwiLevel;
+  private Industry[] industry;
 
   /** Constructor for objects of class EndWorld. */
-  public EndWorld(int width, int height, int SI, int EPR, int CWI) {
+  public EndWorld(int width, int height, int SI, int EPR, int CWI, Industry[] industry) {
     // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
     super(width, height, 1);
     this.SI = SI;
     this.EPR = EPR;
     this.CWI = CWI;
+    this.industry = industry;
 
     siLevel = calculateLevel(SI);
     eprLevel = calculateLevel(EPR);
@@ -102,5 +104,15 @@ public class EndWorld extends World {
     }
     // if(){}
     return achievement;
+  }
+  
+  public int getLevelThreeIndustryCount(){
+      int count = 0;
+      for(int i=0; i<industry.length;i++){
+          if(industry[i].getLevel() >= 3){
+              count ++;
+          }
+      }
+      return count;
   }
 }

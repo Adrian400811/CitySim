@@ -14,6 +14,7 @@ public class Storm extends Event {
   private GreenfootImage image;
 
   public Storm() {
+    changeIndex(-1, -1, -2);
     image = Utility.drawStorm(2560, 1440, 100);
     setImage(image);
 
