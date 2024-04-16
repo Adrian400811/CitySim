@@ -37,7 +37,7 @@ public class TechnologyAndInnovation extends Industry {
       MainWorld.changeTotalCoin(-3750);
     } else if (MainWorld.getTotalCoin() >= 1875
         && level == 2
-        && MainWorld.getEducationAndResearchLevel() >= 2) {
+        && MainWorld.getIndustryLevel(2) >= 2) {
       levelUp();
       MainWorld.changeTotalCoin(-1875);
     }

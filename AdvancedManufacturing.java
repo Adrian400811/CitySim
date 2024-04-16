@@ -37,7 +37,7 @@ public class AdvancedManufacturing extends Industry {
       MainWorld.changeTotalCoin(-3000);
     } else if (MainWorld.getTotalCoin() >= 1500
         && level == 2
-        && MainWorld.getTechnologyAndInnovationLevel() >= 2) {
+        && MainWorld.getIndustryLevel(6) >= 2) {
       levelUp();
       MainWorld.changeTotalCoin(-1500);
     }

@@ -38,8 +38,8 @@ public class UrbanDevelopment extends Industry {
       MainWorld.changeTotalCoin(-2550);
     } else if (MainWorld.getTotalCoin() >= 1275
         && level == 2
-        && MainWorld.getForestryAndConservationLevel() >= 2
-        && MainWorld.getEnergyLevel() >= 2) {
+        && MainWorld.getIndustryLevel(4) >= 2
+        && MainWorld.getIndustryLevel(3) >= 2) {
       levelUp();
       MainWorld.changeTotalCoin(-1275);
     }
