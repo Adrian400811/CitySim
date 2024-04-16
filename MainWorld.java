@@ -126,7 +126,7 @@ public class MainWorld extends World {
   }
 
   public void end() {
-    EndWorld ew = new EndWorld(getWidth(), getHeight(), SI, EPR, CWI);
+    EndWorld ew = new EndWorld(getWidth(), getHeight(), SI, EPR, CWI, totalCoin, industry);
     Greenfoot.setWorld(ew);
   }
 
