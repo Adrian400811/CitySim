@@ -8,10 +8,10 @@ import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Settings extends World {
   Label indexTitle = new Label("Index", 45);
-  Label sustainable = new Label("Sustainability Index", 36);
-  Label economic = new Label("Economic Prosperity Rating", 36);
-  Label community = new Label("Community Well-being Index", 36);
-  Label industryTitle = new Label("Industry", 45);
+  Label sustainable = new Label("Sustainability Index: 0", 36);
+  Label economic = new Label("Economic Prosperity Rating: 0", 36);
+  Label community = new Label("Community Well-being Index: 0", 36);
+  Label industryTitle = new Label("Industry (Select 3-6)", 45);
   Label next = new Label("Next", 45);
   Button nextBtn = new NextButton();
 
@@ -60,7 +60,7 @@ public class Settings extends World {
         indexButton[i] = new SubtractButton();
         dir = -1;
       }
-      addObject(indexButton[i], getWidth() / 4 + (225 * dir), btnY[i / 2]);
+      addObject(indexButton[i], getWidth() / 4 + (245 * dir), btnY[i / 2]);
     }
 
     addObject(nextBtn, getWidth() - 110, 650);
@@ -101,12 +101,15 @@ public class Settings extends World {
         switch (i / 2) {
           case 0:
             SI += dir;
+            sustainable.setValue("Sustainability Index: " + SI);
             break;
           case 1:
             EPR += dir;
+            economic.setValue("Economic Prosperity Rating: " + EPR);
             break;
           case 2:
             CWI += dir;
+            community.setValue("Community Well-being Index: " + CWI);
             break;
         }
       }
