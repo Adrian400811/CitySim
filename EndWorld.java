@@ -105,14 +105,14 @@ public class EndWorld extends World {
     // if(){}
     return achievement;
   }
-  
-  public int getLevelThreeIndustryCount(){
-      int count = 0;
-      for(int i=0; i<industry.length;i++){
-          if(industry[i].getLevel() >= 3){
-              count ++;
-          }
+
+  public int getLevelThreeIndustryCount() {
+    int count = 0;
+    for (int i = 0; i < industry.length; i++) {
+      if (industry[i].getLevel() >= 3) {
+        count++;
       }
-      return count;
+    }
+    return count;
   }
 }

@@ -79,10 +79,10 @@ public class MainWorld extends World {
       end();
     } else {
       if (numOfCycles % 2 == 0) {
-          // 2 of selected industry duplicates
-          for(int i = 0; i<2; i++){
-              getRandomSelectedIndustry();
-          }
+        // 2 of selected industry duplicates
+        for (int i = 0; i < 2; i++) {
+          getRandomSelectedIndustry();
+        }
       }
 
       if (numOfCycles % 2 != 0) {
@@ -91,17 +91,17 @@ public class MainWorld extends World {
     }
     numOfCycles++;
   }
-  
-  public Industry getRandomSelectedIndustry(){
-      Industry randIndustry = null;
-      while(true){
-          int rand = Greenfoot.getRandomNumber(selIndustry.length);
-          if(selIndustry[rand] == true){
-              randIndustry = industry[rand];
-              break;
-          }
+
+  public Industry getRandomSelectedIndustry() {
+    Industry randIndustry = null;
+    while (true) {
+      int rand = Greenfoot.getRandomNumber(selIndustry.length);
+      if (selIndustry[rand] == true) {
+        randIndustry = industry[rand];
+        break;
       }
-      return randIndustry;
+    }
+    return randIndustry;
   }
 
   public void generateIncome() {
@@ -183,7 +183,7 @@ public class MainWorld extends World {
     return totalCoin;
   }
 
-  public static int getIndustryLevel(int industryCode){
-      return industry[industryCode].getLevel();
+  public static int getIndustryLevel(int industryCode) {
+    return industry[industryCode].getLevel();
   }
 }
