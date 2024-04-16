@@ -28,7 +28,7 @@ public class IndustryButton extends Button {
     image = new GreenfootImage("images/industry/" + icons[type] + "1.png");
     imageSelected = new GreenfootImage("images/industry/" + icons[type] + "Selected.png");
     image.scale(128, 128);
-    imageSelected.scale(128,128);
+    imageSelected.scale(128, 128);
     setImage(image);
   }
 
