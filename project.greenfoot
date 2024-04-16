@@ -8,9 +8,61 @@ dependency1.type=UsesDependency
 dependency2.from=TitleScreen
 dependency2.to=Settings
 dependency2.type=UsesDependency
+<<<<<<< Updated upstream
 dependency3.from=MainWorld
+=======
+dependency20.from=MainWorld
+dependency20.to=MiningAndMaterial
+dependency20.type=UsesDependency
+dependency21.from=MainWorld
+dependency21.to=TechnologyAndInnovation
+dependency21.type=UsesDependency
+dependency22.from=MainWorld
+dependency22.to=TourismAndRecreation
+dependency22.type=UsesDependency
+dependency23.from=MainWorld
+dependency23.to=UrbanDevelopment
+dependency23.type=UsesDependency
+dependency24.from=MainWorld
+dependency24.to=EndWorld
+dependency24.type=UsesDependency
+dependency25.from=Storm
+dependency25.to=Utility
+dependency25.type=UsesDependency
+dependency26.from=Industry
+dependency26.to=MainWorld
+dependency26.type=UsesDependency
+dependency27.from=EducationAndResearch
+dependency27.to=MainWorld
+dependency27.type=UsesDependency
+dependency28.from=Energy
+dependency28.to=MainWorld
+dependency28.type=UsesDependency
+dependency29.from=ForestryAndConservation
+dependency29.to=MainWorld
+dependency29.type=UsesDependency
+dependency3.from=EndWorld
+>>>>>>> Stashed changes
 dependency3.to=Label
 dependency3.type=UsesDependency
+dependency30.from=AdvancedManufacturing
+dependency30.to=MainWorld
+dependency30.type=UsesDependency
+dependency31.from=TechnologyAndInnovation
+dependency31.to=MainWorld
+dependency31.type=UsesDependency
+dependency32.from=UrbanDevelopment
+dependency32.to=MainWorld
+dependency32.type=UsesDependency
+dependency33.from=TourismAndRecreation
+dependency33.to=MainWorld
+dependency33.type=UsesDependency
+dependency34.from=MiningAndMaterial
+dependency34.to=MainWorld
+dependency34.type=UsesDependency
+dependency35.from=AgricultureAndFood
+dependency35.to=MainWorld
+dependency35.type=UsesDependency
 dependency4.from=Settings
 dependency4.to=Label
 dependency4.type=UsesDependency
@@ -26,6 +78,7 @@ dependency7.type=UsesDependency
 dependency8.from=Industry
 dependency8.to=MainWorld
 dependency8.type=UsesDependency
+<<<<<<< Updated upstream
 editor.fx.0.height=733
 editor.fx.0.width=810
 editor.fx.0.x=436
@@ -33,6 +86,18 @@ editor.fx.0.y=123
 height=965
 package.numDependencies=8
 package.numTargets=21
+=======
+dependency9.from=Settings
+dependency9.to=IndustryButton
+dependency9.type=UsesDependency
+editor.fx.0.height=853
+editor.fx.0.width=1483
+editor.fx.0.x=34
+editor.fx.0.y=73
+height=965
+package.numDependencies=35
+package.numTargets=27
+>>>>>>> Stashed changes
 project.charset=UTF-8
 publish.hasSource=false
 publish.locked=true
@@ -69,20 +134,29 @@ target11.width=120
 target11.x=0
 target11.y=0
 target12.height=70
+<<<<<<< Updated upstream
 target12.name=Earthquake
+=======
+target12.name=EventButton
+>>>>>>> Stashed changes
 target12.showInterface=false
 target12.type=ClassTarget
 target12.width=120
 target12.x=0
 target12.y=0
 target13.height=70
+<<<<<<< Updated upstream
 target13.name=Energy
+=======
+target13.name=EndWorld
+>>>>>>> Stashed changes
 target13.showInterface=false
 target13.type=ClassTarget
 target13.width=160
 target13.x=0
 target13.y=0
 target14.height=70
+<<<<<<< Updated upstream
 target14.name=MiningAndMaterial
 target14.showInterface=false
 target14.type=ClassTarget
@@ -91,19 +165,34 @@ target14.x=0
 target14.y=0
 target15.height=70
 target15.name=Button
+=======
+target14.name=AddButton
+target14.showInterface=false
+target14.type=ClassTarget
+target14.width=120
+target14.x=0
+target14.y=0
+target15.height=70
+target15.name=ForestryAndConservation
+>>>>>>> Stashed changes
 target15.showInterface=false
 target15.type=ClassTarget
-target15.width=120
+target15.width=160
 target15.x=0
 target15.y=0
 target16.height=70
+<<<<<<< Updated upstream
 target16.name=AddButton
+=======
+target16.name=Settings
+>>>>>>> Stashed changes
 target16.showInterface=false
 target16.type=ClassTarget
 target16.width=120
 target16.x=0
 target16.y=0
 target17.height=70
+<<<<<<< Updated upstream
 target17.name=AgricultureAndFood
 target17.showInterface=false
 target17.type=ClassTarget
@@ -122,6 +211,26 @@ target19.name=ForestryAndConservation
 target19.showInterface=false
 target19.type=ClassTarget
 target19.width=170
+=======
+target17.name=AdvancedManufacturing
+target17.showInterface=false
+target17.type=ClassTarget
+target17.width=150
+target17.x=0
+target17.y=0
+target18.height=70
+target18.name=TechnologyAndInnovation
+target18.showInterface=false
+target18.type=ClassTarget
+target18.width=160
+target18.x=0
+target18.y=0
+target19.height=70
+target19.name=UrbanDevelopment
+target19.showInterface=false
+target19.type=ClassTarget
+target19.width=130
+>>>>>>> Stashed changes
 target19.x=0
 target19.y=0
 target2.height=70
@@ -132,19 +241,72 @@ target2.width=120
 target2.x=0
 target2.y=0
 target20.height=70
+<<<<<<< Updated upstream
 target20.name=SubtractButton
+=======
+target20.name=NextButton
+>>>>>>> Stashed changes
 target20.showInterface=false
 target20.type=ClassTarget
 target20.width=120
 target20.x=0
 target20.y=0
 target21.height=70
+<<<<<<< Updated upstream
 target21.name=Settings
+=======
+target21.name=TourismAndRecreation
+>>>>>>> Stashed changes
 target21.showInterface=false
 target21.type=ClassTarget
-target21.width=120
+target21.width=140
 target21.x=0
 target21.y=0
+<<<<<<< Updated upstream
+=======
+target22.height=70
+target22.name=Virus
+target22.showInterface=false
+target22.type=ClassTarget
+target22.width=120
+target22.x=0
+target22.y=0
+target23.height=70
+target23.name=MainWorld
+target23.showInterface=false
+target23.type=ClassTarget
+target23.width=120
+target23.x=0
+target23.y=0
+target24.height=70
+target24.name=MiningAndMaterial
+target24.showInterface=false
+target24.type=ClassTarget
+target24.width=130
+target24.x=0
+target24.y=0
+target25.height=70
+target25.name=AgricultureAndFood
+target25.showInterface=false
+target25.type=ClassTarget
+target25.width=130
+target25.x=0
+target25.y=0
+target26.height=70
+target26.name=Event
+target26.showInterface=false
+target26.type=ClassTarget
+target26.width=120
+target26.x=0
+target26.y=0
+target27.height=70
+target27.name=SubtractButton
+target27.showInterface=false
+target27.type=ClassTarget
+target27.width=120
+target27.x=0
+target27.y=0
+>>>>>>> Stashed changes
 target3.height=70
 target3.name=TechnologyAndInnovation
 target3.showInterface=false
