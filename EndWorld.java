@@ -11,6 +11,7 @@ public class EndWorld extends World {
   Label level = new Label("", 45);
   private int SI, EPR, CWI, coin;
   private int siLevel, eprLevel, cwiLevel;
+  private Industry[] industry;
 
   private Industry[] industry;
   private String[] achievement = {"Sustainability Steward", "Economic Magnate", "Community Champion", "Balanced Developer", "Visionary Planner",

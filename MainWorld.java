@@ -23,6 +23,7 @@ public class MainWorld extends World {
   private int numOfCycles;
   private int timeElapsed;
   private int dir;
+  private boolean[] selIndustry;
 
   private static Industry[] industry;
 
@@ -44,6 +45,7 @@ public class MainWorld extends World {
     this.SI = SI;
     this.CWI = CWI;
     this.EPR = EPR;
+    this.selIndustry = selIndustry;
 
     // for dev use
     addObject(index, getWidth() / 4 * 3, getHeight() / 2);
@@ -76,13 +78,30 @@ public class MainWorld extends World {
     if (numOfCycles == 6) {
       end();
     } else {
-      if (numOfCycles % 2 == 0) {}
+      if (numOfCycles % 2 == 0) {
+        // 2 of selected industry duplicates
+        for (int i = 0; i < 2; i++) {
+          getRandomSelectedIndustry();
+        }
+      }
 
       if (numOfCycles % 2 != 0) {
         generateIncome();
       }
     }
     numOfCycles++;
+  }
+
+  public Industry getRandomSelectedIndustry() {
+    Industry randIndustry = null;
+    while (true) {
+      int rand = Greenfoot.getRandomNumber(selIndustry.length);
+      if (selIndustry[rand] == true) {
+        randIndustry = industry[rand];
+        break;
+      }
+    }
+    return randIndustry;
   }
 
   public void generateIncome() {
@@ -164,39 +183,7 @@ public class MainWorld extends World {
     return totalCoin;
   }
 
-  public static int getAdvancedManufacturingLevel() {
-    return industry[0].getLevel();
-  }
-
-  public static int getAgricultureAndFoodLevel() {
-    return industry[1].getLevel();
-  }
-
-  public static int getEducationAndResearchLevel() {
-    return industry[2].getLevel();
-  }
-
-  public static int getEnergyLevel() {
-    return industry[3].getLevel();
-  }
-
-  public static int getForestryAndConservationLevel() {
-    return industry[4].getLevel();
-  }
-
-  public static int getMiningAndMaterialLevel() {
-    return industry[5].getLevel();
-  }
-
-  public static int getTechnologyAndInnovationLevel() {
-    return industry[6].getLevel();
-  }
-
-  public static int getTourismAndRecreationLevel() {
-    return industry[7].getLevel();
-  }
-
-  public static int getUrbanDevelopmentLevel() {
-    return industry[8].getLevel();
+  public static int getIndustryLevel(int industryCode) {
+    return industry[industryCode].getLevel();
   }
 }
