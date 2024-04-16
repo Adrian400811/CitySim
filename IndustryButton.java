@@ -8,6 +8,7 @@ import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class IndustryButton extends Button {
   private GreenfootImage image;
+  private GreenfootImage imageSelected;
   private int type;
   protected boolean toggleState = false;
   private String[] icons = {
@@ -25,7 +26,9 @@ public class IndustryButton extends Button {
   public IndustryButton(int type) {
     this.type = type;
     image = new GreenfootImage("images/industry/" + icons[type] + "1.png");
+    imageSelected = new GreenfootImage("images/industry/" + icons[type] + "Selected.png");
     image.scale(128, 128);
+    imageSelected.scale(128, 128);
     setImage(image);
   }
 
@@ -40,8 +43,10 @@ public class IndustryButton extends Button {
   public void toggle() {
     if (toggleState) {
       toggleState = false;
+      setImage(image);
     } else {
       toggleState = true;
+      setImage(imageSelected);
     }
   }
 }
