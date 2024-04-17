@@ -12,10 +12,17 @@ public class EndWorld extends World {
   private int SI, EPR, CWI, coin;
   private int siLevel, eprLevel, cwiLevel;
   private Industry[] industry;
-
-  private Industry[] industry;
-  private String[] achievement = {"Sustainability Steward", "Economic Magnate", "Community Champion", "Balanced Developer", "Visionary Planner",
-                                  "Capitalis", "Eco-Warrior", "People's Leader", "Industrial Tycoon"};
+  private String[] achievement = {
+    "Sustainability Steward",
+    "Economic Magnate",
+    "Community Champion",
+    "Balanced Developer",
+    "Visionary Planner",
+    "Capitalis",
+    "Eco-Warrior",
+    "People's Leader",
+    "Industrial Tycoon"
+  };
   private Label[] achievementString;
   private boolean[] earnedAchievements;
 
@@ -32,15 +39,21 @@ public class EndWorld extends World {
     siLevel = calculateLevel(SI);
     eprLevel = calculateLevel(EPR);
     cwiLevel = calculateLevel(CWI);
-    
-    earnedAchievements = getAchievements();
-    
-    String indexString = "SI: " + SI + " EPR: " + EPR + " CWI: " + CWI;
-    String levelString = "SI: "+ printLevel(siLevel)+ " EPR: "+ printLevel(eprLevel)+ " CWI: "+ printLevel(cwiLevel);
 
-    addObject(index, getWidth()/2, getHeight()/4-60);
+    earnedAchievements = getAchievements();
+
+    String indexString = "SI: " + SI + " EPR: " + EPR + " CWI: " + CWI;
+    String levelString =
+        "SI: "
+            + printLevel(siLevel)
+            + " EPR: "
+            + printLevel(eprLevel)
+            + " CWI: "
+            + printLevel(cwiLevel);
+
+    addObject(index, getWidth() / 2, getHeight() / 4 - 60);
     index.setValue(indexString);
-    addObject(level, getWidth()/2, getHeight()/4+60);
+    addObject(level, getWidth() / 2, getHeight() / 4 + 60);
     level.setValue(levelString);
     generateAchievementString();
   }
@@ -101,7 +114,7 @@ public class EndWorld extends World {
     if (siLevel >= 3 && eprLevel >= 3 && cwiLevel >= 3) {
       achievement[4] = true;
     }
-    if (eprLevel >=3 && coin >=2500 && siLevel <=1 && cwiLevel <=1){
+    if (eprLevel >= 3 && coin >= 2500 && siLevel <= 1 && cwiLevel <= 1) {
       achievement[5] = true;
     }
     if (siLevel >= 3 && !(eprLevel >= 3 && cwiLevel >= 3)) {
@@ -110,43 +123,46 @@ public class EndWorld extends World {
     if (cwiLevel >= 3 && !(siLevel >= 3 && eprLevel >= 3)) {
       achievement[7] = true;
     }
-    if (getLevelThreeIndustryCount() >= 3 && siLevel <= 1 && cwiLevel <= 1){
+    if (getLevelThreeIndustryCount() >= 3 && siLevel <= 1 && cwiLevel <= 1) {
       achievement[8] = true;
     }
     return achievement;
   }
-  
-  public int getLevelThreeIndustryCount(){
-      int count = 0;
-      for(int i=0; i<industry.length;i++){
-          if(industry[i].getLevel() >= 3){
-              count ++;
-          }
+
+  public int getLevelThreeIndustryCount() {
+    int count = 0;
+    for (int i = 0; i < industry.length; i++) {
+      if (industry[i].getLevel() >= 3) {
+        count++;
       }
-      return count;
+    }
+    return count;
   }
-  
-  public void generateAchievementString(){
-      achievementString = new Label[6];
-      int count = 0;
-      for(int i = 0; i < achievement.length; i++){
-          if(earnedAchievements[i] == true){
-              achievementString[count] = new Label(achievement[i], 36);
-              int dir = 0;
-              int upDown = 0;
-              if(count == 0 || count == 3){
-                  dir = -1;
-              } else if (count == 2 || count == 4){
-                  dir = 1;
-              }
-              if(count <= 3){
-                  upDown = -1;
-              } else {
-                  upDown = 1;
-              }
-              addObject(achievementString[count], getWidth()/2 + (275 * dir), getHeight()/4*3 + (60 * upDown));
-              count ++;
-          }
+
+  public void generateAchievementString() {
+    achievementString = new Label[6];
+    int count = 0;
+    for (int i = 0; i < achievement.length; i++) {
+      if (earnedAchievements[i] == true) {
+        achievementString[count] = new Label(achievement[i], 36);
+        int dir = 0;
+        int upDown = 0;
+        if (count == 0 || count == 3) {
+          dir = -1;
+        } else if (count == 2 || count == 4) {
+          dir = 1;
+        }
+        if (count <= 3) {
+          upDown = -1;
+        } else {
+          upDown = 1;
+        }
+        addObject(
+            achievementString[count],
+            getWidth() / 2 + (275 * dir),
+            getHeight() / 4 * 3 + (60 * upDown));
+        count++;
       }
+    }
   }
 }
