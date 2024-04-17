@@ -71,7 +71,6 @@ public class EndWorld extends World {
     } else {
       level = 0;
     }
-    System.out.println(level);
     return level;
   }
 
@@ -152,14 +151,14 @@ public class EndWorld extends World {
         } else if (count == 2 || count == 4) {
           dir = 1;
         }
-        if (count <= 3) {
+        if (count <= 2) {
           upDown = -1;
         } else {
           upDown = 1;
         }
         addObject(
             achievementString[count],
-            getWidth() / 2 + (275 * dir),
+            getWidth() / 2 + (300 * dir),
             getHeight() / 4 * 3 + (60 * upDown));
         count++;
       }
