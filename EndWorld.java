@@ -12,6 +12,8 @@ public class EndWorld extends World {
   private int SI, EPR, CWI, coin;
   private int siLevel, eprLevel, cwiLevel;
   private Industry[] industry;
+
+  private Industry[] industry;
   private String[] achievement = {
     "Sustainability Steward",
     "Economic Magnate",
