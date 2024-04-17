@@ -24,6 +24,7 @@ public class TechnologyAndInnovation extends Industry {
    * 'Act' or 'Run' button gets pressed in the environment.
    */
   public void act() {
+    checkHover("Technology");
     checkNextLevel();
     checkImage();
   }

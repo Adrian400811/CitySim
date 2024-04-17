@@ -148,6 +148,8 @@ public class MainWorld extends World {
     EndWorld ew = new EndWorld(getWidth(), getHeight(), SI, EPR, CWI, totalCoin, industry);
     Greenfoot.setWorld(ew);
   }
+  
+  
 
   // adjusters
   public static void changeSI(int delta) {
