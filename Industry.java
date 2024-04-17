@@ -8,14 +8,18 @@ import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public abstract class Industry extends Actor {
   private MainWorld mw;
-  private int level = 0;
+  protected int level = 1;
   private int coins = 0;
-  private int count = 0;
+  private int count = 1000;
   private int type;
   private int SI, EPR, CWI;
 
   private double[] growthRate = {1.2, 1.1, 1.3, 1.2, 1.1, 1.3, 1.3, 1.1, 1.2};
   private double[] lvlMultipliers = {1.0, 1.5, 2.0};
+
+  protected GreenfootImage L1;
+  protected GreenfootImage L2;
+  protected GreenfootImage L3;
 
   public Industry(int SI, int EPR, int CWI, int type) {
     this.SI = SI;
@@ -32,6 +36,19 @@ public abstract class Industry extends Actor {
     // Add your action code here.
   }
 
+  public void checkImage() {
+    if (level == 1) {
+      L1.scale(144, 144);
+      setImage(L1);
+    } else if (level == 2) {
+      L2.scale(144, 144);
+      setImage(L2);
+    } else if (level == 3) {
+      L3.scale(144, 144);
+      setImage(L3);
+    }
+  }
+
   public void addedToWorld(World w) {
     mw = (MainWorld) w;
   }
@@ -43,5 +60,13 @@ public abstract class Industry extends Actor {
     double bonus; // TODO
     double grandTotal = totalIncome; // + bonus;
     return grandTotal;
+  }
+
+  public void levelUp() {
+    level++;
+  }
+
+  public int getLevel() {
+    return level;
   }
 }

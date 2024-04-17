@@ -14,6 +14,9 @@ public class MiningAndMaterial extends Industry {
 
   public MiningAndMaterial() {
     super(-2, +2, -1, 5);
+    L1 = new GreenfootImage("images/industry/Material1.png");
+    L2 = new GreenfootImage("images/industry/Material2.png");
+    L3 = new GreenfootImage("images/industry/Material3.png");
   }
 
   /**
@@ -22,5 +25,20 @@ public class MiningAndMaterial extends Industry {
    */
   public void act() {
     // Add your action code here.
+    checkNextLevel();
+    checkImage();
+  }
+
+  public void checkNextLevel() {
+    if (MainWorld.getTotalCoin() >= 1500 && level == 0) {
+      levelUp();
+      MainWorld.changeTotalCoin(-1500);
+    } else if (MainWorld.getTotalCoin() >= 2250 && level == 1) {
+      levelUp();
+      MainWorld.changeTotalCoin(-2250);
+    } else if (MainWorld.getTotalCoin() >= 1125 && level == 2) {
+      levelUp();
+      MainWorld.changeTotalCoin(-1125);
+    }
   }
 }

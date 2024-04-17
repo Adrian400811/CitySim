@@ -14,6 +14,9 @@ public class AdvancedManufacturing extends Industry {
 
   public AdvancedManufacturing() {
     super(-1, +3, +1, 0);
+    L1 = new GreenfootImage("images/industry/Manufacturing1.png");
+    L2 = new GreenfootImage("images/industry/Manufacturing2.png");
+    L3 = new GreenfootImage("images/industry/Manufacturing3.png");
   }
 
   /**
@@ -21,6 +24,22 @@ public class AdvancedManufacturing extends Industry {
    * 'Act' or 'Run' button gets pressed in the environment.
    */
   public void act() {
-    // Add your action code here.
+    checkNextLevel();
+    checkImage();
+  }
+
+  public void checkNextLevel() {
+    if (MainWorld.getTotalCoin() >= 2000 && level == 0) {
+      levelUp();
+      MainWorld.changeTotalCoin(-2000);
+    } else if (MainWorld.getTotalCoin() >= 3000 && level == 1) {
+      levelUp();
+      MainWorld.changeTotalCoin(-3000);
+    } else if (MainWorld.getTotalCoin() >= 1500
+        && level == 2
+        && MainWorld.getIndustryLevel(6) >= 2) {
+      levelUp();
+      MainWorld.changeTotalCoin(-1500);
+    }
   }
 }

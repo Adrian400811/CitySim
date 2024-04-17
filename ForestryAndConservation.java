@@ -14,6 +14,9 @@ public class ForestryAndConservation extends Industry {
 
   public ForestryAndConservation() {
     super(+3, +1, +2, 4);
+    L1 = new GreenfootImage("images/industry/Forestry1.png");
+    L2 = new GreenfootImage("images/industry/Forestry2.png");
+    L3 = new GreenfootImage("images/industry/Forestry3.png");
   }
 
   /**
@@ -21,6 +24,22 @@ public class ForestryAndConservation extends Industry {
    * 'Act' or 'Run' button gets pressed in the environment.
    */
   public void act() {
-    // Add your action code here.
+    checkNextLevel();
+    checkImage();
+  }
+
+  public void checkNextLevel() {
+    if (MainWorld.getTotalCoin() >= 1000 && level == 0) {
+      levelUp();
+      MainWorld.changeTotalCoin(-1000);
+    } else if (MainWorld.getTotalCoin() >= 1500 && level == 1) {
+      levelUp();
+      MainWorld.changeTotalCoin(-1500);
+    } else if (MainWorld.getTotalCoin() >= 750
+        && level == 2
+        && MainWorld.getIndustryLevel(3) >= 2) {
+      levelUp();
+      MainWorld.changeTotalCoin(-750);
+    }
   }
 }
