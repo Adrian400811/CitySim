@@ -162,11 +162,11 @@ public class EndWorld extends World {
         }
         int x = getWidth() / 2 + (360 * dir);
         int y = getHeight() / 4 * 3 + (60 * upDown);
-        if(i<=4){
-            addObject(ordinaryBG, x-30, y);
+        if (i <= 4) {
+          addObject(ordinaryBG, x - 30, y);
         }
-        if(i>=5){
-            addObject(specialBG, x-30, y);
+        if (i >= 5) {
+          addObject(specialBG, x - 30, y);
         }
         addObject(achievementString[count], x, y);
         count++;
