@@ -7,6 +7,8 @@ import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version (a version number or a date)
  */
 public class MainWorld extends World {
+    
+  private MouseInfo m;
 
   Label title = new Label("MainWorld", 45);
   Label index = new Label("", 45);
@@ -56,6 +58,7 @@ public class MainWorld extends World {
   }
 
   public void act() {
+    m = Greenfoot.getMouseInfo();
     timeElapsed++;
 
     moneyNum.setValue("Money: $" + getTotalCoin());
@@ -98,6 +101,9 @@ public class MainWorld extends World {
       int rand = Greenfoot.getRandomNumber(selIndustry.length);
       if (selIndustry[rand] == true) {
         randIndustry = industry[rand];
+        if (randIndustry.getLevel() != 3){
+            randIndustry.levelUp();
+        }
         break;
       }
     }
@@ -149,6 +155,12 @@ public class MainWorld extends World {
     Greenfoot.setWorld(ew);
   }
   
+  public MouseInfo getMouseInfo() {
+    if (m == null){
+        m = Greenfoot.getMouseInfo();
+    }
+    return m;
+  }
   
 
   // adjusters
