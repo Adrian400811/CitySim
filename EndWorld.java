@@ -7,8 +7,10 @@ import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version (a version number or a date)
  */
 public class EndWorld extends World {
-  Label index = new Label("", 45);
-  Label level = new Label("", 45);
+  private Label index = new Label("", 45);
+  private Label level = new Label("", 45);
+  private Image ordinaryBG;
+  private Image specialBG;
   private int SI, EPR, CWI, coin;
   private int siLevel, eprLevel, cwiLevel;
   private Industry[] industry;
@@ -143,7 +145,9 @@ public class EndWorld extends World {
     int count = 0;
     for (int i = 0; i < achievement.length; i++) {
       if (earnedAchievements[i] == true) {
-        achievementString[count] = new Label(achievement[i], 36);
+        achievementString[count] = new Label(achievement[i], 28);
+        ordinaryBG = new Image("images/achievement/ordinary_mid.png", 85);
+        specialBG = new Image("images/achievement/special_mid.png", 85);
         int dir = 0;
         int upDown = 0;
         if (count == 0 || count == 3) {
@@ -156,10 +160,15 @@ public class EndWorld extends World {
         } else {
           upDown = 1;
         }
-        addObject(
-            achievementString[count],
-            getWidth() / 2 + (300 * dir),
-            getHeight() / 4 * 3 + (60 * upDown));
+        int x = getWidth() / 2 + (360 * dir);
+        int y = getHeight() / 4 * 3 + (60 * upDown);
+        if(i<=4){
+            addObject(ordinaryBG, x-30, y);
+        }
+        if(i>=5){
+            addObject(specialBG, x-30, y);
+        }
+        addObject(achievementString[count], x, y);
         count++;
       }
     }
