@@ -20,7 +20,7 @@ public class Storm extends Event {
 
     actsLeft = 300;
 
-    speed = 0.5;
+    speed = 0.55;
   }
 
   /**

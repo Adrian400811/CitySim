@@ -24,6 +24,7 @@ public class AgricultureAndFood extends Industry {
    * or 'Run' button gets pressed in the environment.
    */
   public void act() {
+    checkHover("Agriculture");
     checkNextLevel();
     checkImage();
   }
