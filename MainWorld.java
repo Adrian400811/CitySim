@@ -86,6 +86,7 @@ public class MainWorld extends World {
         for (int i = 0; i < 2; i++) {
           getRandomSelectedIndustry();
         }
+        generateRandomEvent();
       }
 
       if (numOfCycles % 2 != 0) {
@@ -108,6 +109,17 @@ public class MainWorld extends World {
       }
     }
     return randIndustry;
+  }
+  
+  public void generateRandomEvent(){
+      int rand = Greenfoot.getRandomNumber(3);
+      if (rand == 0){
+          addObject(new Storm(), getWidth()/2, getHeight()/2);
+      } else if (rand == 1){
+          addObject(new Virus(), getWidth()/2, getHeight()/2);
+      } else if (rand == 2){
+          addObject(new Earthquake(), getWidth()/2, getHeight()/2);
+      }
   }
 
   public void generateIncome() {

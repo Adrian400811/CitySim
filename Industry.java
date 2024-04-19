@@ -81,6 +81,8 @@ public abstract class Industry extends Actor {
       } 
       if (Greenfoot.mouseMoved(null) && !Greenfoot.mouseMoved(this)){
           mw.removeObject(this.text);
+      } else {
+          text.update(allText);
       }
       
   }
