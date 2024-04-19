@@ -8,6 +8,8 @@ import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MainWorld extends World {
 
+  private MouseInfo m;
+
   Label title = new Label("MainWorld", 45);
   Label index = new Label("", 45);
 
@@ -56,6 +58,7 @@ public class MainWorld extends World {
   }
 
   public void act() {
+    m = Greenfoot.getMouseInfo();
     timeElapsed++;
 
     moneyNum.setValue("Money: $" + getTotalCoin());
@@ -83,6 +86,7 @@ public class MainWorld extends World {
         for (int i = 0; i < 2; i++) {
           getRandomSelectedIndustry();
         }
+        generateRandomEvent();
       }
 
       if (numOfCycles % 2 != 0) {
@@ -98,10 +102,24 @@ public class MainWorld extends World {
       int rand = Greenfoot.getRandomNumber(selIndustry.length);
       if (selIndustry[rand] == true) {
         randIndustry = industry[rand];
+        if (randIndustry.getLevel() != 3) {
+          randIndustry.levelUp();
+        }
         break;
       }
     }
     return randIndustry;
+  }
+
+  public void generateRandomEvent() {
+    int rand = Greenfoot.getRandomNumber(3);
+    if (rand == 0) {
+      addObject(new Storm(), getWidth() / 2, getHeight() / 2);
+    } else if (rand == 1) {
+      addObject(new Virus(), getWidth() / 2, getHeight() / 2);
+    } else if (rand == 2) {
+      addObject(new Earthquake(), getWidth() / 2, getHeight() / 2);
+    }
   }
 
   public void generateIncome() {
@@ -147,6 +165,13 @@ public class MainWorld extends World {
   public void end() {
     EndWorld ew = new EndWorld(getWidth(), getHeight(), SI, EPR, CWI, totalCoin, industry);
     Greenfoot.setWorld(ew);
+  }
+
+  public MouseInfo getMouseInfo() {
+    if (m == null) {
+      m = Greenfoot.getMouseInfo();
+    }
+    return m;
   }
 
   // adjusters

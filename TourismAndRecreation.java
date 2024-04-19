@@ -24,7 +24,7 @@ public class TourismAndRecreation extends Industry {
    * 'Act' or 'Run' button gets pressed in the environment.
    */
   public void act() {
-    // Add your action code here.
+    checkHover("Tourism And Recreation");
     checkNextLevel();
     checkImage();
   }

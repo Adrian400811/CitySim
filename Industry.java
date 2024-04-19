@@ -21,11 +21,19 @@ public abstract class Industry extends Actor {
   protected GreenfootImage L2;
   protected GreenfootImage L3;
 
+  private Font font;
+  SuperTextBox text;
+
+  private int textTimer;
+
   public Industry(int SI, int EPR, int CWI, int type) {
     this.SI = SI;
     this.EPR = EPR;
     this.CWI = CWI;
     this.type = type;
+
+    font = new Font("Comic Sans MS", false, false, 16);
+    textTimer = 0;
   }
 
   /**
@@ -55,15 +63,32 @@ public abstract class Industry extends Actor {
 
   public double income() {
     int baseIncome = 100 * mw.getEPR();
-    double industryIncome = count * lvlMultipliers[level] * level;
+    double industryIncome = count * lvlMultipliers[level - 1] * level;
     double totalIncome = (baseIncome + industryIncome) * growthRate[type];
     double bonus; // TODO
     double grandTotal = totalIncome; // + bonus;
     return grandTotal;
   }
 
+  public void checkHover(String name) {
+    textTimer--;
+    String[] allText = {name, "Level: " + getLevel(), "Income: " + income()};
+    text = new SuperTextBox(allText, font, 132);
+    if (Greenfoot.mouseMoved(this)) {
+      mw.addObject(text, getX(), getY());
+      textTimer = 10;
+    }
+    if (Greenfoot.mouseMoved(null) && !Greenfoot.mouseMoved(this)) {
+      mw.removeObject(this.text);
+    } else {
+      text.update(allText);
+    }
+  }
+
   public void levelUp() {
-    level++;
+    if (level < 3) {
+      level++;
+    }
   }
 
   public int getLevel() {
