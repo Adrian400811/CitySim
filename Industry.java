@@ -55,7 +55,7 @@ public abstract class Industry extends Actor {
 
   public double income() {
     int baseIncome = 100 * mw.getEPR();
-    double industryIncome = count * lvlMultipliers[level] * level;
+    double industryIncome = count * lvlMultipliers[level-1] * level;
     double totalIncome = (baseIncome + industryIncome) * growthRate[type];
     double bonus; // TODO
     double grandTotal = totalIncome; // + bonus;
@@ -63,7 +63,9 @@ public abstract class Industry extends Actor {
   }
 
   public void levelUp() {
-    level++;
+    if(level < 3){
+        level++;
+    }
   }
 
   public int getLevel() {
