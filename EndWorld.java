@@ -40,7 +40,7 @@ public class EndWorld extends World {
     siLevel = calculateLevel(SI);
     eprLevel = calculateLevel(EPR);
     cwiLevel = calculateLevel(CWI);
-    
+
     generateIndexLabel();
     earnedAchievements = getAchievements();
     generateAchievement();
@@ -159,24 +159,24 @@ public class EndWorld extends World {
       }
     }
   }
-  
+
   public void generateIndexLabel() {
-      int anchorX = getWidth()/2;
-      int anchorY = getHeight()/4;
-      int imgOffset = -60;
-      int stringOffset = +60;
-      int lrOffset = getWidth()/4;
-      siImg = new Image("images/icon/SI.png", 50);
-      siLabel = new Label("SI "+SI+"\n"+getLevelText(calculateLevel(SI)),45);
-      eprImg = new Image("images/icon/EPR.png", 50);
-      eprLabel = new Label("EPR "+EPR+"\n"+getLevelText(calculateLevel(EPR)),45);
-      cwiImg = new Image("images/icon/CWI.png", 50);
-      cwiLabel = new Label("CWI "+CWI+"\n"+getLevelText(calculateLevel(CWI)),45);
-      addObject(siImg, anchorX+imgOffset-lrOffset, anchorY);
-      addObject(siLabel, anchorX+stringOffset-lrOffset, anchorY);
-      addObject(eprImg, anchorX+imgOffset, anchorY);
-      addObject(eprLabel, anchorX+stringOffset, anchorY);
-      addObject(cwiImg, anchorX+imgOffset+lrOffset, anchorY);
-      addObject(cwiLabel, anchorX+stringOffset+lrOffset, anchorY);
+    int anchorX = getWidth() / 2;
+    int anchorY = getHeight() / 4;
+    int imgOffset = -60;
+    int stringOffset = +60;
+    int lrOffset = getWidth() / 4;
+    siImg = new Image("images/icon/SI.png", 50);
+    siLabel = new Label("SI " + SI + "\n" + getLevelText(calculateLevel(SI)), 45);
+    eprImg = new Image("images/icon/EPR.png", 50);
+    eprLabel = new Label("EPR " + EPR + "\n" + getLevelText(calculateLevel(EPR)), 45);
+    cwiImg = new Image("images/icon/CWI.png", 50);
+    cwiLabel = new Label("CWI " + CWI + "\n" + getLevelText(calculateLevel(CWI)), 45);
+    addObject(siImg, anchorX + imgOffset - lrOffset, anchorY);
+    addObject(siLabel, anchorX + stringOffset - lrOffset, anchorY);
+    addObject(eprImg, anchorX + imgOffset, anchorY);
+    addObject(eprLabel, anchorX + stringOffset, anchorY);
+    addObject(cwiImg, anchorX + imgOffset + lrOffset, anchorY);
+    addObject(cwiLabel, anchorX + stringOffset + lrOffset, anchorY);
   }
 }

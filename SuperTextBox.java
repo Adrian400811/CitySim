@@ -404,9 +404,8 @@ public class SuperTextBox extends Actor {
       if (found) {
         return checkX;
       }
-      checkX -=
-          3; // shift 3 pixels at a time in my search - above code will make sure I don't miss
-             // anything
+      checkX -= 3; // shift 3 pixels at a time in my search - above code will make sure I don't miss
+      // anything
       if (checkX <= marginOfError) running = false;
     }
     return 0;
