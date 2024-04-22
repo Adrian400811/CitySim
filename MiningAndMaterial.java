@@ -24,7 +24,6 @@ public class MiningAndMaterial extends Industry {
    * or 'Run' button gets pressed in the environment.
    */
   public void act() {
-    checkHover("Mining");
     checkNextLevel();
     checkImage();
   }

@@ -24,7 +24,6 @@ public class Energy extends Industry {
    * button gets pressed in the environment.
    */
   public void act() {
-    checkHover("Energy");
     checkNextLevel();
     checkImage();
   }
