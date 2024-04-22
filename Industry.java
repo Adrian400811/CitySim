@@ -70,20 +70,6 @@ public abstract class Industry extends Actor {
     return grandTotal;
   }
 
-  public void checkHover(String name) {
-    textTimer--;
-    String[] allText = {name, "Level: " + getLevel(), "Income: " + income()};
-    text = new SuperTextBox(allText, font, 132);
-    if (Greenfoot.mouseMoved(this)) {
-      mw.addObject(text, getX(), getY());
-      textTimer = 10;
-    }
-    if (Greenfoot.mouseMoved(null) && !Greenfoot.mouseMoved(this)) {
-      mw.removeObject(this.text);
-    } else {
-      text.update(allText);
-    }
-  }
 
   public void levelUp() {
     if (level < 3) {

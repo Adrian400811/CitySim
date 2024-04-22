@@ -23,8 +23,8 @@ public class MiningAndMaterial extends Industry {
    * Act - do whatever the MiningAndMaterial wants to do. This method is called whenever the 'Act'
    * or 'Run' button gets pressed in the environment.
    */
-  public void act() {
-    checkHover("Mining");
+
+  public void act() {  
     checkNextLevel();
     checkImage();
   }

@@ -56,6 +56,7 @@ public class MainWorld extends World {
     addObject(nextBtn, getWidth() - 110, 650);
 
     timeElapsed = 0;
+    setPaintOrder(Industry.class, Button.class, Label.class, SuperTextBox.class, Virus.class, Earthquake.class);
   }
 
   public void act() {
@@ -66,7 +67,7 @@ public class MainWorld extends World {
     if (numOfCycles == 0) {
       updateCycles();
       moneyNum.setValue("Money: $" + getTotalCoin());
-    } else if (timeElapsed >= (10 * 20)) {
+    } else if (timeElapsed >= (55 * 20)) {
       updateCycles();
       moneyNum.setValue("Money: $" + getTotalCoin());
       timeElapsed = 0;
@@ -78,16 +79,18 @@ public class MainWorld extends World {
   }
 
   public void updateCycles() {
+    index.setValue("SI:     " + getSI() + "\nEPR:  " + getEPR() + "\nCWI: " + getCWI());
     cycleNum.setValue(numOfCycles);
     if (numOfCycles == 6) {
       end();
     } else {
-      if (numOfCycles % 2 == 0) {
+      if (numOfCycles % 2 == 0 && numOfCycles != 0) {
         // 2 of selected industry duplicates
         for (int i = 0; i < 2; i++) {
           getRandomSelectedIndustry();
         }
         generateRandomEvent();
+        index.setValue("SI:     " + getSI() + "\nEPR:  " + getEPR() + "\nCWI: " + getCWI());
       }
 
       if (numOfCycles % 2 != 0) {
