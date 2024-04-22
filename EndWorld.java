@@ -28,7 +28,16 @@ public class EndWorld extends World {
   private boolean[] earnedAchievements;
 
   /** Constructor for objects of class EndWorld. */
-  public EndWorld(int width, int height, int SI, int EPR, int CWI, int coin, int cycleCount, int eventCount, Industry[] industry) {
+  public EndWorld(
+      int width,
+      int height,
+      int SI,
+      int EPR,
+      int CWI,
+      int coin,
+      int cycleCount,
+      int eventCount,
+      Industry[] industry) {
     // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
     super(width, height, 1);
     this.SI = SI;
@@ -182,18 +191,18 @@ public class EndWorld extends World {
     addObject(cwiImg, anchorX + imgOffset + lrOffset, anchorY);
     addObject(cwiLabel, anchorX + stringOffset + lrOffset, anchorY);
   }
-  
-  public void generateStatsLabel(){
-      int anchorX = getWidth()/2;
-      int anchorY = getHeight()/2;
-      int imfOffset = -60;
-      int stringOffset = +60;
-      int lrOffset = getWidth()/4;
-      cycleLabel = new Label(cycleCount, 40);
-      eventLabel = new Label(eventCount, 40);
-      coinLabel = new Label(coin, 40);
-      addObject(cycleLabel, anchorX + stringOffset-lrOffset, anchorY);
-      addObject(eventLabel, anchorX + stringOffset, anchorY);
-      addObject(coinLabel, anchorX + stringOffset+lrOffset, anchorY);
+
+  public void generateStatsLabel() {
+    int anchorX = getWidth() / 2;
+    int anchorY = getHeight() / 2;
+    int imfOffset = -60;
+    int stringOffset = +60;
+    int lrOffset = getWidth() / 4;
+    cycleLabel = new Label(cycleCount, 40);
+    eventLabel = new Label(eventCount, 40);
+    coinLabel = new Label(coin, 40);
+    addObject(cycleLabel, anchorX + stringOffset - lrOffset, anchorY);
+    addObject(eventLabel, anchorX + stringOffset, anchorY);
+    addObject(coinLabel, anchorX + stringOffset + lrOffset, anchorY);
   }
 }

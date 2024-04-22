@@ -121,7 +121,7 @@ public class MainWorld extends World {
     } else if (rand == 2) {
       addObject(new Earthquake(), getWidth() / 2, getHeight() / 2);
     }
-    eventCount ++;
+    eventCount++;
   }
 
   public void generateIncome() {
@@ -165,7 +165,9 @@ public class MainWorld extends World {
   }
 
   public void end() {
-    EndWorld ew = new EndWorld(getWidth(), getHeight(), SI, EPR, CWI, totalCoin, numOfCycles, eventCount, industry);
+    EndWorld ew =
+        new EndWorld(
+            getWidth(), getHeight(), SI, EPR, CWI, totalCoin, numOfCycles, eventCount, industry);
     Greenfoot.setWorld(ew);
   }
 
