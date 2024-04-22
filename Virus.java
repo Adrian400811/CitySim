@@ -8,7 +8,13 @@ import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Virus extends Event {
   
+  private MainWorld mw;
+    
   private GreenfootImage virus;
+  
+  private int actsLeft;
+  
+  Label virusText = new Label("",45);
   
   /**
    * Act - do whatever the Virus wants to do. This method is called whenever the 'Act' or 'Run'
@@ -21,9 +27,24 @@ public class Virus extends Event {
     virus.fillRect(0,0,1280,720);
     virus.setTransparency(100);
     setImage(virus);
+    
+    actsLeft = 300;
+    
+    
   }
 
   public void act() {
     // Add your action code here.
+    actsLeft--;
+    
+    if (actsLeft == 0){
+        getWorld().removeObject(this.virusText);
+        getWorld().removeObject(this);
+    }
+  }
+  
+  public void addedToWorld(World MainWorld){
+    virusText.setValue("A Virus approaches..."  + "\nEPR -2" + "\nCWI -3");
+    MainWorld.addObject(virusText, 260, 360);
   }
 }
