@@ -55,6 +55,7 @@ public class MainWorld extends World {
     addObject(nextBtn, getWidth() - 110, 650);
 
     timeElapsed = 0;
+    setPaintOrder(Industry.class, Button.class, SuperTextBox.class, Virus.class);
   }
 
   public void act() {
@@ -81,7 +82,7 @@ public class MainWorld extends World {
     if (numOfCycles == 6) {
       end();
     } else {
-      if (numOfCycles % 2 == 0) {
+      if (numOfCycles % 2 == 0 && numOfCycles != 0) {
         // 2 of selected industry duplicates
         for (int i = 0; i < 2; i++) {
           getRandomSelectedIndustry();
