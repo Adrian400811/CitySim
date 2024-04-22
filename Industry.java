@@ -70,7 +70,6 @@ public abstract class Industry extends Actor {
     return grandTotal;
   }
 
-
   public void levelUp() {
     if (level < 3) {
       level++;

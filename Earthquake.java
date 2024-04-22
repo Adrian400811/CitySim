@@ -9,9 +9,9 @@ import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Earthquake extends Event {
   private MainWorld mw;
   private int actsLeft;
-  
+
   Label earthquakeText = new Label("", 45);
-  
+
   /**
    * Act - do whatever the Earthquake wants to do. This method is called whenever the 'Act' or 'Run'
    * button gets pressed in the environment.
@@ -20,23 +20,19 @@ public class Earthquake extends Event {
     changeIndex(-1, -3, -4);
     actsLeft = 300;
     setImage("CrackedStoneWallpaper.jpg");
-    
-    
   }
 
   public void act() {
     // Add your action code here.
     actsLeft--;
-    
-    
-    
-    if (actsLeft == 0){
-        getWorld().removeObject(this.earthquakeText);
-        getWorld().removeObject(this);
+
+    if (actsLeft == 0) {
+      getWorld().removeObject(this.earthquakeText);
+      getWorld().removeObject(this);
     }
   }
-  
-  public void addedToWorld(World MainWorld){
+
+  public void addedToWorld(World MainWorld) {
     earthquakeText.setValue("An Earthquake approaches..." + "\nSI -1" + "\nEPR -3" + "\nCWI -4");
     MainWorld.addObject(earthquakeText, 260, 360);
   }

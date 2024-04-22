@@ -56,7 +56,13 @@ public class MainWorld extends World {
     addObject(nextBtn, getWidth() - 110, 650);
 
     timeElapsed = 0;
-    setPaintOrder(Industry.class, Button.class, Label.class, SuperTextBox.class, Virus.class, Earthquake.class);
+    setPaintOrder(
+        Industry.class,
+        Button.class,
+        Label.class,
+        SuperTextBox.class,
+        Virus.class,
+        Earthquake.class);
   }
 
   public void act() {
