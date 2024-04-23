@@ -32,14 +32,19 @@ public class TechnologyAndInnovation extends Industry {
     if (MainWorld.getTotalCoin() >= 2500 && level == 0) {
       levelUp();
       MainWorld.changeTotalCoin(-2500);
+      MainWorld.changeEPR(3);
     } else if (MainWorld.getTotalCoin() >= 3750 && level == 1) {
       levelUp();
       MainWorld.changeTotalCoin(-3750);
+      MainWorld.changeEPR(2);
+      MainWorld.changeSI(1);
     } else if (MainWorld.getTotalCoin() >= 1875
         && level == 2
         && MainWorld.getIndustryLevel(2) >= 2) {
       levelUp();
       MainWorld.changeTotalCoin(-1875);
+      MainWorld.changeEPR(1);
+      MainWorld.changeCWI(1);
     }
   }
 }

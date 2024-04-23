@@ -32,12 +32,15 @@ public class AgricultureAndFood extends Industry {
     if (MainWorld.getTotalCoin() >= 800 && level == 0) {
       levelUp();
       MainWorld.changeTotalCoin(-800);
+      MainWorld.changeSI(3);
     } else if (MainWorld.getTotalCoin() >= 1200 && level == 1) {
       levelUp();
       MainWorld.changeTotalCoin(-1200);
+      MainWorld.changeSI(4);
     } else if (MainWorld.getTotalCoin() >= 600 && level == 2) {
       levelUp();
       MainWorld.changeTotalCoin(-600);
+      MainWorld.changeSI(5);
     }
   }
 }

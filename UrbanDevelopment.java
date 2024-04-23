@@ -32,15 +32,19 @@ public class UrbanDevelopment extends Industry {
     if (MainWorld.getTotalCoin() >= 1700 && level == 0) {
       levelUp();
       MainWorld.changeTotalCoin(-1700);
+      MainWorld.changeSI(1);
     } else if (MainWorld.getTotalCoin() >= 2550 && level == 1) {
       levelUp();
       MainWorld.changeTotalCoin(-2550);
+      MainWorld.changeSI(2);
     } else if (MainWorld.getTotalCoin() >= 1275
         && level == 2
         && MainWorld.getIndustryLevel(4) >= 2
         && MainWorld.getIndustryLevel(3) >= 2) {
       levelUp();
       MainWorld.changeTotalCoin(-1275);
+      MainWorld.changeSI(1);
+      MainWorld.changeCWI(1);
     }
   }
 }
