@@ -34,6 +34,6 @@ public class Earthquake extends Event {
 
   public void addedToWorld(World MainWorld) {
     earthquakeText.setValue("An Earthquake approaches..." + "\nSI -1" + "\nEPR -3" + "\nCWI -4");
-    MainWorld.addObject(earthquakeText, 260, 360);
+    MainWorld.addObject(earthquakeText, 230, 360);
   }
 }
