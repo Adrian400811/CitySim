@@ -69,6 +69,7 @@ public class MainWorld extends World {
     m = Greenfoot.getMouseInfo();
     timeElapsed++;
 
+    index.setValue("SI:     " + getSI() + "\nEPR:  " + getEPR() + "\nCWI: " + getCWI());
     moneyNum.setValue("Money: $" + getTotalCoin());
     if (numOfCycles == 0) {
       updateCycles();
@@ -96,7 +97,6 @@ public class MainWorld extends World {
           getRandomSelectedIndustry();
         }
         generateRandomEvent();
-        index.setValue("SI:     " + getSI() + "\nEPR:  " + getEPR() + "\nCWI: " + getCWI());
       }
 
       if (numOfCycles % 2 != 0) {

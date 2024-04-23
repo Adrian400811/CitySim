@@ -32,14 +32,19 @@ public class ForestryAndConservation extends Industry {
     if (MainWorld.getTotalCoin() >= 1000 && level == 0) {
       levelUp();
       MainWorld.changeTotalCoin(-1000);
+      MainWorld.changeCWI(2);
+      MainWorld.changeSI(1);
     } else if (MainWorld.getTotalCoin() >= 1500 && level == 1) {
       levelUp();
       MainWorld.changeTotalCoin(-1500);
+      MainWorld.changeCWI(1);
+      MainWorld.changeSI(1);
     } else if (MainWorld.getTotalCoin() >= 750
         && level == 2
         && MainWorld.getIndustryLevel(3) >= 2) {
       levelUp();
       MainWorld.changeTotalCoin(-750);
+      MainWorld.changeSI(1);
     }
   }
 }
