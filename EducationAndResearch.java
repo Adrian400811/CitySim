@@ -32,12 +32,17 @@ public class EducationAndResearch extends Industry {
     if (MainWorld.getTotalCoin() >= 1300 && level == 0) {
       levelUp();
       MainWorld.changeTotalCoin(-1300);
+      MainWorld.changeCWI(2);
     } else if (MainWorld.getTotalCoin() >= 1950 && level == 1) {
       levelUp();
       MainWorld.changeTotalCoin(-1950);
+      MainWorld.changeCWI(3);
+      MainWorld.changeSI(1);
     } else if (MainWorld.getTotalCoin() >= 975 && level == 2) {
       levelUp();
       MainWorld.changeTotalCoin(-975);
+      MainWorld.changeCWI(3);
+      MainWorld.changeSI(1);
     }
   }
 }

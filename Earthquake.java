@@ -10,7 +10,7 @@ public class Earthquake extends Event {
   private MainWorld mw;
   private int actsLeft;
 
-  Label earthquakeText = new Label("", 45);
+  Label earthquakeText = new Label("", 40);
 
   /**
    * Act - do whatever the Earthquake wants to do. This method is called whenever the 'Act' or 'Run'
