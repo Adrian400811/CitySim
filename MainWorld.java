@@ -39,7 +39,7 @@ public class MainWorld extends World {
       int EPR,
       boolean[] selIndustry,
       boolean event,
-      int maxCycle){
+      int maxCycle) {
     super(width, height, 1);
     addObject(title, getWidth() / 10, 60);
     addObject(cycle, getWidth() - 115, 60);
@@ -55,7 +55,7 @@ public class MainWorld extends World {
     this.maxCycle = maxCycle;
 
     numOfCycles = 0;
-    
+
     // for dev use
     addObject(index, getWidth() / 4 * 3, getHeight() / 2);
     index.setValue("SI     " + SI + "\nEPR  " + EPR + "\nCWI " + CWI);
