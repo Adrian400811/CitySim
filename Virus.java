@@ -8,6 +8,7 @@ import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Virus extends Event {
 
+  private GreenfootSound virusSound = new GreenfootSound("virus.wav");
   private MainWorld mw;
 
   private GreenfootImage virus;
@@ -25,7 +26,7 @@ public class Virus extends Event {
     virus.setTransparency(100);
     setImage(virus);
 
-    actsLeft = 300;
+    actsLeft = 400;
   }
 
   public void act() {
@@ -33,6 +34,7 @@ public class Virus extends Event {
     actsLeft--;
 
     if (actsLeft == 0) {
+      virusSound.stop();
       getWorld().removeObject(this.virusText);
       getWorld().removeObject(this);
     }
@@ -40,6 +42,7 @@ public class Virus extends Event {
 
   /** Adds label to the left side of the screen when an instance of Virus is added to the world */
   public void addedToWorld(World MainWorld) {
+    virusSound.play();
     virusText.setValue("A Virus approaches..." + "\nEPR -2" + "\nCWI -3");
     MainWorld.addObject(virusText, 230, 360);
   }

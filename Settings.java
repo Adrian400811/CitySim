@@ -174,4 +174,12 @@ public class Settings extends World {
       Greenfoot.setWorld(main);
     }
   }
+
+  public void stopped() {
+    TitleScreen.stopBGM();
+  }
+
+  public void started() {
+    TitleScreen.playBGM();
+  }
 }

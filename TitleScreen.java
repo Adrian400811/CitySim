@@ -9,7 +9,7 @@ import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class TitleScreen extends World {
   private Label titleLabel = new Label("City Simulator", 75);
   private Label startLabel = new Label("Press <enter> to begin", 45);
-  private GreenfootSound bgm = new GreenfootSound("sounds/ittybitty8bit.mp3");
+  private static GreenfootSound bgm = new GreenfootSound("sounds/ittybitty8bit.mp3");
 
   /** Constructor for objects of class TitleScreen. */
   public TitleScreen() {
@@ -23,10 +23,29 @@ public class TitleScreen extends World {
 
   /** Act method */
   public void act() {
-    bgm.playLoop();
     if (Greenfoot.isKeyDown("enter")) {
       Settings world = new Settings(getWidth(), getHeight());
       Greenfoot.setWorld(world);
     }
+  }
+
+  /** Play background music if world has started */
+  public void started() {
+    bgm.playLoop();
+  }
+
+  /** Pause background music if world has stopped */
+  public void stopped() {
+    bgm.pause();
+  }
+
+  /** Method to stop background music from any world */
+  public static void stopBGM() {
+    bgm.pause();
+  }
+
+  /** Method to play background music from any world */
+  public static void playBGM() {
+    bgm.playLoop();
   }
 }
