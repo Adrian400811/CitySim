@@ -7,9 +7,10 @@ import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version (a version number or a date)
  */
 public class EndWorld extends World {
-  Label index = new Label("", 45);
-  Label level = new Label("", 45);
-  private int SI, EPR, CWI, coin;
+  private Label siLabel, eprLabel, cwiLabel, cycleLabel, eventLabel, coinLabel;
+  private Label level = new Label("", 45);
+  private Image siImg, eprImg, cwiImg, ordinaryBG, specialBG;
+  private int SI, EPR, CWI, coin, cycleCount, eventCount;
   private int siLevel, eprLevel, cwiLevel;
   private Industry[] industry;
   private String[] achievement = {
@@ -27,35 +28,34 @@ public class EndWorld extends World {
   private boolean[] earnedAchievements;
 
   /** Constructor for objects of class EndWorld. */
-  public EndWorld(int width, int height, int SI, int EPR, int CWI, int coin, Industry[] industry) {
+  public EndWorld(
+      int width,
+      int height,
+      int SI,
+      int EPR,
+      int CWI,
+      int coin,
+      int cycleCount,
+      int eventCount,
+      Industry[] industry) {
     // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
     super(width, height, 1);
     this.SI = SI;
     this.EPR = EPR;
     this.CWI = CWI;
     this.coin = coin;
+    this.cycleCount = cycleCount;
+    this.eventCount = eventCount;
     this.industry = industry;
 
     siLevel = calculateLevel(SI);
     eprLevel = calculateLevel(EPR);
     cwiLevel = calculateLevel(CWI);
 
+    generateIndexLabel();
+    generateStatsLabel();
     earnedAchievements = getAchievements();
-
-    String indexString = "SI: " + SI + " EPR: " + EPR + " CWI: " + CWI;
-    String levelString =
-        "SI: "
-            + printLevel(siLevel)
-            + " EPR: "
-            + printLevel(eprLevel)
-            + " CWI: "
-            + printLevel(cwiLevel);
-
-    addObject(index, getWidth() / 2, getHeight() / 4 - 60);
-    index.setValue(indexString);
-    addObject(level, getWidth() / 2, getHeight() / 4 + 60);
-    level.setValue(levelString);
-    generateAchievementString();
+    generateAchievement();
   }
 
   public int calculateLevel(int score) {
@@ -71,11 +71,10 @@ public class EndWorld extends World {
     } else {
       level = 0;
     }
-    System.out.println(level);
     return level;
   }
 
-  public String printLevel(int level) {
+  public String getLevelText(int level) {
     String levelText = "";
     switch (level) {
       default:
@@ -139,30 +138,71 @@ public class EndWorld extends World {
     return count;
   }
 
-  public void generateAchievementString() {
+  public void generateAchievement() {
     achievementString = new Label[6];
     int count = 0;
     for (int i = 0; i < achievement.length; i++) {
       if (earnedAchievements[i] == true) {
-        achievementString[count] = new Label(achievement[i], 36);
+        achievementString[count] = new Label(achievement[i], 28);
+        ordinaryBG = new Image("images/achievement/ordinary_mid.png", 85);
+        specialBG = new Image("images/achievement/special_mid.png", 85);
         int dir = 0;
         int upDown = 0;
         if (count == 0 || count == 3) {
           dir = -1;
-        } else if (count == 2 || count == 4) {
+        } else if (count == 2 || count == 5) {
           dir = 1;
         }
-        if (count <= 3) {
+        if (count <= 2) {
           upDown = -1;
         } else {
           upDown = 1;
         }
-        addObject(
-            achievementString[count],
-            getWidth() / 2 + (275 * dir),
-            getHeight() / 4 * 3 + (60 * upDown));
+        int x = getWidth() / 2 + (360 * dir);
+        int y = getHeight() / 4 * 3 + (60 * upDown);
+        if (i <= 4) {
+          addObject(ordinaryBG, x - 30, y);
+        }
+        if (i >= 5) {
+          addObject(specialBG, x - 30, y);
+        }
+        addObject(achievementString[count], x, y);
         count++;
       }
     }
+  }
+
+  public void generateIndexLabel() {
+    int anchorX = getWidth() / 2;
+    int anchorY = getHeight() / 4;
+    int imgOffset = -60;
+    int stringOffset = +60;
+    int lrOffset = getWidth() / 4;
+    siImg = new Image("images/icon/SI.png", 50);
+    siLabel = new Label("SI " + SI + "\n" + getLevelText(calculateLevel(SI)), 45);
+    eprImg = new Image("images/icon/EPR.png", 45);
+    eprLabel = new Label("EPR " + EPR + "\n" + getLevelText(calculateLevel(EPR)), 45);
+    cwiImg = new Image("images/icon/CWI.png", 50);
+    cwiLabel = new Label("CWI " + CWI + "\n" + getLevelText(calculateLevel(CWI)), 45);
+    addObject(siImg, anchorX + imgOffset - lrOffset, anchorY);
+    addObject(siLabel, anchorX + stringOffset - lrOffset, anchorY);
+    addObject(eprImg, anchorX + imgOffset, anchorY);
+    addObject(eprLabel, anchorX + stringOffset, anchorY);
+    addObject(cwiImg, anchorX + imgOffset + lrOffset, anchorY);
+    addObject(cwiLabel, anchorX + stringOffset + lrOffset, anchorY);
+  }
+
+  public void generateStatsLabel() {
+    int anchorX = getWidth() / 2;
+    int anchorY = getHeight() / 2;
+    int imfOffset = -60;
+    int stringOffset = +60;
+    int lrOffset = getWidth() / 4;
+    cycleLabel = new Label(cycleCount, 40);
+    eventLabel = new Label(eventCount, 40);
+    coinLabel = new Label(coin, 40);
+    addObject(cycleLabel, anchorX + stringOffset - lrOffset, anchorY);
+    addObject(eventLabel, anchorX + stringOffset, anchorY);
+    addObject(coinLabel, anchorX + stringOffset + lrOffset, anchorY);
   }
 }

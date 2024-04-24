@@ -24,7 +24,6 @@ public class UrbanDevelopment extends Industry {
    * 'Run' button gets pressed in the environment.
    */
   public void act() {
-    // Add your action code here.
     checkNextLevel();
     checkImage();
   }

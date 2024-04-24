@@ -13,6 +13,10 @@ public class Storm extends Event {
 
   private GreenfootImage image;
 
+  private MainWorld mw;
+
+  Label stormText = new Label("", 45);
+
   public Storm() {
     changeIndex(-1, -1, -2);
     image = Utility.drawStorm(2560, 1440, 100);
@@ -20,7 +24,7 @@ public class Storm extends Event {
 
     actsLeft = 300;
 
-    speed = 0.5;
+    speed = 0.55;
   }
 
   /**
@@ -33,7 +37,13 @@ public class Storm extends Event {
     setLocation((double) (getX() - speed), (double) (getY() + speed));
 
     if (actsLeft == 0) {
+      getWorld().removeObject(this.stormText);
       getWorld().removeObject(this);
     }
+  }
+
+  public void addedToWorld(World MainWorld) {
+    stormText.setValue("A Storm approaches..." + "\nSI -1" + "\nEPR -1" + "\nCWI -2");
+    MainWorld.addObject(stormText, 260, 360);
   }
 }
