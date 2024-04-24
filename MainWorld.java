@@ -96,7 +96,7 @@ public class MainWorld extends World {
       updateCycles();
     }
     if (timeElapsed % 3 == 0) {
-      passiveIncome();
+      generatePassiveIncome();
     } else if (timeElapsed >= (55 * 20)) {
       updateCycles();
       timeElapsed = 0;
@@ -107,9 +107,13 @@ public class MainWorld extends World {
     }
   }
 
-  /** Changes Total Coins by 1 */
-  public void passiveIncome() {
-    changeTotalCoin((int) 1 * (getEPR() / 2));
+  /** Creates passive income for the city */
+  public void generatePassiveIncome() {
+    if (getEPR() > 0){
+        changeTotalCoin((int) 1 * (getEPR() / 2));
+    } else {
+        changeTotalCoin(1);
+    }
   }
 
   /** Updates total amount of cycles and calls other methods on certain cycles */
