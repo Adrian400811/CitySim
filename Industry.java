@@ -26,6 +26,9 @@ public abstract class Industry extends Actor {
   SuperTextBox text;
 
   private int textTimer;
+  
+  private static GreenfootSound[] levelSound;
+  private static int levelSoundIndex;
 
   /**
    * Constructor for Industry
@@ -85,9 +88,8 @@ public abstract class Industry extends Actor {
 
   /** Levels up the industry */
   public void levelUp() {
-    if (level < 3) {
-      level++;
-    }
+     level++;
+     playLevelUp();
   }
 
   /**
@@ -97,5 +99,32 @@ public abstract class Industry extends Actor {
    */
   public int getLevel() {
     return level;
+  }
+  
+  /**
+    * Plays level up sound
+    */
+  public void playLevelUp(){
+    levelSound[levelSoundIndex].setVolume(100);
+    levelSound[levelSoundIndex].play();
+    levelSoundIndex++;
+    if (levelSoundIndex >= levelSound.length){
+        levelSoundIndex = 0;
+    }
+  }
+    
+  /**
+   * Pre-loads sounds for level up
+   * From Mr.Cohen's Demo Tutorial
+   */
+  public static void init(){
+    levelSoundIndex = 0;
+    levelSound = new GreenfootSound[48]; 
+    for (int i = 0; i < levelSound.length; i++){
+        levelSound[i] = new GreenfootSound("levelup.wav");
+        levelSound[i].play();
+        Greenfoot.delay(1);
+        levelSound[i].stop();
+    }   
   }
 }
