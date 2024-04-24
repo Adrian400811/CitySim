@@ -28,32 +28,24 @@ public class TitleScreen extends World {
       Greenfoot.setWorld(world);
     }
   }
-  
-  /**
-   * Play background music if world has started
-   */
-  public void started(){
-      bgm.playLoop();
+
+  /** Play background music if world has started */
+  public void started() {
+    bgm.playLoop();
   }
-  
-  /**
-   * Pause background music if world has stopped
-   */
-  public void stopped(){
-      bgm.pause();
+
+  /** Pause background music if world has stopped */
+  public void stopped() {
+    bgm.pause();
   }
-  
-  /**
-   * Method to stop background music from any world
-   */
-  public static void stopBGM(){
-      bgm.pause();
+
+  /** Method to stop background music from any world */
+  public static void stopBGM() {
+    bgm.pause();
   }
-  
-  /**
-   * Method to play background music from any world
-   */
-  public static void playBGM(){
-      bgm.playLoop();
+
+  /** Method to play background music from any world */
+  public static void playBGM() {
+    bgm.playLoop();
   }
 }
