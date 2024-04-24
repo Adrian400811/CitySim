@@ -32,11 +32,11 @@ public abstract class Industry extends Actor {
 
   /**
    * Constructor for Industry
-   * 
-   * @param SI      The value of Sustainability Index
-   * @param EPR     The value of Economic Prosperity Rating
-   * @param CWI     The value of Community Well-being Index
-   * @param type    The corresponding index for the Indsutry
+   *
+   * @param SI The value of Sustainability Index
+   * @param EPR The value of Economic Prosperity Rating
+   * @param CWI The value of Community Well-being Index
+   * @param type The corresponding index for the Indsutry
    */
   public Industry(int SI, int EPR, int CWI, int type) {
     this.SI = SI;
@@ -56,9 +56,7 @@ public abstract class Industry extends Actor {
     // Add your action code here.
   }
 
-  /**
-   * Checks the level and updates the image accordingly
-   */
+  /** Checks the level and updates the image accordingly */
   public void checkImage() {
     if (level == 1) {
       L1.scale(144, 144);
@@ -72,16 +70,12 @@ public abstract class Industry extends Actor {
     }
   }
 
-  /**
-   * Sets the variable mw to MainWorld 
-   */
+  /** Sets the variable mw to MainWorld */
   public void addedToWorld(World w) {
     mw = (MainWorld) w;
   }
 
-  /**
-   * Generates the income for the industry
-   */
+  /** Generates the income for the industry */
   public double income() {
     int baseIncome = 100 * mw.getEPR();
     double industryIncome = count * lvlMultipliers[level - 1] * level;
@@ -92,9 +86,7 @@ public abstract class Industry extends Actor {
     return grandTotal;
   }
 
-  /**
-   * Levels up the industry
-   */
+  /** Levels up the industry */
   public void levelUp() {
      level++;
      playLevelUp();
@@ -102,8 +94,8 @@ public abstract class Industry extends Actor {
 
   /**
    * Getter method for the level
-   * 
-   * @return level  The level of the industry
+   *
+   * @return level The level of the industry
    */
   public int getLevel() {
     return level;
