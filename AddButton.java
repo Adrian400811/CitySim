@@ -7,12 +7,12 @@ import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version (a version number or a date)
  */
 public class AddButton extends Button {
-    private boolean ifDiscbetion=false;
+  private boolean ifDiscbetion = false;
   private GreenfootImage unclickedButton = new GreenfootImage("Adjust_Up_Button_01.png");
   private GreenfootImage clickedButton = new GreenfootImage("Adjust_Up_Button_02.png");
 
-  public AddButton(){
-      super(false);
+  public AddButton() {
+    super(false);
   }
 
   /**

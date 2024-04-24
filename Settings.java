@@ -14,7 +14,7 @@ public class Settings extends World {
   Label industryTitle = new Label("Industry (Select 3-6)", 45);
   Label next = new Label("Next", 45);
   Button nextBtn = new NextButton();
-    private EventButton eventButton=new EventButton();
+  private EventButton eventButton = new EventButton();
   private int[] btnY = {180, 300, 420};
   private int dir;
   private int buttonCount = 6;
@@ -22,15 +22,14 @@ public class Settings extends World {
   private IndustryButton[] industryButton;
   private boolean[] selectedIndustry = new boolean[9];
   private int selectCount = 0;
-  private int numOfCycles =6; //5, 10, 15
-  private boolean event = false; 
-  
+  private int numOfCycles = 6; // 5, 10, 15
+  private boolean event = false;
 
   private int SI, EPR, CWI;
 
-  
-  //test text
+  // test text
   Label test = new Label("true", 45);
+
   /** Constructor for objects of class Settings. */
   public Settings(int width, int height) {
     // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -54,8 +53,7 @@ public class Settings extends World {
     addObject(community, getWidth() / 4, 420);
     addObject(industryTitle, getWidth() / 10 * 6, 60);
     addObject(next, getWidth() - 175, 650);
-    //addObject(eventButton, getWidth() / 4, 540);
-    
+    // addObject(eventButton, getWidth() / 4, 540);
 
   }
 
@@ -98,15 +96,15 @@ public class Settings extends World {
           industryButton[i], getWidth() / 4 * 3 + (135 * dir), getHeight() / 2 + (135 * upDown));
     }
   }
-  
-    public void cheakEventButton(){
-        if(eventButton.checkClicked()){
-            event=!event;
-        }
-        else if(eventButton.openDis(eventButton.cheakDis())){
-            addObject(test, getWidth()/2, getHeight()/2);
-        }
+
+  public void cheakEventButton() {
+    if (eventButton.checkClicked()) {
+      event = !event;
+    } else if (eventButton.openDis(eventButton.cheakDis())) {
+      addObject(test, getWidth() / 2, getHeight() / 2);
     }
+  }
+
   public void checkPressedButton() {
     for (int i = 0; i < indexButton.length; i++) {
       if (i % 2 == 0) {
@@ -145,8 +143,10 @@ public class Settings extends World {
         }
       }
     }
-    if (nextBtn != null && nextBtn.checkClicked()&& selectCount >= 3) {
-      MainWorld main = new MainWorld(getWidth(), getHeight(), SI, CWI, EPR, selectedIndustry, event, numOfCycles);
+    if (nextBtn != null && nextBtn.checkClicked() && selectCount >= 3) {
+      MainWorld main =
+          new MainWorld(
+              getWidth(), getHeight(), SI, CWI, EPR, selectedIndustry, event, numOfCycles);
       Greenfoot.setWorld(main);
     }
   }

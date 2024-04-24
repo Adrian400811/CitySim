@@ -24,7 +24,7 @@ public class IndustryButton extends Button {
   };
 
   public IndustryButton(int type) {
-      super(true);
+    super(true);
     this.type = type;
     image = new GreenfootImage("images/industry/" + icons[type] + "1.png");
     imageSelected = new GreenfootImage("images/industry/" + icons[type] + "Selected.png");
