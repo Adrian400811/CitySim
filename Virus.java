@@ -43,6 +43,6 @@ public class Virus extends Event {
 
   public void addedToWorld(World MainWorld) {
     virusText.setValue("A Virus approaches..." + "\nEPR -2" + "\nCWI -3");
-    MainWorld.addObject(virusText, 260, 360);
+    MainWorld.addObject(virusText, 230, 360);
   }
 }

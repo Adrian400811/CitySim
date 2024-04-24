@@ -32,12 +32,17 @@ public class Energy extends Industry {
     if (MainWorld.getTotalCoin() >= 1200 && level == 0) {
       levelUp();
       MainWorld.changeTotalCoin(-1200);
+      MainWorld.changeEPR(2);
     } else if (MainWorld.getTotalCoin() >= 1800 && level == 1) {
       levelUp();
       MainWorld.changeTotalCoin(-1800);
+      MainWorld.changeEPR(2);
     } else if (MainWorld.getTotalCoin() >= 900 && level == 2) {
       levelUp();
       MainWorld.changeTotalCoin(-900);
+      MainWorld.changeEPR(1);
+      MainWorld.changeSI(1);
+      MainWorld.changeCWI(1);
     }
   }
 }

@@ -10,7 +10,7 @@ public class Earthquake extends Event {
   private MainWorld mw;
   private int actsLeft;
 
-  Label earthquakeText = new Label("", 45);
+  Label earthquakeText = new Label("", 40);
 
   /**
    * Act - do whatever the Earthquake wants to do. This method is called whenever the 'Act' or 'Run'
@@ -34,6 +34,6 @@ public class Earthquake extends Event {
 
   public void addedToWorld(World MainWorld) {
     earthquakeText.setValue("An Earthquake approaches..." + "\nSI -1" + "\nEPR -3" + "\nCWI -4");
-    MainWorld.addObject(earthquakeText, 260, 360);
+    MainWorld.addObject(earthquakeText, 230, 360);
   }
 }

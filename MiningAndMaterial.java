@@ -32,12 +32,15 @@ public class MiningAndMaterial extends Industry {
     if (MainWorld.getTotalCoin() >= 1500 && level == 0) {
       levelUp();
       MainWorld.changeTotalCoin(-1500);
+      MainWorld.changeEPR(1);
     } else if (MainWorld.getTotalCoin() >= 2250 && level == 1) {
       levelUp();
       MainWorld.changeTotalCoin(-2250);
+      MainWorld.changeEPR(2);
     } else if (MainWorld.getTotalCoin() >= 1125 && level == 2) {
       levelUp();
       MainWorld.changeTotalCoin(-1125);
+      MainWorld.changeEPR(1);
     }
   }
 }
