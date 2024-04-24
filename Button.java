@@ -1,10 +1,10 @@
 import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Button here.
+ * Button Superclass
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Jimmy, Adrian, Daniel
+ * @version April 24, 2024
  */
 public abstract class Button extends Actor {
   /**
@@ -13,6 +13,11 @@ public abstract class Button extends Actor {
    */
   public void act() {}
 
+  /**
+   * Checks if the button was clicked
+   * 
+   * @return boolean    True if clicked, false if not clicked
+   */
   public boolean checkClicked() {
     if (Greenfoot.mouseClicked(this)) {
       return true;

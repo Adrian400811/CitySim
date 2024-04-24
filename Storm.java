@@ -1,10 +1,10 @@
 import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Storm here.
+ * Storm class
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Jimmy, Adrian, Daniel
+ * @version April 24, 2024
  */
 public class Storm extends Event {
   private int actsLeft;
@@ -17,6 +17,9 @@ public class Storm extends Event {
 
   Label stormText = new Label("", 45);
 
+  /**
+   * Constructor for Storm
+   */
   public Storm() {
     changeIndex(-1, -1, -2);
     image = Utility.drawStorm(2560, 1440, 100);
@@ -42,6 +45,10 @@ public class Storm extends Event {
     }
   }
 
+  /**
+   * Adds label to the left side of the screen
+   * when an instance of Storm is added to the world
+   */
   public void addedToWorld(World MainWorld) {
     stormText.setValue("A Storm approaches..." + "\nSI -1" + "\nEPR -1" + "\nCWI -2");
     MainWorld.addObject(stormText, 230, 360);

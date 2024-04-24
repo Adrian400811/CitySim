@@ -34,7 +34,7 @@ public class MainWorld extends World {
   // 5 Recreation, 6 Technology, 7 Development, 8 Education
 
   /** 
-   * Constructor for objects of class MyWorld. 
+   * Constructor for objects of class MainWorld. 
    * 
    * @param width           The width of the world
    * @param height          The height of the world
@@ -99,6 +99,9 @@ public class MainWorld extends World {
     }
   }
   
+  /**
+   * Changes Total Coins by 1
+   */
   public void passiveIncome(){
       changeTotalCoin(1);
   }

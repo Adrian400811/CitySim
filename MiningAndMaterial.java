@@ -12,6 +12,9 @@ public class MiningAndMaterial extends Industry {
   private int CWI = -1;
   private int type = 5;
 
+  /**
+   * Constructor for MiningAndMaterial
+   */
   public MiningAndMaterial() {
     super(-2, +2, -1, 5);
     L1 = new GreenfootImage("images/industry/Material1.png");
@@ -28,6 +31,9 @@ public class MiningAndMaterial extends Industry {
     checkImage();
   }
 
+  /**
+   * Checks if it can level up based on the criteria
+   */
   public void checkNextLevel() {
     if (MainWorld.getTotalCoin() >= 1500 && level == 0) {
       levelUp();
