@@ -244,12 +244,12 @@ public class EndWorld extends World {
     addObject(eventLabel, anchorX + stringOffset, anchorY);
     addObject(coinLabel, anchorX + stringOffset + lrOffset, anchorY);
   }
-  
-  public void stopped(){
-      TitleScreen.stopBGM();
+
+  public void stopped() {
+    TitleScreen.stopBGM();
   }
-  
-  public void started(){
-      TitleScreen.playBGM();
+
+  public void started() {
+    TitleScreen.playBGM();
   }
 }
