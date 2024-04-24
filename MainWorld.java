@@ -34,7 +34,7 @@ public class MainWorld extends World {
   // 5 Recreation, 6 Technology, 7 Development, 8 Education
 
   /** Constructor for objects of class MyWorld. */
-  public MainWorld(int width, int height, int SI, int CWI, int EPR, boolean[] selIndustry) {
+  public MainWorld(int width, int height, int SI, int CWI, int EPR, boolean[] selIndustry, boolean event, int numOfCycles){
     super(width, height, 1);
     addObject(title, getWidth() / 10, 60);
     addObject(cycle, getWidth() - 115, 60);
@@ -43,7 +43,7 @@ public class MainWorld extends World {
     industry = new Industry[9];
     prepareIndustries();
 
-    numOfCycles = 0;
+    this.numOfCycles = numOfCycles;
 
     this.SI = SI;
     this.CWI = CWI;
