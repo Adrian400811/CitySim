@@ -1,10 +1,10 @@
 import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class TitleScreen here.
+ * The title screen for the simulator
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Jimmy, Adrian Daniel
+ * @version April 24, 2024
  */
 public class TitleScreen extends World {
   private Label titleLabel = new Label("City Simulator", 75);
@@ -21,6 +21,7 @@ public class TitleScreen extends World {
     addObject(startLabel, getWidth() / 2, getHeight() / 2 + 60);
   }
 
+  /** Act method */
   public void act() {
     bgm.playLoop();
     if (Greenfoot.isKeyDown("enter")) {

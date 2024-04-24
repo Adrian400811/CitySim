@@ -1,7 +1,7 @@
 import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class ForestryAndConservation here.
+ * ForestryAndConservation class
  *
  * @author (your name)
  * @version (a version number or a date)
@@ -12,6 +12,7 @@ public class ForestryAndConservation extends Industry {
   private int CWI = +2;
   private int type = 4;
 
+  /** Constructor for ForestryAndConservation */
   public ForestryAndConservation() {
     super(+3, +1, +2, 4);
     L1 = new GreenfootImage("images/industry/Forestry1.png");
@@ -28,6 +29,7 @@ public class ForestryAndConservation extends Industry {
     checkImage();
   }
 
+  /** Checks if it can level up based on the criteria */
   public void checkNextLevel() {
     if (MainWorld.getTotalCoin() >= 1000 && level == 0) {
       levelUp();

@@ -1,10 +1,10 @@
 import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class UrbanDevelopment here.
+ * UrbanDevelopment Class
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Jimmy, Adrian, Daniel
+ * @version April 24, 2024
  */
 public class UrbanDevelopment extends Industry {
   private int SI = -2;
@@ -12,6 +12,7 @@ public class UrbanDevelopment extends Industry {
   private int CWI = +1;
   private int type = 8;
 
+  /** Constructor for UrbanDevelopment */
   public UrbanDevelopment() {
     super(-2, +2, +1, 8);
     L1 = new GreenfootImage("images/industry/UrbanDev1.png");
@@ -28,6 +29,7 @@ public class UrbanDevelopment extends Industry {
     checkImage();
   }
 
+  /** Checks if it can level up based on the criteria */
   public void checkNextLevel() {
     if (MainWorld.getTotalCoin() >= 1700 && level == 0) {
       levelUp();

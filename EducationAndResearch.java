@@ -1,10 +1,10 @@
 import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class EducationAndResearch here.
+ * EducationAndResearch Class
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Jimmy, Adrian, Daniel
+ * @version April 24, 2024
  */
 public class EducationAndResearch extends Industry {
   private int SI = +2;
@@ -12,6 +12,7 @@ public class EducationAndResearch extends Industry {
   private int CWI = +3;
   private int type = 2;
 
+  /** Constructor for EducationAndResearch */
   public EducationAndResearch() {
     super(+2, +2, +3, 2);
     L1 = new GreenfootImage("images/industry/Education1.png");
@@ -28,6 +29,7 @@ public class EducationAndResearch extends Industry {
     checkImage();
   }
 
+  /** Checks if it can level up based on the criteria */
   public void checkNextLevel() {
     if (MainWorld.getTotalCoin() >= 1300 && level == 0) {
       levelUp();
