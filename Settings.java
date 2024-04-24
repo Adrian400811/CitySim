@@ -125,7 +125,7 @@ public class Settings extends World {
    * Spawns Settings button
    */
   public void spawnSettingButton() {
-    addObject(eventButton, getWidth() / 6, getHeight() - 60);
+    // addObject(eventButton, getWidth() / 6, getHeight() - 60);
   }
 
   /**
