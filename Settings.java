@@ -13,6 +13,8 @@ public class Settings extends World {
   Label community = new Label("Community Well-being Index: 0", 36);
   Label industryTitle = new Label("Industry (Select 3-6)", 45);
   Label next = new Label("Next", 45);
+  Label eventLabel = new Label("ON",36);
+  Label round = new Label("",24);
   Button nextBtn = new NextButton();
   private EventButton eventButton = new EventButton();
   private int[] btnY = {180, 300, 420};
@@ -21,11 +23,13 @@ public class Settings extends World {
   private Button[] indexButton;
   private IndustryButton[] industryButton;
   private boolean[] selectedIndustry = new boolean[9];
+  //private Button eventButton = new Button("images/button/eventSetter.png",50);
   private int selectCount = 0;
+  private int coinStep = 1000;
   private int numOfCycles = 6; // 5, 10, 15
   private boolean event = false;
 
-  private int SI, EPR, CWI;
+  private int SI, EPR, CWI, cycle;
 
   // test text
   Label test = new Label("true", 45);
@@ -38,8 +42,9 @@ public class Settings extends World {
     EPR = 0;
     CWI = 0;
     spawnText();
-    spawnButtons();
+    spawnIndexButtons();
     spawnIndustryGrid();
+    spawnSettingButton();
   }
 
   public void act() {
@@ -57,7 +62,7 @@ public class Settings extends World {
 
   }
 
-  public void spawnButtons() {
+  public void spawnIndexButtons() {
     indexButton = new Button[6];
     for (int i = 0; i < 6; i++) {
       if (i % 2 == 0) {
@@ -95,6 +100,10 @@ public class Settings extends World {
       addObject(
           industryButton[i], getWidth() / 4 * 3 + (135 * dir), getHeight() / 2 + (135 * upDown));
     }
+  }
+  
+  public void spawnSettingButton(){
+      addObject(eventButton, getWidth()/6, getHeight()-60);
   }
 
   public void cheakEventButton() {
@@ -143,7 +152,7 @@ public class Settings extends World {
         }
       }
     }
-    if (nextBtn != null && nextBtn.checkClicked() && selectCount >= 3) {
+    if (nextBtn != null && nextBtn.checkClicked() && selectCount <= 6 && selectCount >= 3) {
       MainWorld main =
           new MainWorld(
               getWidth(), getHeight(), SI, CWI, EPR, selectedIndustry, event, numOfCycles);

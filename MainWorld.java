@@ -20,11 +20,8 @@ public class MainWorld extends World {
 
   Button nextBtn = new NextButton();
 
-  private static int SI, EPR, CWI;
-  private static int totalCoin;
-  private int numOfCycles;
-  private int eventCount;
-  private int timeElapsed;
+  private static int SI, EPR, CWI, totalCoin;
+  private int numOfCycles, maxCycle, eventCount, timeElapsed;
   private int dir;
   private boolean[] selIndustry;
 
@@ -42,7 +39,7 @@ public class MainWorld extends World {
       int EPR,
       boolean[] selIndustry,
       boolean event,
-      int numOfCycles) {
+      int maxCycle){
     super(width, height, 1);
     addObject(title, getWidth() / 10, 60);
     addObject(cycle, getWidth() - 115, 60);
@@ -51,13 +48,14 @@ public class MainWorld extends World {
     industry = new Industry[9];
     prepareIndustries();
 
-    this.numOfCycles = numOfCycles;
-
     this.SI = SI;
     this.CWI = CWI;
     this.EPR = EPR;
     this.selIndustry = selIndustry;
+    this.maxCycle = maxCycle;
 
+    numOfCycles = 0;
+    
     // for dev use
     addObject(index, getWidth() / 4 * 3, getHeight() / 2);
     index.setValue("SI     " + SI + "\nEPR  " + EPR + "\nCWI " + CWI);
