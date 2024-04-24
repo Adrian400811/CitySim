@@ -12,9 +12,7 @@ public class AgricultureAndFood extends Industry {
   private int CWI = +2;
   private int type = 1;
 
-  /**
-   * Constructor for AgricultureAndFood
-   */
+  /** Constructor for AgricultureAndFood */
   public AgricultureAndFood() {
     super(+1, +2, +2, 1);
     L1 = new GreenfootImage("images/industry/Agriculture1.png");
@@ -31,9 +29,7 @@ public class AgricultureAndFood extends Industry {
     checkImage();
   }
 
-  /**
-   * Checks if it can level up based on the criteria
-   */
+  /** Checks if it can level up based on the criteria */
   public void checkNextLevel() {
     if (MainWorld.getTotalCoin() >= 800 && level == 0) {
       levelUp();

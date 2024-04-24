@@ -12,9 +12,7 @@ public class Energy extends Industry {
   private int CWI = +1;
   private int type = 3;
 
-  /**
-   * Constructor for Energy
-   */
+  /** Constructor for Energy */
   public Energy() {
     super(+2, +2, +1, 3);
     L1 = new GreenfootImage("images/industry/Energy1.png");
@@ -31,9 +29,7 @@ public class Energy extends Industry {
     checkImage();
   }
 
-  /**
-   * Checks if it can level up based on the criteria
-   */
+  /** Checks if it can level up based on the criteria */
   public void checkNextLevel() {
     if (MainWorld.getTotalCoin() >= 1200 && level == 0) {
       levelUp();

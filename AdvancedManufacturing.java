@@ -12,9 +12,7 @@ public class AdvancedManufacturing extends Industry {
   private int CWI = +1;
   private int type = 0;
 
-  /**
-   * Constructor for Advanced Manufacturing
-   */
+  /** Constructor for Advanced Manufacturing */
   public AdvancedManufacturing() {
     super(-1, +3, +1, 0);
     L1 = new GreenfootImage("images/industry/Manufacturing1.png");
@@ -31,9 +29,7 @@ public class AdvancedManufacturing extends Industry {
     checkImage();
   }
 
-  /**
-   * Checks if it can level up based on the criteria
-   */
+  /** Checks if it can level up based on the criteria */
   public void checkNextLevel() {
     if (MainWorld.getTotalCoin() >= 2000 && level == 0) {
       levelUp();

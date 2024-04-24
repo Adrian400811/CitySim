@@ -11,7 +11,7 @@ public class Image extends Actor {
 
   /**
    * Sets image with its original proportions
-   * 
+   *
    * @param path Location of the file
    */
   public Image(String path) {
@@ -20,11 +20,11 @@ public class Image extends Actor {
   }
 
   /**
-   * Sets image with scaled proportions in its X and Y 
-   * 
-   * @param path    Location of the file
-   * @param scaleX  Amount of X scaled
-   * @param scaleY  Amount of Y scaled
+   * Sets image with scaled proportions in its X and Y
+   *
+   * @param path Location of the file
+   * @param scaleX Amount of X scaled
+   * @param scaleY Amount of Y scaled
    */
   public Image(String path, int scaleX, int scaleY) {
     image = new GreenfootImage(path);
@@ -34,9 +34,9 @@ public class Image extends Actor {
 
   /**
    * Sets image with percentage scaled proportions
-   * 
-   * @param path            Location of the file
-   * @param scalePercent    Percentage scaled
+   *
+   * @param path Location of the file
+   * @param scalePercent Percentage scaled
    */
   public Image(String path, int scalePercent) {
     image = new GreenfootImage(path);

@@ -16,9 +16,7 @@ public class Virus extends Event {
 
   Label virusText = new Label("", 45);
 
-  /**
-   * Constructor for Virus class
-   */
+  /** Constructor for Virus class */
   public Virus() {
     changeIndex(0, -2, -3);
     virus = new GreenfootImage(1280, 720);
@@ -40,10 +38,7 @@ public class Virus extends Event {
     }
   }
 
-  /**
-   * Adds label to the left side of the screen
-   * when an instance of Virus is added to the world
-   */
+  /** Adds label to the left side of the screen when an instance of Virus is added to the world */
   public void addedToWorld(World MainWorld) {
     virusText.setValue("A Virus approaches..." + "\nEPR -2" + "\nCWI -3");
     MainWorld.addObject(virusText, 230, 360);

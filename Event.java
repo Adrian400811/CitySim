@@ -23,10 +23,10 @@ public abstract class Event extends SuperSmoothMover {
 
   /**
    * Changes the index of the MainWorld based off of the parameter values
-   * 
-   * @param SI      The value of SI to be changed
-   * @param EPR     The value of EPR to be changed
-   * @param CWI     The value of CWI to be changed
+   *
+   * @param SI The value of SI to be changed
+   * @param EPR The value of EPR to be changed
+   * @param CWI The value of CWI to be changed
    */
   public void changeIndex(int SI, int EPR, int CWI) {
     mw.changeSI(SI);

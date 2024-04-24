@@ -12,9 +12,7 @@ public class EducationAndResearch extends Industry {
   private int CWI = +3;
   private int type = 2;
 
-  /**
-   * Constructor for EducationAndResearch
-   */
+  /** Constructor for EducationAndResearch */
   public EducationAndResearch() {
     super(+2, +2, +3, 2);
     L1 = new GreenfootImage("images/industry/Education1.png");
@@ -31,9 +29,7 @@ public class EducationAndResearch extends Industry {
     checkImage();
   }
 
-  /**
-   * Checks if it can level up based on the criteria
-   */
+  /** Checks if it can level up based on the criteria */
   public void checkNextLevel() {
     if (MainWorld.getTotalCoin() >= 1300 && level == 0) {
       levelUp();

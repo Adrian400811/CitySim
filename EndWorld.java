@@ -28,18 +28,18 @@ public class EndWorld extends World {
   private Label[] achievementString;
   private boolean[] earnedAchievements;
 
-  /** 
-   * Constructor for objects of class EndWorld. 
-   * 
-   * @param width       The width for the EndWorld
-   * @param height      The height for the EndWorld
-   * @param SI          Sustainability Index
-   * @param EPR         Economic Prosperity Rating
-   * @param CWI         Community Well-being Index
-   * @param coin        Remaining amount of coins from MainWorld
-   * @param cycleCount  Total # of cycles in the MainWorld
-   * @param eventCount  Total # of events in the MainWorld
-   * @param industry    Industry from the MainWorld
+  /**
+   * Constructor for objects of class EndWorld.
+   *
+   * @param width The width for the EndWorld
+   * @param height The height for the EndWorld
+   * @param SI Sustainability Index
+   * @param EPR Economic Prosperity Rating
+   * @param CWI Community Well-being Index
+   * @param coin Remaining amount of coins from MainWorld
+   * @param cycleCount Total # of cycles in the MainWorld
+   * @param eventCount Total # of events in the MainWorld
+   * @param industry Industry from the MainWorld
    */
   public EndWorld(
       int width,
@@ -73,9 +73,9 @@ public class EndWorld extends World {
 
   /**
    * Checks the score and gives level according to the score
-   * 
-   * @param score   Individual score of the index
-   * @return int    Level of the index
+   *
+   * @param score Individual score of the index
+   * @return int Level of the index
    */
   public int calculateLevel(int score) {
     int level = 0;
@@ -95,8 +95,8 @@ public class EndWorld extends World {
 
   /**
    * Checks the level of the index and assigns a String accordingly
-   * 
-   * @param level   Level of the index
+   *
+   * @param level Level of the index
    * @return String Assigns a description for the level
    */
   public String getLevelText(int level) {
@@ -123,9 +123,9 @@ public class EndWorld extends World {
 
   /**
    * Checks the level of each index and returns achievements
-   * 
-   * @return boolean    True if level meets criteria for achievement, 
-   *                    False if level does not meet criteria for achievement
+   *
+   * @return boolean True if level meets criteria for achievement, False if level does not meet
+   *     criteria for achievement
    */
   public boolean[] getAchievements() {
     boolean[] achievement = {false, false, false, false, false, false, false, false, false};
@@ -161,8 +161,8 @@ public class EndWorld extends World {
 
   /**
    * Checks the amount of level three Industries
-   * 
-   * @return int    the amount of level three Industries
+   *
+   * @return int the amount of level three Industries
    */
   public int getLevelThreeIndustryCount() {
     int count = 0;
@@ -174,9 +174,7 @@ public class EndWorld extends World {
     return count;
   }
 
-  /**
-   * Generates all the achievements
-   */
+  /** Generates all the achievements */
   public void generateAchievement() {
     achievementString = new Label[6];
     int count = 0;
@@ -210,10 +208,8 @@ public class EndWorld extends World {
       }
     }
   }
-  
-  /**
-   * Generates all the labels for each Index
-   */
+
+  /** Generates all the labels for each Index */
   public void generateIndexLabel() {
     int anchorX = getWidth() / 2;
     int anchorY = getHeight() / 4;
@@ -234,9 +230,7 @@ public class EndWorld extends World {
     addObject(cwiLabel, anchorX + stringOffset + lrOffset, anchorY);
   }
 
-  /**
-   * Generates all the labels for each stat
-   */
+  /** Generates all the labels for each stat */
   public void generateStatsLabel() {
     int anchorX = getWidth() / 2;
     int anchorY = getHeight() / 2;

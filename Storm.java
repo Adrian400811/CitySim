@@ -17,9 +17,7 @@ public class Storm extends Event {
 
   Label stormText = new Label("", 45);
 
-  /**
-   * Constructor for Storm
-   */
+  /** Constructor for Storm */
   public Storm() {
     changeIndex(-1, -1, -2);
     image = Utility.drawStorm(2560, 1440, 100);
@@ -45,10 +43,7 @@ public class Storm extends Event {
     }
   }
 
-  /**
-   * Adds label to the left side of the screen
-   * when an instance of Storm is added to the world
-   */
+  /** Adds label to the left side of the screen when an instance of Storm is added to the world */
   public void addedToWorld(World MainWorld) {
     stormText.setValue("A Storm approaches..." + "\nSI -1" + "\nEPR -1" + "\nCWI -2");
     MainWorld.addObject(stormText, 230, 360);

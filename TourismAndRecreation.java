@@ -12,9 +12,7 @@ public class TourismAndRecreation extends Industry {
   private int CWI = +2;
   private int type = 7;
 
-  /**
-   * Constructor for TourismAndRecreation
-   */
+  /** Constructor for TourismAndRecreation */
   public TourismAndRecreation() {
     super(+2, +2, +2, 7);
     L1 = new GreenfootImage("images/industry/Recreation1.png");
@@ -31,9 +29,7 @@ public class TourismAndRecreation extends Industry {
     checkImage();
   }
 
-  /**
-   * Checks if it can level up based on the criteria
-   */
+  /** Checks if it can level up based on the criteria */
   public void checkNextLevel() {
     if (MainWorld.getTotalCoin() >= 700 && level == 0) {
       levelUp();

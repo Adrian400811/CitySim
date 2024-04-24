@@ -12,9 +12,7 @@ public class Earthquake extends Event {
 
   Label earthquakeText = new Label("", 40);
 
-  /**
-   * Constructor for Earthquake
-   */
+  /** Constructor for Earthquake */
   public Earthquake() {
     changeIndex(-1, -3, -4);
     actsLeft = 300;
@@ -32,8 +30,7 @@ public class Earthquake extends Event {
   }
 
   /**
-   * Adds label to the left side of the screen 
-   * when an instance of Earthquake is added to the world
+   * Adds label to the left side of the screen when an instance of Earthquake is added to the world
    */
   public void addedToWorld(World MainWorld) {
     earthquakeText.setValue("An Earthquake approaches..." + "\nSI -1" + "\nEPR -3" + "\nCWI -4");
