@@ -109,10 +109,10 @@ public class MainWorld extends World {
 
   /** Creates passive income for the city */
   public void generatePassiveIncome() {
-    if (getEPR() > 0){
-        changeTotalCoin((int) 1 * (getEPR() / 2));
+    if (getEPR() > 0) {
+      changeTotalCoin((int) 1 * (getEPR() / 2));
     } else {
-        changeTotalCoin(1);
+      changeTotalCoin(1);
     }
   }
 
