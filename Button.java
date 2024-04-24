@@ -50,7 +50,7 @@ public class Button extends Actor {
     } else {
       toggleState = true;
     }
-
+}
   public boolean openDis(boolean ifDiscbetion) {
     if (ifDiscbetion && Greenfoot.mouseClicked(this) && m.getButton() == 3) {
       return true;

@@ -13,7 +13,7 @@ public class Settings extends World {
   Label community = new Label("Community Well-being Index: 0", 36);
   Label industryTitle = new Label("Industry (Select 3-6)", 45);
   Label next = new Label("Next", 45);
-  Label event = new Label("ON",36);
+  Label eventLabel = new Label("ON",36);
   Label round = new Label("",24);
   Button nextBtn = new NextButton();
   private EventButton eventButton = new EventButton();
@@ -23,7 +23,7 @@ public class Settings extends World {
   private Button[] indexButton;
   private IndustryButton[] industryButton;
   private boolean[] selectedIndustry = new boolean[9];
-  private Button eventButton = new Button("images/button/eventSetter.png",50);
+  //private Button eventButton = new Button("images/button/eventSetter.png",50);
   private int selectCount = 0;
   private int coinStep = 1000;
   private int numOfCycles = 6; // 5, 10, 15
@@ -155,7 +155,7 @@ public class Settings extends World {
     if (nextBtn != null && nextBtn.checkClicked() && selectCount <= 6 && selectCount >= 3) {
       MainWorld main =
           new MainWorld(
-              getWidth(), getHeight(), SI, CWI, EPR, selectedIndustry, selectedIndustry, event, numOfCycles);
+              getWidth(), getHeight(), SI, CWI, EPR, selectedIndustry, event, numOfCycles);
       Greenfoot.setWorld(main);
     }
   }
