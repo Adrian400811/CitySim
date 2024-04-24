@@ -25,7 +25,7 @@ public class Storm extends Event {
     image = Utility.drawStorm(2560, 1440, 100);
     setImage(image);
 
-    actsLeft = 700;
+    actsLeft = 600;
 
     speed = 0.55;
   }

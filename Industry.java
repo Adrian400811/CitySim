@@ -78,7 +78,7 @@ public abstract class Industry extends Actor {
   /** Generates the income for the industry */
   public double income() {
     int baseIncome = 100 * mw.getEPR();
-    double industryIncome = count * lvlMultipliers[level - 1] * level;
+    double industryIncome = count * level;
     double totalIncome = (baseIncome + industryIncome) * growthRate[type];
     double bonus; // TODO
     double grandTotal = totalIncome; // + bonus;
