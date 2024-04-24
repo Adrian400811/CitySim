@@ -20,11 +20,8 @@ public class MainWorld extends World {
 
   Button nextBtn = new NextButton();
 
-  private static int SI, EPR, CWI;
-  private static int totalCoin;
-  private int numOfCycles;
-  private int eventCount;
-  private int timeElapsed;
+  private static int SI, EPR, CWI, totalCoin;
+  private int numOfCycles, maxCycle, eventCount, timeElapsed;
   private int dir;
   private boolean[] selIndustry;
 
@@ -34,7 +31,7 @@ public class MainWorld extends World {
   // 5 Recreation, 6 Technology, 7 Development, 8 Education
 
   /** Constructor for objects of class MyWorld. */
-  public MainWorld(int width, int height, int SI, int CWI, int EPR, boolean[] selIndustry) {
+  public MainWorld(int width, int height, int SI, int CWI, int EPR, boolean[] selIndustry, int maxCycle) {
     super(width, height, 1);
     addObject(title, getWidth() / 10, 60);
     addObject(cycle, getWidth() - 115, 60);
@@ -49,6 +46,7 @@ public class MainWorld extends World {
     this.CWI = CWI;
     this.EPR = EPR;
     this.selIndustry = selIndustry;
+    this.maxCycle = maxCycle;
 
     // for dev use
     addObject(index, getWidth() / 4 * 3, getHeight() / 2);

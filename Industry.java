@@ -20,6 +20,7 @@ public abstract class Industry extends Actor {
   protected GreenfootImage L1;
   protected GreenfootImage L2;
   protected GreenfootImage L3;
+  private GreenfootSound money = new GreenfootSound("sounds/kaching.mp3");
 
   private Font font;
   SuperTextBox text;
@@ -67,6 +68,7 @@ public abstract class Industry extends Actor {
     double totalIncome = (baseIncome + industryIncome) * growthRate[type];
     double bonus; // TODO
     double grandTotal = totalIncome; // + bonus;
+    money.play();
     return grandTotal;
   }
 
