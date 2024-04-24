@@ -1,5 +1,6 @@
 #Greenfoot project file
 class.EndWorld.image=MinecraftDirtBackground.jpg
+class.EventButton.image=Confirm_Button_02.png
 class.MainWorld.image=StoneBrickBackground.jpg
 class.Settings.image=MinecraftDirtBackground.jpg
 class.TitleScreen.image=MinecraftDirtBackground.jpg
@@ -278,6 +279,7 @@ target23.name=MainWorld
 target23.showInterface=false
 target23.type=ClassTarget
 target23.width=120
+target23.type=ClassTargetdth=140
 target23.x=0
 target23.y=0
 target24.height=70
@@ -367,5 +369,5 @@ target9.y=0
 version=3.1.0
 width=1633
 world.lastInstantiated=TitleScreen
-xPosition=0
+xPosition=1
 yPosition=0
