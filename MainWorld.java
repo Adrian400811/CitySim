@@ -75,6 +75,7 @@ public class MainWorld extends World {
 
     timeElapsed = 0;
     Greenfoot.setSpeed(50);
+    Industry.init();
     setPaintOrder(
         Industry.class,
         Button.class,
@@ -112,7 +113,7 @@ public class MainWorld extends World {
    * Changes Total Coins by 1
    */
   public void passiveIncome(){
-      changeTotalCoin(1);
+      changeTotalCoin((int)1*(getEPR()/2));
   }
   
   /**
@@ -140,7 +141,7 @@ public class MainWorld extends World {
   }
 
   /**
-   * Gets random selected industry and levels it up
+   * Gets random selected industry 
    * 
    * @return randIndustry   Industry that got selected
    */
@@ -150,9 +151,7 @@ public class MainWorld extends World {
       int rand = Greenfoot.getRandomNumber(selIndustry.length);
       if (selIndustry[rand] == true) {
         randIndustry = industry[rand];
-        if (randIndustry.getLevel() != 3) {
-          randIndustry.levelUp();
-        }
+        randIndustry.levelUp();
         break;
       }
     }
@@ -322,5 +321,13 @@ public class MainWorld extends World {
    */
   public static int getIndustryLevel(int industryCode) {
     return industry[industryCode].getLevel();
+  }
+  
+  public void stopped(){
+      TitleScreen.stopBGM();
+  }
+  
+  public void started(){
+      TitleScreen.playBGM();
   }
 }

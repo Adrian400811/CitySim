@@ -243,11 +243,19 @@ public class EndWorld extends World {
     int imfOffset = -60;
     int stringOffset = +60;
     int lrOffset = getWidth() / 4;
-    cycleLabel = new Label(cycleCount, 40);
-    eventLabel = new Label(eventCount, 40);
-    coinLabel = new Label(coin, 40);
+    cycleLabel = new Label("Cycles: " + cycleCount, 40);
+    eventLabel = new Label("Events: " + eventCount, 40);
+    coinLabel = new Label("Coins: " + coin, 40);
     addObject(cycleLabel, anchorX + stringOffset - lrOffset, anchorY);
     addObject(eventLabel, anchorX + stringOffset, anchorY);
     addObject(coinLabel, anchorX + stringOffset + lrOffset, anchorY);
+  }
+  
+  public void stopped(){
+      TitleScreen.stopBGM();
+  }
+  
+  public void started(){
+      TitleScreen.playBGM();
   }
 }
