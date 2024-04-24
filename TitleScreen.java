@@ -11,9 +11,7 @@ public class TitleScreen extends World {
   private Label startLabel = new Label("Press <enter> to begin", 45);
   private static GreenfootSound bgm = new GreenfootSound("sounds/ittybitty8bit.mp3");
 
-  /** 
-   * Constructor for objects of class TitleScreen. 
-   */
+  /** Constructor for objects of class TitleScreen. */
   public TitleScreen() {
     // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
     super(1280, 720, 1);
@@ -23,9 +21,7 @@ public class TitleScreen extends World {
     addObject(startLabel, getWidth() / 2, getHeight() / 2 + 60);
   }
 
-  /**
-   * Act method
-   */
+  /** Act method */
   public void act() {
     if (Greenfoot.isKeyDown("enter")) {
       Settings world = new Settings(getWidth(), getHeight());

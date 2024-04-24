@@ -15,10 +15,7 @@ public class SubtractButton extends Button {
     super(false);
   }
 
-  /**
-   * Act - Sets image to clicked if clicked on.
-   *       Button image stays the same if not clicked
-   */
+  /** Act - Sets image to clicked if clicked on. Button image stays the same if not clicked */
   public void act() {
     if (Greenfoot.mouseClicked(this)) {
       setImage(clickedButton);

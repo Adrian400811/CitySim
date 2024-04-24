@@ -18,9 +18,9 @@ public class Button extends Actor {
 
   /**
    * Constructor for Button
-   * 
-   * @param path            Location of file
-   * @param scalePercent    Image scale percentage
+   *
+   * @param path Location of file
+   * @param scalePercent Image scale percentage
    */
   public Button(String path, int scalePercent) {
     image = new GreenfootImage(path);
@@ -40,12 +40,10 @@ public class Button extends Actor {
    */
   public void act() {}
 
-
-
   /**
    * Checks if clicked
-   * 
-   * @return boolean 
+   *
+   * @return boolean
    */
   public boolean cheakDis() {
     return ifDiscbetion;
@@ -53,8 +51,8 @@ public class Button extends Actor {
 
   /**
    * Checks if the button was clicked
-   * 
-   * @return boolean    True if clicked, false if not clicked
+   *
+   * @return boolean True if clicked, false if not clicked
    */
   public boolean checkClicked() {
     if (Greenfoot.mouseClicked(this)) {
@@ -63,9 +61,7 @@ public class Button extends Actor {
     return false;
   }
 
-  /**
-   * Toggle the state of the button
-   */
+  /** Toggle the state of the button */
   public void toggle() {
     if (toggleState) {
       toggleState = false;
@@ -81,9 +77,7 @@ public class Button extends Actor {
     return false;
   }
 
-  /**
-   * Getter method
-   */
+  /** Getter method */
   public String getDis() {
     return discbetion;
   }

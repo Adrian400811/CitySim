@@ -25,8 +25,8 @@ public class IndustryButton extends Button {
 
   /**
    * Constructor for IndustryButton
-   * 
-   * @param type    The index of the corresponding Industry
+   *
+   * @param type The index of the corresponding Industry
    */
   public IndustryButton(int type) {
     super(true);
@@ -46,9 +46,7 @@ public class IndustryButton extends Button {
     // Add your action code here.
   }
 
-  /**
-   * Sets image and value for variable if it is toggled on/off
-   */
+  /** Sets image and value for variable if it is toggled on/off */
   public void toggle() {
     if (toggleState) {
       toggleState = false;

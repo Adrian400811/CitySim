@@ -1,7 +1,7 @@
 import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * The main world for the simulator. 
+ * The main world for the simulator.
  *
  * @author Jimmy, Adrian, Daniel
  * @version April 24, 2024
@@ -30,18 +30,17 @@ public class MainWorld extends World {
   // 0 Energy, 1 Minerals, 2 Agriculture, 3 Conservation, 4 Manufacturing
   // 5 Recreation, 6 Technology, 7 Development, 8 Education
 
-
-  /** 
-   * Constructor for objects of class MainWorld. 
-   * 
-   * @param width           The width of the world
-   * @param height          The height of the world
-   * @param SI              Initial values for Sustainability Index
-   * @param CWI             Initial values for Community Well-being Index
-   * @param EPR             Initial values for Economic Prosperity Rating
-   * @param sellIndustry    Boolean for if each Industry is able to be sold
-   * @param event           Boolean for if events can happen
-   * @param maxCycle        Max Number of cycles
+  /**
+   * Constructor for objects of class MainWorld.
+   *
+   * @param width The width of the world
+   * @param height The height of the world
+   * @param SI Initial values for Sustainability Index
+   * @param CWI Initial values for Community Well-being Index
+   * @param EPR Initial values for Economic Prosperity Rating
+   * @param sellIndustry Boolean for if each Industry is able to be sold
+   * @param event Boolean for if events can happen
+   * @param maxCycle Max Number of cycles
    */
   public MainWorld(
       int width,
@@ -85,9 +84,7 @@ public class MainWorld extends World {
         Earthquake.class);
   }
 
-  /**
-   * Act method
-   */
+  /** Act method */
   public void act() {
     m = Greenfoot.getMouseInfo();
     timeElapsed++;
@@ -97,8 +94,9 @@ public class MainWorld extends World {
     if (numOfCycles == 0) {
       numOfCycles++;
       updateCycles();
-    } if (timeElapsed % 3 == 0){
-        passiveIncome();
+    }
+    if (timeElapsed % 3 == 0) {
+      passiveIncome();
     } else if (timeElapsed >= (55 * 20)) {
       updateCycles();
       timeElapsed = 0;
@@ -115,10 +113,8 @@ public class MainWorld extends World {
   public void passiveIncome(){
       changeTotalCoin((int)1*(getEPR()/2));
   }
-  
-  /**
-   * Updates total amount of cycles and calls other methods on certain cycles
-   */
+
+  /** Updates total amount of cycles and calls other methods on certain cycles */
   public void updateCycles() {
     index.setValue("SI:     " + getSI() + "\nEPR:  " + getEPR() + "\nCWI: " + getCWI());
     cycleNum.setValue(numOfCycles);
@@ -157,10 +153,8 @@ public class MainWorld extends World {
     }
     return randIndustry;
   }
-  
-  /**
-   * Generates a random event and adds to the total event count
-   */
+
+  /** Generates a random event and adds to the total event count */
   public void generateRandomEvent() {
     int rand = Greenfoot.getRandomNumber(3);
     if (rand == 0) {
@@ -173,18 +167,14 @@ public class MainWorld extends World {
     eventCount++;
   }
 
-  /**
-   * Generates all income for every Industry
-   */
+  /** Generates all income for every Industry */
   public void generateIncome() {
     for (int i = 0; i < 9; i++) {
       changeTotalCoin((int) industry[i].income());
     }
   }
 
-  /**
-   * Adds all Industries to the MainWorld
-   */
+  /** Adds all Industries to the MainWorld */
   public void prepareIndustries() {
     for (int i = 0; i < 9; i++) {
       switch (i) {
@@ -219,9 +209,7 @@ public class MainWorld extends World {
     }
   }
 
-  /**
-   * Sets the world to EndWorld
-   */
+  /** Sets the world to EndWorld */
   public void end() {
     EndWorld ew =
         new EndWorld(
@@ -231,8 +219,8 @@ public class MainWorld extends World {
 
   /**
    * Gets all the MouseInfo
-   * 
-   * @return MouseInfo  Information of the mouse
+   *
+   * @return MouseInfo Information of the mouse
    */
   public MouseInfo getMouseInfo() {
     if (m == null) {
@@ -243,8 +231,8 @@ public class MainWorld extends World {
 
   /**
    * Changes Sustainability Index
-   * 
-   * @param delta   The amount to change the index
+   *
+   * @param delta The amount to change the index
    */
   public static void changeSI(int delta) {
     SI += delta;
@@ -252,8 +240,8 @@ public class MainWorld extends World {
 
   /**
    * Changes Economic Prosperity Rating
-   * 
-   * @param delta   The amount to change the index
+   *
+   * @param delta The amount to change the index
    */
   public static void changeEPR(int delta) {
     EPR += delta;
@@ -261,16 +249,16 @@ public class MainWorld extends World {
 
   /**
    * Changes Community Well-being Index
-   * 
+   *
    * @param delta The amount to change the index
    */
   public static void changeCWI(int delta) {
     CWI += delta;
   }
-  
+
   /**
    * Changes the Total Coins in the world
-   * 
+   *
    * @param delta The amount to change the coins
    */
   public static void changeTotalCoin(int delta) {
@@ -279,7 +267,7 @@ public class MainWorld extends World {
 
   /**
    * Getter method for Sustainability Index
-   * 
+   *
    * @return SI Sustainability Index
    */
   public static int getSI() {
@@ -288,7 +276,7 @@ public class MainWorld extends World {
 
   /**
    * Getter method for Economic Prosperity Rating
-   * 
+   *
    * @return EPR Economic Prosperity Rating
    */
   public static int getEPR() {
@@ -297,7 +285,7 @@ public class MainWorld extends World {
 
   /**
    * Getter method for Community Well-being Index
-   * 
+   *
    * @return CWI Community Well-being Index
    */
   public static int getCWI() {
@@ -306,7 +294,7 @@ public class MainWorld extends World {
 
   /**
    * Getter method for Total coins
-   * 
+   *
    * @return totalCoin The total amount of coins
    */
   public static int getTotalCoin() {
@@ -315,8 +303,8 @@ public class MainWorld extends World {
 
   /**
    * Getter method for Industry Level
-   * 
-   * @param industryCode                       The index for the assigned industry
+   *
+   * @param industryCode The index for the assigned industry
    * @return industry[industryCode].getLevel() The level for the industry
    */
   public static int getIndustryLevel(int industryCode) {

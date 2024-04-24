@@ -1,8 +1,7 @@
 import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * The settings world for the simulator. 
- * Users can adjust values here.
+ * The settings world for the simulator. Users can adjust values here.
  *
  * @author Jimmy, Adrian, Daniel
  * @version April 24, 2024
@@ -35,9 +34,9 @@ public class Settings extends World {
   // test text
   Label test = new Label("true", 45);
 
-  /** 
-   * Constructor for objects of class Settings. 
-   * 
+  /**
+   * Constructor for objects of class Settings.
+   *
    * @param width The width for the world
    * @param height The height for the world
    */
@@ -53,16 +52,12 @@ public class Settings extends World {
     spawnSettingButton();
   }
 
-  /**
-   * Act method
-   */
+  /** Act method */
   public void act() {
     checkPressedButton();
   }
 
-  /**
-   * Spawns the Labels for each Index and Industry
-   */
+  /** Spawns the Labels for each Index and Industry */
   public void spawnText() {
     addObject(indexTitle, getWidth() / 10, 60);
     addObject(sustainable, getWidth() / 4, 180);
@@ -74,9 +69,7 @@ public class Settings extends World {
 
   }
 
-  /**
-   * Spawns the Buttons 
-   */
+  /** Spawns the Buttons */
   public void spawnIndexButtons() {
     indexButton = new Button[6];
     for (int i = 0; i < 6; i++) {
@@ -93,9 +86,7 @@ public class Settings extends World {
     addObject(nextBtn, getWidth() - 110, 650);
   }
 
-  /**
-   * Spawns the Industry grid
-   */
+  /** Spawns the Industry grid */
   public void spawnIndustryGrid() {
     industryButton = new IndustryButton[9];
     for (int i = 0; i < 9; i++) {
@@ -120,17 +111,12 @@ public class Settings extends World {
     }
   }
 
-
-  /**
-   * Spawns Settings button
-   */
+  /** Spawns Settings button */
   public void spawnSettingButton() {
     addObject(eventButton, getWidth() / 6, getHeight() - 60);
   }
 
-  /**
-   * Checks event button
-   */
+  /** Checks event button */
   public void cheakEventButton() {
     if (eventButton.checkClicked()) {
       event = !event;
@@ -139,12 +125,9 @@ public class Settings extends World {
     }
   }
 
-
   /**
-   * Checks if button is pressed. 
-   * Subtract button subtracts from each index
-   * Add button adds to each index
-   * Next button sets world to the MainWorld
+   * Checks if button is pressed. Subtract button subtracts from each index Add button adds to each
+   * index Next button sets world to the MainWorld
    */
   public void checkPressedButton() {
     for (int i = 0; i < indexButton.length; i++) {

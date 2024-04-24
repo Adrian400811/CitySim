@@ -28,9 +28,7 @@ public class TechnologyAndInnovation extends Industry {
     checkImage();
   }
 
-  /**
-   * Checks if it can level up based on the criteria
-   */
+  /** Checks if it can level up based on the criteria */
   public void checkNextLevel() {
     if (MainWorld.getTotalCoin() >= 2500 && level == 0) {
       levelUp();
