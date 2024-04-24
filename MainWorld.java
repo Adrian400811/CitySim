@@ -20,11 +20,8 @@ public class MainWorld extends World {
 
   Button nextBtn = new NextButton();
 
-  private static int SI, EPR, CWI;
-  private static int totalCoin;
-  private int numOfCycles;
-  private int eventCount;
-  private int timeElapsed;
+  private static int SI, EPR, CWI, totalCoin;
+  private int numOfCycles, maxCycle, eventCount, timeElapsed;
   private int dir;
   private boolean[] selIndustry;
 
@@ -32,6 +29,7 @@ public class MainWorld extends World {
 
   // 0 Energy, 1 Minerals, 2 Agriculture, 3 Conservation, 4 Manufacturing
   // 5 Recreation, 6 Technology, 7 Development, 8 Education
+
 
   /** 
    * Constructor for objects of class MainWorld. 
@@ -41,9 +39,19 @@ public class MainWorld extends World {
    * @param SI              Initial values for Sustainability Index
    * @param CWI             Initial values for Community Well-being Index
    * @param EPR             Initial values for Economic Prosperity Rating
-   * @param sellIndustry    Boolean for if Industries are able to be sold
+   * @param sellIndustry    Boolean for if each Industry is able to be sold
+   * @param event           Boolean for if events can happen
+   * @param maxCycle        Max Number of cycles
    */
-  public MainWorld(int width, int height, int SI, int CWI, int EPR, boolean[] selIndustry) {
+  public MainWorld(
+      int width,
+      int height,
+      int SI,
+      int CWI,
+      int EPR,
+      boolean[] selIndustry,
+      boolean event,
+      int maxCycle) {
     super(width, height, 1);
     addObject(title, getWidth() / 10, 60);
     addObject(cycle, getWidth() - 115, 60);
@@ -52,12 +60,13 @@ public class MainWorld extends World {
     industry = new Industry[9];
     prepareIndustries();
 
-    numOfCycles = 0;
-
     this.SI = SI;
     this.CWI = CWI;
     this.EPR = EPR;
     this.selIndustry = selIndustry;
+    this.maxCycle = maxCycle;
+
+    numOfCycles = 0;
 
     // for dev use
     addObject(index, getWidth() / 4 * 3, getHeight() / 2);

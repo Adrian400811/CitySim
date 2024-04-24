@@ -29,6 +29,7 @@ public class IndustryButton extends Button {
    * @param type    The index of the corresponding Industry
    */
   public IndustryButton(int type) {
+    super(true);
     this.type = type;
     image = new GreenfootImage("images/industry/" + icons[type] + "1.png");
     imageSelected = new GreenfootImage("images/industry/" + icons[type] + "Selected.png");

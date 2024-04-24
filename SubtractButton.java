@@ -7,11 +7,13 @@ import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version April 24, 2024
  */
 public class SubtractButton extends Button {
-
+  private boolean ifDiscbetion = false;
   private GreenfootImage unclickedButton = new GreenfootImage("Adjust_Down_Button_01.png");
   private GreenfootImage clickedButton = new GreenfootImage("Adjust_Down_Button_02.png");
 
-  public SubtractButton() {}
+  public SubtractButton() {
+    super(false);
+  }
 
   /**
    * Act - Sets image to clicked if clicked on.

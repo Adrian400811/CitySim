@@ -14,17 +14,26 @@ public class Settings extends World {
   Label community = new Label("Community Well-being Index: 0", 36);
   Label industryTitle = new Label("Industry (Select 3-6)", 45);
   Label next = new Label("Next", 45);
+  Label eventLabel = new Label("ON", 36);
+  Label round = new Label("", 24);
   Button nextBtn = new NextButton();
-
+  private EventButton eventButton = new EventButton();
   private int[] btnY = {180, 300, 420};
   private int dir;
   private int buttonCount = 6;
   private Button[] indexButton;
   private IndustryButton[] industryButton;
   private boolean[] selectedIndustry = new boolean[9];
+  // private Button eventButton = new Button("images/button/eventSetter.png",50);
   private int selectCount = 0;
+  private int coinStep = 1000;
+  private int numOfCycles = 6; // 5, 10, 15
+  private boolean event = false;
 
-  private int SI, EPR, CWI;
+  private int SI, EPR, CWI, cycle;
+
+  // test text
+  Label test = new Label("true", 45);
 
   /** 
    * Constructor for objects of class Settings. 
@@ -39,8 +48,9 @@ public class Settings extends World {
     EPR = 0;
     CWI = 0;
     spawnText();
-    spawnButtons();
+    spawnIndexButtons();
     spawnIndustryGrid();
+    spawnSettingButton();
   }
 
   /**
@@ -60,12 +70,14 @@ public class Settings extends World {
     addObject(community, getWidth() / 4, 420);
     addObject(industryTitle, getWidth() / 10 * 6, 60);
     addObject(next, getWidth() - 175, 650);
+    // addObject(eventButton, getWidth() / 4, 540);
+
   }
 
   /**
    * Spawns the Buttons 
    */
-  public void spawnButtons() {
+  public void spawnIndexButtons() {
     indexButton = new Button[6];
     for (int i = 0; i < 6; i++) {
       if (i % 2 == 0) {
@@ -108,6 +120,26 @@ public class Settings extends World {
     }
   }
 
+
+  /**
+   * Spawns Settings button
+   */
+  public void spawnSettingButton() {
+    addObject(eventButton, getWidth() / 6, getHeight() - 60);
+  }
+
+  /**
+   * Checks event button
+   */
+  public void cheakEventButton() {
+    if (eventButton.checkClicked()) {
+      event = !event;
+    } else if (eventButton.openDis(eventButton.cheakDis())) {
+      addObject(test, getWidth() / 2, getHeight() / 2);
+    }
+  }
+
+
   /**
    * Checks if button is pressed. 
    * Subtract button subtracts from each index
@@ -141,7 +173,7 @@ public class Settings extends World {
     for (int i = 0; i < industryButton.length; i++) {
       IndustryButton button = industryButton[i];
       if (button != null && industryButton[i].checkClicked()) {
-        if (!button.toggleState) {
+        if (!button.toggleState && selectCount < 6) {
           button.toggle();
           selectedIndustry[i] = true;
           selectCount++;
@@ -153,7 +185,9 @@ public class Settings extends World {
       }
     }
     if (nextBtn != null && nextBtn.checkClicked() && selectCount <= 6 && selectCount >= 3) {
-      MainWorld main = new MainWorld(getWidth(), getHeight(), SI, CWI, EPR, selectedIndustry);
+      MainWorld main =
+          new MainWorld(
+              getWidth(), getHeight(), SI, CWI, EPR, selectedIndustry, event, numOfCycles);
       Greenfoot.setWorld(main);
     }
   }
