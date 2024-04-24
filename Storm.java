@@ -44,6 +44,6 @@ public class Storm extends Event {
 
   public void addedToWorld(World MainWorld) {
     stormText.setValue("A Storm approaches..." + "\nSI -1" + "\nEPR -1" + "\nCWI -2");
-    MainWorld.addObject(stormText, 260, 360);
+    MainWorld.addObject(stormText, 230, 360);
   }
 }
