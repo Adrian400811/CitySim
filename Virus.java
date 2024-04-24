@@ -1,10 +1,10 @@
 import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Virus here.
+ * Virus class
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Jimmy, Adrian, Daniel
+ * @version April 24, 2024
  */
 public class Virus extends Event {
 
@@ -17,8 +17,7 @@ public class Virus extends Event {
   Label virusText = new Label("", 45);
 
   /**
-   * Act - do whatever the Virus wants to do. This method is called whenever the 'Act' or 'Run'
-   * button gets pressed in the environment.
+   * Constructor for Virus class
    */
   public Virus() {
     changeIndex(0, -2, -3);
@@ -41,6 +40,10 @@ public class Virus extends Event {
     }
   }
 
+  /**
+   * Adds label to the left side of the screen
+   * when an instance of Virus is added to the world
+   */
   public void addedToWorld(World MainWorld) {
     virusText.setValue("A Virus approaches..." + "\nEPR -2" + "\nCWI -3");
     MainWorld.addObject(virusText, 230, 360);

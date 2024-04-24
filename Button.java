@@ -1,10 +1,10 @@
 import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Button here.
+ * Button Superclass
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Jimmy, Adrian, Daniel
+ * @version April 24, 2024
  */
 public class Button extends Actor {
   private boolean ifDiscbetion = false;
@@ -16,6 +16,12 @@ public class Button extends Actor {
 
   public Button() {}
 
+  /**
+   * Constructor for Button
+   * 
+   * @param path            Location of file
+   * @param scalePercent    Image scale percentage
+   */
   public Button(String path, int scalePercent) {
     image = new GreenfootImage(path);
     double width = image.getWidth() * scalePercent / 100;
@@ -34,10 +40,22 @@ public class Button extends Actor {
    */
   public void act() {}
 
+
+
+  /**
+   * Checks if clicked
+   * 
+   * @return boolean 
+   */
   public boolean cheakDis() {
     return ifDiscbetion;
   }
 
+  /**
+   * Checks if the button was clicked
+   * 
+   * @return boolean    True if clicked, false if not clicked
+   */
   public boolean checkClicked() {
     if (Greenfoot.mouseClicked(this)) {
       return true;
@@ -45,6 +63,9 @@ public class Button extends Actor {
     return false;
   }
 
+  /**
+   * Toggle the state of the button
+   */
   public void toggle() {
     if (toggleState) {
       toggleState = false;
@@ -60,6 +81,9 @@ public class Button extends Actor {
     return false;
   }
 
+  /**
+   * Getter method
+   */
   public String getDis() {
     return discbetion;
   }

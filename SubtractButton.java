@@ -1,10 +1,10 @@
 import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class AddButton here.
+ * SubtractButton class
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Jimmy, Adrian, Daniel
+ * @version April 24, 2024
  */
 public class SubtractButton extends Button {
   private boolean ifDiscbetion = false;
@@ -16,8 +16,8 @@ public class SubtractButton extends Button {
   }
 
   /**
-   * Act - do whatever the AddButton wants to do. This method is called whenever the 'Act' or 'Run'
-   * button gets pressed in the environment.
+   * Act - Sets image to clicked if clicked on.
+   *       Button image stays the same if not clicked
    */
   public void act() {
     if (Greenfoot.mouseClicked(this)) {
