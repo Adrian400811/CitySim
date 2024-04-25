@@ -18,7 +18,8 @@ public class EventButton extends Button {
   public EventButton() {
     super(true);
     toggleState = false;
-    clickedEventButton = new GreenfootImage("button/eventButton_pressed.png");;
+    clickedEventButton = new GreenfootImage("button/eventButton_pressed.png");
+    ;
     unclickedEventButton = new GreenfootImage("button/eventButton_unpressed.png");
     clickedEventButton.scale(216, 100);
     unclickedEventButton.scale(216, 100);
@@ -30,6 +31,7 @@ public class EventButton extends Button {
       toggle();
     }
   }
+
   public void toggle() {
     if (toggleState) {
       toggleState = false;

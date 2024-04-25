@@ -113,11 +113,11 @@ public class Settings extends World {
   }
 
   /** Spawns Settings button */
-  public void spawnSettingButton(){
-      addObject(eventButton, getWidth()/4-150, getHeight()-180);
-      addObject(roundButton, getWidth()/4+80, getHeight()-180);
+  public void spawnSettingButton() {
+    addObject(eventButton, getWidth() / 4 - 150, getHeight() - 180);
+    addObject(roundButton, getWidth() / 4 + 80, getHeight() - 180);
   }
-    
+
   /** Checks event button */
   public void cheakEventButton() {
     if (eventButton.checkClicked()) {
@@ -174,7 +174,7 @@ public class Settings extends World {
     } else if (eventButton.openDis(eventButton.cheakDis())) {
       addObject(test, getWidth() / 2, getHeight() / 2);
     }
-    
+
     if (nextBtn != null && nextBtn.checkClicked() && selectCount <= 6 && selectCount >= 3) {
       MainWorld main =
           new MainWorld(

@@ -12,6 +12,7 @@ public class RoundButton extends Button {
    * 'Run' button gets pressed in the environment.
    */
   boolean ifDiscbetion = true;
+
   private boolean holdState = false;
   private GreenfootImage clickedEventButton;
   private GreenfootImage unclickedEventButton;
