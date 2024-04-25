@@ -8,9 +8,8 @@ import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class EventButton extends Button {
   boolean ifDiscbetion = true;
-  private GreenfootImage unclickedEventButton =
-      new GreenfootImage("Button/eventButton_unpressed.png");
-  private GreenfootImage clickedEventButton = new GreenfootImage("Button/eventButton_pressed.png");
+  private GreenfootImage unclickedEventButton;
+  private GreenfootImage clickedEventButton;
 
   /**
    * Act - do whatever the EventButton wants to do. This method is called whenever the 'Act' or
@@ -18,15 +17,28 @@ public class EventButton extends Button {
    */
   public EventButton() {
     super(true);
+    toggleState = false;
+    clickedEventButton = new GreenfootImage("button/eventButton_pressed.png");
+    ;
+    unclickedEventButton = new GreenfootImage("button/eventButton_unpressed.png");
+    clickedEventButton.scale(216, 100);
+    unclickedEventButton.scale(216, 100);
+    setImage(unclickedEventButton);
   }
 
   public void act() {
     if (Greenfoot.mouseClicked(this)) {
-      clickedEventButton.scale(320, 160);
-      setImage(clickedEventButton);
-    } else {
-      unclickedEventButton.scale(320, 160);
+      toggle();
+    }
+  }
+
+  public void toggle() {
+    if (toggleState) {
+      toggleState = false;
       setImage(unclickedEventButton);
+    } else {
+      toggleState = true;
+      setImage(clickedEventButton);
     }
   }
 }

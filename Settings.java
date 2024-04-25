@@ -17,6 +17,7 @@ public class Settings extends World {
   Label round = new Label("", 24);
   Button nextBtn = new NextButton();
   private EventButton eventButton = new EventButton();
+  private RoundButton roundButton = new RoundButton();
   private int[] btnY = {180, 300, 420};
   private int dir;
   private int buttonCount = 6;
@@ -113,7 +114,8 @@ public class Settings extends World {
 
   /** Spawns Settings button */
   public void spawnSettingButton() {
-    // addObject(eventButton, getWidth() / 6, getHeight() - 60);
+    addObject(eventButton, getWidth() / 4 - 150, getHeight() - 180);
+    addObject(roundButton, getWidth() / 4 + 80, getHeight() - 180);
   }
 
   /** Checks event button */
@@ -167,6 +169,12 @@ public class Settings extends World {
         }
       }
     }
+    if (eventButton.checkClicked()) {
+      event = !event;
+    } else if (eventButton.openDis(eventButton.cheakDis())) {
+      addObject(test, getWidth() / 2, getHeight() / 2);
+    }
+
     if (nextBtn != null && nextBtn.checkClicked() && selectCount <= 6 && selectCount >= 3) {
       MainWorld main =
           new MainWorld(
