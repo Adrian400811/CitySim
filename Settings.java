@@ -16,15 +16,15 @@ public class Settings extends World {
   Label eventLabel = new Label("ON", 36);
   Label round = new Label("", 24);
   Button nextBtn = new NextButton();
-  
+
   private EventButton eventButton = new EventButton();
   private RoundButton roundButton = new RoundButton();
-  private CycleButton cycleButton=new CycleButton();
-  private MoneyButton moneyButton=new MoneyButton();
+  private CycleButton cycleButton = new CycleButton();
+  private MoneyButton moneyButton = new MoneyButton();
   private Button[] indexButton;
   private IndustryButton[] industryButton;
   private boolean[] selectedIndustry = new boolean[9];
-  
+
   private int[] btnY = {180, 300, 420};
   private int dir;
   private int buttonCount = 6;
@@ -70,7 +70,7 @@ public class Settings extends World {
     addObject(next, getWidth() - 175, 650);
     addObject(eventButton, getWidth() / 4, 400);
     addObject(moneyButton, getWidth() / 4, 560);
-    addObject(cycleButton, getWidth() / 4*3, 580);
+    addObject(cycleButton, getWidth() / 4 * 3, 580);
   }
 
   /** Spawns the Buttons */
@@ -111,10 +111,12 @@ public class Settings extends World {
         upDown = 1;
       }
       addObject(
-          industryButton[i], getWidth() / 4 * 3 + (135 * dir), getHeight() /7*3 + (135 * upDown));
+          industryButton[i],
+          getWidth() / 4 * 3 + (135 * dir),
+          getHeight() / 7 * 3 + (135 * upDown));
     }
   }
-  
+
   public void checkPressedButton() {
     for (int i = 0; i < indexButton.length; i++) {
       if (i % 2 == 0) {
@@ -122,7 +124,7 @@ public class Settings extends World {
       } else {
         dir = -1;
       }
-      
+
       if (indexButton[i] != null && indexButton[i].checkClicked()) {
         switch (i / 2) {
           case 0:
@@ -140,7 +142,7 @@ public class Settings extends World {
         }
       }
     }
-    
+
     for (int i = 0; i < industryButton.length; i++) {
       IndustryButton button = industryButton[i];
       if (button != null && industryButton[i].checkClicked()) {
@@ -162,8 +164,18 @@ public class Settings extends World {
       addObject(test, getWidth() / 2, getHeight() / 2);
     }
 
-    if (nextBtn != null && nextBtn.checkClicked()&& selectCount >= 3) {
-      MainWorld main = new MainWorld(getWidth(), getHeight(), SI, CWI, EPR, selectedIndustry, eventButton.getState(), cycleButton.getCycle(), moneyButton.getInitialMoney());
+    if (nextBtn != null && nextBtn.checkClicked() && selectCount >= 3) {
+      MainWorld main =
+          new MainWorld(
+              getWidth(),
+              getHeight(),
+              SI,
+              CWI,
+              EPR,
+              selectedIndustry,
+              eventButton.getState(),
+              cycleButton.getCycle(),
+              moneyButton.getInitialMoney());
       Greenfoot.setWorld(main);
     }
   }
