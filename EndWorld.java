@@ -1,12 +1,13 @@
 import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class EndWorld here.
+ * The ending screen for the simulator. Contains Achievements and Stats
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Jimmy, Adrian, Daniel
+ * @version April 24, 2024
  */
 public class EndWorld extends World {
+  // Initializing all variables
   private Label siLabel, eprLabel, cwiLabel, cycleLabel, eventLabel, coinLabel;
   private Label level = new Label("", 45);
   private Image siImg, eprImg, cwiImg, ordinaryBG, specialBG;
@@ -27,7 +28,19 @@ public class EndWorld extends World {
   private Label[] achievementString;
   private boolean[] earnedAchievements;
 
-  /** Constructor for objects of class EndWorld. */
+  /**
+   * Constructor for objects of class EndWorld.
+   *
+   * @param width The width for the EndWorld
+   * @param height The height for the EndWorld
+   * @param SI Sustainability Index
+   * @param EPR Economic Prosperity Rating
+   * @param CWI Community Well-being Index
+   * @param coin Remaining amount of coins from MainWorld
+   * @param cycleCount Total # of cycles in the MainWorld
+   * @param eventCount Total # of events in the MainWorld
+   * @param industry Industry from the MainWorld
+   */
   public EndWorld(
       int width,
       int height,
@@ -58,6 +71,12 @@ public class EndWorld extends World {
     generateAchievement();
   }
 
+  /**
+   * Checks the score and gives level according to the score
+   *
+   * @param score Individual score of the index
+   * @return int Level of the index
+   */
   public int calculateLevel(int score) {
     int level = 0;
     if (score > 30) {
@@ -74,6 +93,12 @@ public class EndWorld extends World {
     return level;
   }
 
+  /**
+   * Checks the level of the index and assigns a String accordingly
+   *
+   * @param level Level of the index
+   * @return String Assigns a description for the level
+   */
   public String getLevelText(int level) {
     String levelText = "";
     switch (level) {
@@ -96,6 +121,12 @@ public class EndWorld extends World {
     return levelText;
   }
 
+  /**
+   * Checks the level of each index and returns achievements
+   *
+   * @return boolean True if level meets criteria for achievement, False if level does not meet
+   *     criteria for achievement
+   */
   public boolean[] getAchievements() {
     boolean[] achievement = {false, false, false, false, false, false, false, false, false};
     if (siLevel >= 3) {
@@ -128,6 +159,11 @@ public class EndWorld extends World {
     return achievement;
   }
 
+  /**
+   * Checks the amount of level three Industries
+   *
+   * @return int the amount of level three Industries
+   */
   public int getLevelThreeIndustryCount() {
     int count = 0;
     for (int i = 0; i < industry.length; i++) {
@@ -138,6 +174,7 @@ public class EndWorld extends World {
     return count;
   }
 
+  /** Generates all the achievements */
   public void generateAchievement() {
     achievementString = new Label[6];
     int count = 0;
@@ -172,6 +209,7 @@ public class EndWorld extends World {
     }
   }
 
+  /** Generates all the labels for each Index */
   public void generateIndexLabel() {
     int anchorX = getWidth() / 2;
     int anchorY = getHeight() / 4;
@@ -192,17 +230,26 @@ public class EndWorld extends World {
     addObject(cwiLabel, anchorX + stringOffset + lrOffset, anchorY);
   }
 
+  /** Generates all the labels for each stat */
   public void generateStatsLabel() {
     int anchorX = getWidth() / 2;
     int anchorY = getHeight() / 2;
     int imfOffset = -60;
     int stringOffset = +60;
     int lrOffset = getWidth() / 4;
-    cycleLabel = new Label(cycleCount, 40);
-    eventLabel = new Label(eventCount, 40);
-    coinLabel = new Label(coin, 40);
+    cycleLabel = new Label("Cycles: " + cycleCount, 40);
+    eventLabel = new Label("Events: " + eventCount, 40);
+    coinLabel = new Label("Coins: " + coin, 40);
     addObject(cycleLabel, anchorX + stringOffset - lrOffset, anchorY);
     addObject(eventLabel, anchorX + stringOffset, anchorY);
     addObject(coinLabel, anchorX + stringOffset + lrOffset, anchorY);
+  }
+
+  public void stopped() {
+    TitleScreen.stopBGM();
+  }
+
+  public void started() {
+    TitleScreen.playBGM();
   }
 }

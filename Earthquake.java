@@ -1,24 +1,22 @@
 import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Earthquake here.
+ * Earthquake Class
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Jimmy, Adrian, Daniel
+ * @version April 24, 2024
  */
 public class Earthquake extends Event {
+  private GreenfootSound rumble = new GreenfootSound("rumble.wav");
   private MainWorld mw;
   private int actsLeft;
 
-  Label earthquakeText = new Label("", 45);
+  Label earthquakeText = new Label("", 40);
 
-  /**
-   * Act - do whatever the Earthquake wants to do. This method is called whenever the 'Act' or 'Run'
-   * button gets pressed in the environment.
-   */
+  /** Constructor for Earthquake */
   public Earthquake() {
     changeIndex(-1, -3, -4);
-    actsLeft = 300;
+    actsLeft = 700;
     setImage("CrackedStoneWallpaper.jpg");
   }
 
@@ -27,13 +25,18 @@ public class Earthquake extends Event {
     actsLeft--;
 
     if (actsLeft == 0) {
+      rumble.stop();
       getWorld().removeObject(this.earthquakeText);
       getWorld().removeObject(this);
     }
   }
 
+  /**
+   * Adds label to the left side of the screen when an instance of Earthquake is added to the world
+   */
   public void addedToWorld(World MainWorld) {
+    rumble.play();
     earthquakeText.setValue("An Earthquake approaches..." + "\nSI -1" + "\nEPR -3" + "\nCWI -4");
-    MainWorld.addObject(earthquakeText, 260, 360);
+    MainWorld.addObject(earthquakeText, 230, 360);
   }
 }
