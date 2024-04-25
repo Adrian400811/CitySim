@@ -8,11 +8,13 @@ import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class AddButton extends Button {
     private boolean ifDiscbetion=false;
-  private GreenfootImage unclickedButton = new GreenfootImage("Adjust_Up_Button_01.png");
-  private GreenfootImage clickedButton = new GreenfootImage("Adjust_Up_Button_02.png");
+  private GreenfootImage unclickedButton = new GreenfootImage("Button/buttonR_unpressed.png");
+  private GreenfootImage clickedButton = new GreenfootImage("Button/buttonR_pressed.png");
 
   public AddButton(){
       super(false);
+      clickedButton.scale(32, 32);
+      unclickedButton.scale(32, 32);
   }
 
   /**

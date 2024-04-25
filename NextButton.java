@@ -8,11 +8,13 @@ import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class NextButton extends Button {
   private boolean ifDiscbetion=false;
-  private GreenfootImage unclickedButton = new GreenfootImage("Confirm_Button_01.png");
-  private GreenfootImage clickedButton = new GreenfootImage("Confirm_Button_02.png");
+  private GreenfootImage unclickedCycleButton = new GreenfootImage("Button/buttonR_unpressed.png");
+  private GreenfootImage clickedCycleButton = new GreenfootImage("Button/buttonR_pressed.png");
 
   public NextButton(){
       super(false);
+      clickedCycleButton.scale(32, 32);
+      unclickedCycleButton.scale(32, 32);
   }
 
   /**
@@ -21,9 +23,9 @@ public class NextButton extends Button {
    */
   public void act() {
     if (Greenfoot.mouseClicked(this)) {
-      setImage(clickedButton);
+      setImage(clickedCycleButton);
     } else {
-      setImage(unclickedButton);
+      setImage(unclickedCycleButton);
     }
   }
 }

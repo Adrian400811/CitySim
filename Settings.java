@@ -16,14 +16,14 @@ public class Settings extends World {
   Button nextBtn = new NextButton();
     private EventButton eventButton=new EventButton();
   private int[] btnY = {180, 300, 420};
+  private CycleButton cycleButton=new CycleButton();
+  private MoneyButton moneyButton=new MoneyButton();
   private int dir;
   private int buttonCount = 6;
   private Button[] indexButton;
   private IndustryButton[] industryButton;
   private boolean[] selectedIndustry = new boolean[9];
   private int selectCount = 0;
-  private int numOfCycles =6; //5, 10, 15
-  private boolean event = false; 
   
 
   private int SI, EPR, CWI;
@@ -50,11 +50,14 @@ public class Settings extends World {
   public void spawnText() {
     addObject(indexTitle, getWidth() / 10, 60);
     addObject(sustainable, getWidth() / 4, 180);
-    addObject(economic, getWidth() / 4, 300);
-    addObject(community, getWidth() / 4, 420);
+    addObject(economic, getWidth() / 4, 240);
+    addObject(community, getWidth() / 4, 300);
     addObject(industryTitle, getWidth() / 10 * 6, 60);
     addObject(next, getWidth() - 175, 650);
-    //addObject(eventButton, getWidth() / 4, 540);
+    addObject(eventButton, getWidth() / 4, 400);
+    addObject(moneyButton, getWidth() / 4, 560);
+    addObject(cycleButton, getWidth() / 4*3, 580);
+    
     
 
   }
@@ -95,18 +98,9 @@ public class Settings extends World {
         upDown = 1;
       }
       addObject(
-          industryButton[i], getWidth() / 4 * 3 + (135 * dir), getHeight() / 2 + (135 * upDown));
+          industryButton[i], getWidth() / 4 * 3 + (135 * dir), getHeight() /7*3 + (135 * upDown));
     }
   }
-  
-    public void cheakEventButton(){
-        if(eventButton.checkClicked()){
-            event=!event;
-        }
-        else if(eventButton.openDis(eventButton.cheakDis())){
-            addObject(test, getWidth()/2, getHeight()/2);
-        }
-    }
   public void checkPressedButton() {
     for (int i = 0; i < indexButton.length; i++) {
       if (i % 2 == 0) {
@@ -146,7 +140,7 @@ public class Settings extends World {
       }
     }
     if (nextBtn != null && nextBtn.checkClicked()&& selectCount >= 3) {
-      MainWorld main = new MainWorld(getWidth(), getHeight(), SI, CWI, EPR, selectedIndustry, event, numOfCycles);
+      MainWorld main = new MainWorld(getWidth(), getHeight(), SI, CWI, EPR, selectedIndustry, eventButton.getState(), cycleButton.getCycle(), moneyButton.getInitialMoney());
       Greenfoot.setWorld(main);
     }
   }
