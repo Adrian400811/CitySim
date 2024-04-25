@@ -25,7 +25,7 @@ public class Settings extends World {
   private IndustryButton[] industryButton;
   private boolean[] selectedIndustry = new boolean[9];
 
-  private int[] btnY = {180, 300, 420};
+  private int[] btnY = {180, 240, 300};
   private int dir;
   private int buttonCount = 6;
   private int selectCount = 0;
@@ -119,28 +119,43 @@ public class Settings extends World {
 
   public void checkPressedButton() {
     for (int i = 0; i < indexButton.length; i++) {
-      if (i % 2 == 0) {
-        dir = 1;
-      } else {
-        dir = -1;
-      }
-
-      if (indexButton[i] != null && indexButton[i].checkClicked()) {
-        switch (i / 2) {
+        if(indexButton[i].checkClicked()){
+          switch(i){
           case 0:
-            SI += dir;
-            sustainable.setValue("Sustainability Index: " + SI);
-            break;
+              if(SI<5){
+                  SI++;
+              }
+              break;
           case 1:
-            EPR += dir;
-            economic.setValue("Economic Prosperity Rating: " + EPR);
-            break;
+              if(SI>-5){
+                  SI--;
+              }
+              break;
           case 2:
-            CWI += dir;
-            community.setValue("Community Well-being Index: " + CWI);
-            break;
+              if(EPR<5){
+                  EPR++;
+              }
+              break;
+          case 3:
+              if(EPR>-5){
+                  EPR--;
+              }
+              break;
+          case 4:
+              if(CWI<5){
+                  CWI++;
+              }
+              break;
+          case 5:
+              if(CWI>-5){
+                  CWI--;
+              }
+              break;
+          }
+          sustainable.setValue("Sustainability Index: " + SI);
+          economic.setValue("Economic Prosperity Rating: " + EPR);
+          community.setValue("Community Well-being Index: " + CWI);
         }
-      }
     }
 
     for (int i = 0; i < industryButton.length; i++) {
