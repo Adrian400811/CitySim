@@ -14,8 +14,8 @@ public class CycleButton extends Button
      */
     int numOfCycles=5; //5, 10, 15
     boolean ifDiscbetion=true;
-    private GreenfootImage unclickedCycleButton = new GreenfootImage("Button/cycleButton_unpressed_5.png");
-    private GreenfootImage clickedCycleButton = new GreenfootImage("Button/cycleButton_pressed_5.png");
+    private GreenfootImage unclickedCycleButton = new GreenfootImage("button/cycleButton_unpressed_5.png");
+    private GreenfootImage clickedCycleButton = new GreenfootImage("button/cycleButton_pressed_5.png");
     public CycleButton(){
         super(true);
     }
@@ -28,11 +28,11 @@ public class CycleButton extends Button
           else{
               numOfCycles=5;
           }
-          clickedCycleButton = new GreenfootImage("Button/cycleButton_pressed_"+numOfCycles+".png");
+          clickedCycleButton = new GreenfootImage("button/cycleButton_pressed_"+numOfCycles+".png");
             clickedCycleButton.scale(400, 120);
           setImage(clickedCycleButton);
         } else {
-            unclickedCycleButton = new GreenfootImage("Button/cycleButton_unpressed_"+numOfCycles+".png");
+            unclickedCycleButton = new GreenfootImage("button/cycleButton_unpressed_"+numOfCycles+".png");
             unclickedCycleButton.scale(400, 120);
           setImage(unclickedCycleButton);
         }

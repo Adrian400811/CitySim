@@ -1,10 +1,10 @@
 import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Settings here.
+ * The settings world for the simulator. Users can adjust values here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Jimmy, Adrian, Daniel
+ * @version April 24, 2024
  */
 public class Settings extends World {
   Label indexTitle = new Label("Index", 45);
@@ -13,25 +13,37 @@ public class Settings extends World {
   Label community = new Label("Community Well-being Index: 0", 36);
   Label industryTitle = new Label("Industry (Select 3-6)", 45);
   Label next = new Label("Next", 45);
+  Label eventLabel = new Label("ON", 36);
+  Label round = new Label("", 24);
   Button nextBtn = new NextButton();
-    private EventButton eventButton=new EventButton();
-  private int[] btnY = {180, 300, 420};
+  
+  private EventButton eventButton = new EventButton();
+  private RoundButton roundButton = new RoundButton();
   private CycleButton cycleButton=new CycleButton();
   private MoneyButton moneyButton=new MoneyButton();
-  private int dir;
-  private int buttonCount = 6;
   private Button[] indexButton;
   private IndustryButton[] industryButton;
   private boolean[] selectedIndustry = new boolean[9];
+  
+  private int[] btnY = {180, 300, 420};
+  private int dir;
+  private int buttonCount = 6;
   private int selectCount = 0;
-  
+  private int coinStep = 1000;
+  private int numOfCycles = 6; // 5, 10, 15
+  private boolean event = false;
 
-  private int SI, EPR, CWI;
+  private int SI, EPR, CWI, cycle;
 
-  
-  //test text
+  // test text
   Label test = new Label("true", 45);
-  /** Constructor for objects of class Settings. */
+
+  /**
+   * Constructor for objects of class Settings.
+   *
+   * @param width The width for the world
+   * @param height The height for the world
+   */
   public Settings(int width, int height) {
     // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
     super(width, height, 1);
@@ -39,14 +51,16 @@ public class Settings extends World {
     EPR = 0;
     CWI = 0;
     spawnText();
-    spawnButtons();
+    spawnIndexButtons();
     spawnIndustryGrid();
   }
 
+  /** Act method */
   public void act() {
     checkPressedButton();
   }
 
+  /** Spawns the Labels for each Index and Industry */
   public void spawnText() {
     addObject(indexTitle, getWidth() / 10, 60);
     addObject(sustainable, getWidth() / 4, 180);
@@ -57,12 +71,10 @@ public class Settings extends World {
     addObject(eventButton, getWidth() / 4, 400);
     addObject(moneyButton, getWidth() / 4, 560);
     addObject(cycleButton, getWidth() / 4*3, 580);
-    
-    
-
   }
 
-  public void spawnButtons() {
+  /** Spawns the Buttons */
+  public void spawnIndexButtons() {
     indexButton = new Button[6];
     for (int i = 0; i < 6; i++) {
       if (i % 2 == 0) {
@@ -78,6 +90,7 @@ public class Settings extends World {
     addObject(nextBtn, getWidth() - 110, 650);
   }
 
+  /** Spawns the Industry grid */
   public void spawnIndustryGrid() {
     industryButton = new IndustryButton[9];
     for (int i = 0; i < 9; i++) {
@@ -101,6 +114,7 @@ public class Settings extends World {
           industryButton[i], getWidth() / 4 * 3 + (135 * dir), getHeight() /7*3 + (135 * upDown));
     }
   }
+  
   public void checkPressedButton() {
     for (int i = 0; i < indexButton.length; i++) {
       if (i % 2 == 0) {
@@ -108,6 +122,7 @@ public class Settings extends World {
       } else {
         dir = -1;
       }
+      
       if (indexButton[i] != null && indexButton[i].checkClicked()) {
         switch (i / 2) {
           case 0:
@@ -125,6 +140,7 @@ public class Settings extends World {
         }
       }
     }
+    
     for (int i = 0; i < industryButton.length; i++) {
       IndustryButton button = industryButton[i];
       if (button != null && industryButton[i].checkClicked()) {
@@ -139,9 +155,24 @@ public class Settings extends World {
         }
       }
     }
+
+    if (eventButton.checkClicked()) {
+      event = !event;
+    } else if (eventButton.openDis(eventButton.cheakDis())) {
+      addObject(test, getWidth() / 2, getHeight() / 2);
+    }
+
     if (nextBtn != null && nextBtn.checkClicked()&& selectCount >= 3) {
       MainWorld main = new MainWorld(getWidth(), getHeight(), SI, CWI, EPR, selectedIndustry, eventButton.getState(), cycleButton.getCycle(), moneyButton.getInitialMoney());
       Greenfoot.setWorld(main);
     }
+  }
+
+  public void stopped() {
+    TitleScreen.stopBGM();
+  }
+
+  public void started() {
+    TitleScreen.playBGM();
   }
 }

@@ -1,10 +1,10 @@
 import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class AgricultureAndFood here.
+ * AgricultureAndFood Class
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Jimmy, Adrian, Daniel
+ * @version April 24, 2024
  */
 public class AgricultureAndFood extends Industry {
   private int SI = +1;
@@ -12,6 +12,7 @@ public class AgricultureAndFood extends Industry {
   private int CWI = +2;
   private int type = 1;
 
+  /** Constructor for AgricultureAndFood */
   public AgricultureAndFood() {
     super(+1, +2, +2, 1);
     L1 = new GreenfootImage("images/industry/Agriculture1.png");
@@ -28,16 +29,20 @@ public class AgricultureAndFood extends Industry {
     checkImage();
   }
 
+  /** Checks if it can level up based on the criteria */
   public void checkNextLevel() {
     if (MainWorld.getTotalCoin() >= 800 && level == 0) {
       levelUp();
       MainWorld.changeTotalCoin(-800);
+      MainWorld.changeSI(3);
     } else if (MainWorld.getTotalCoin() >= 1200 && level == 1) {
       levelUp();
       MainWorld.changeTotalCoin(-1200);
+      MainWorld.changeSI(4);
     } else if (MainWorld.getTotalCoin() >= 600 && level == 2) {
       levelUp();
       MainWorld.changeTotalCoin(-600);
+      MainWorld.changeSI(5);
     }
   }
 }

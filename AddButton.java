@@ -1,15 +1,15 @@
 import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class AddButton here.
+ * AddButton Class
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Jimmy, Adrian, Daniel
+ * @version April 24, 2024
  */
 public class AddButton extends Button {
-    private boolean ifDiscbetion=false;
-  private GreenfootImage unclickedButton = new GreenfootImage("Button/buttonR_unpressed.png");
-  private GreenfootImage clickedButton = new GreenfootImage("Button/buttonR_pressed.png");
+  private boolean ifDiscbetion=false;
+  private GreenfootImage unclickedButton = new GreenfootImage("button/buttonR_unpressed.png");
+  private GreenfootImage clickedButton = new GreenfootImage("button/buttonR_pressed.png");
 
   public AddButton(){
       super(false);
@@ -17,10 +17,7 @@ public class AddButton extends Button {
       unclickedButton.scale(32, 32);
   }
 
-  /**
-   * Act - do whatever the AddButton wants to do. This method is called whenever the 'Act' or 'Run'
-   * button gets pressed in the environment.
-   */
+  /** Act - Sets image to clicked if clicked on. Button image stays the same if not clicked */
   public void act() {
     if (Greenfoot.mouseClicked(this)) {
       setImage(clickedButton);
