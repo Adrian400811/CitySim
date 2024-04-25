@@ -42,15 +42,7 @@ public class MainWorld extends World {
    * @param event Boolean for if events can happen
    * @param maxCycle Max Number of cycles
    */
-  public MainWorld(
-      int width,
-      int height,
-      int SI,
-      int CWI,
-      int EPR,
-      boolean[] selIndustry,
-      boolean event,
-      int maxCycle) {
+  public MainWorld(int width, int height, int SI, int CWI, int EPR, boolean[] selIndustry, boolean event, int numOfCycles, int initialMoney){
     super(width, height, 1);
     addObject(title, getWidth() / 10, 60);
     addObject(cycle, getWidth() - 115, 60);
