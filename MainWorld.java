@@ -50,7 +50,8 @@ public class MainWorld extends World {
       int EPR,
       boolean[] selIndustry,
       boolean event,
-      int maxCycle) {
+      int numOfCycles,
+      int initialMoney) {
     super(width, height, 1);
     addObject(title, getWidth() / 10, 60);
     addObject(cycle, getWidth() - 115, 60);
