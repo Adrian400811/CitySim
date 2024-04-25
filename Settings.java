@@ -119,43 +119,43 @@ public class Settings extends World {
 
   public void checkPressedButton() {
     for (int i = 0; i < indexButton.length; i++) {
-        if(indexButton[i].checkClicked()){
-          switch(i){
+      if (indexButton[i].checkClicked()) {
+        switch (i) {
           case 0:
-              if(SI<5){
-                  SI++;
-              }
-              break;
+            if (SI < 5) {
+              SI++;
+            }
+            break;
           case 1:
-              if(SI>-5){
-                  SI--;
-              }
-              break;
+            if (SI > -5) {
+              SI--;
+            }
+            break;
           case 2:
-              if(EPR<5){
-                  EPR++;
-              }
-              break;
+            if (EPR < 5) {
+              EPR++;
+            }
+            break;
           case 3:
-              if(EPR>-5){
-                  EPR--;
-              }
-              break;
+            if (EPR > -5) {
+              EPR--;
+            }
+            break;
           case 4:
-              if(CWI<5){
-                  CWI++;
-              }
-              break;
+            if (CWI < 5) {
+              CWI++;
+            }
+            break;
           case 5:
-              if(CWI>-5){
-                  CWI--;
-              }
-              break;
-          }
-          sustainable.setValue("Sustainability Index: " + SI);
-          economic.setValue("Economic Prosperity Rating: " + EPR);
-          community.setValue("Community Well-being Index: " + CWI);
+            if (CWI > -5) {
+              CWI--;
+            }
+            break;
         }
+        sustainable.setValue("Sustainability Index: " + SI);
+        economic.setValue("Economic Prosperity Rating: " + EPR);
+        community.setValue("Community Well-being Index: " + CWI);
+      }
     }
 
     for (int i = 0; i < industryButton.length; i++) {
