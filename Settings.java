@@ -116,7 +116,8 @@ public class Settings extends World {
   public void spawnSettingButton(){
       addObject(eventButton, getWidth()/4-150, getHeight()-180);
       addObject(roundButton, getWidth()/4+80, getHeight()-180);
-
+  }
+    
   /** Checks event button */
   public void cheakEventButton() {
     if (eventButton.checkClicked()) {
