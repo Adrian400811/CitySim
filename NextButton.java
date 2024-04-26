@@ -8,8 +8,8 @@ import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class NextButton extends Button {
   private boolean ifDiscbetion=false;
-  private GreenfootImage unclickedCycleButton = new GreenfootImage("Button/buttonR_unpressed.png");
-  private GreenfootImage clickedCycleButton = new GreenfootImage("Button/buttonR_pressed.png");
+  private GreenfootImage unclickedCycleButton = new GreenfootImage("button/buttonR_unpressed.png");
+  private GreenfootImage clickedCycleButton = new GreenfootImage("button/buttonR_pressed.png");
 
   public NextButton(){
       super(false);

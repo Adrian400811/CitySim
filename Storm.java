@@ -1,12 +1,14 @@
 import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.GreenfootSound;
 
 /**
- * Write a description of class Storm here.
+ * Storm class
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Jimmy, Adrian, Daniel
+ * @version April 24, 2024
  */
 public class Storm extends Event {
+  private GreenfootSound storm = new GreenfootSound("storm.wav");
   private int actsLeft;
   private int direction;
   private double speed;
@@ -17,12 +19,13 @@ public class Storm extends Event {
 
   Label stormText = new Label("", 45);
 
+  /** Constructor for Storm */
   public Storm() {
     changeIndex(-1, -1, -2);
     image = Utility.drawStorm(2560, 1440, 100);
     setImage(image);
 
-    actsLeft = 300;
+    actsLeft = 600;
 
     speed = 0.55;
   }
@@ -37,13 +40,16 @@ public class Storm extends Event {
     setLocation((double) (getX() - speed), (double) (getY() + speed));
 
     if (actsLeft == 0) {
+      storm.stop();
       getWorld().removeObject(this.stormText);
       getWorld().removeObject(this);
     }
   }
 
+  /** Adds label to the left side of the screen when an instance of Storm is added to the world */
   public void addedToWorld(World MainWorld) {
+    storm.play();
     stormText.setValue("A Storm approaches..." + "\nSI -1" + "\nEPR -1" + "\nCWI -2");
-    MainWorld.addObject(stormText, 260, 360);
+    MainWorld.addObject(stormText, 230, 360);
   }
 }

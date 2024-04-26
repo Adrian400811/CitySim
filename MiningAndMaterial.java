@@ -12,6 +12,7 @@ public class MiningAndMaterial extends Industry {
   private int CWI = -1;
   private int type = 5;
 
+  /** Constructor for MiningAndMaterial */
   public MiningAndMaterial() {
     super(-2, +2, -1, 5);
     L1 = new GreenfootImage("images/industry/Material1.png");
@@ -28,16 +29,20 @@ public class MiningAndMaterial extends Industry {
     checkImage();
   }
 
+  /** Checks if it can level up based on the criteria */
   public void checkNextLevel() {
     if (MainWorld.getTotalCoin() >= 1500 && level == 0) {
       levelUp();
       MainWorld.changeTotalCoin(-1500);
+      MainWorld.changeEPR(1);
     } else if (MainWorld.getTotalCoin() >= 2250 && level == 1) {
       levelUp();
       MainWorld.changeTotalCoin(-2250);
+      MainWorld.changeEPR(2);
     } else if (MainWorld.getTotalCoin() >= 1125 && level == 2) {
       levelUp();
       MainWorld.changeTotalCoin(-1125);
+      MainWorld.changeEPR(1);
     }
   }
 }

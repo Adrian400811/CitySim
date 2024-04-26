@@ -1,25 +1,43 @@
 import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Image here.
+ * Image class. Allows for easier modification of images
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Jimmy, Adrian, Daniel
+ * @version April 24, 2024
  */
 public class Image extends Actor {
   private GreenfootImage image;
 
+  /**
+   * Sets image with its original proportions
+   *
+   * @param path Location of the file
+   */
   public Image(String path) {
     image = new GreenfootImage(path);
     setImage(image);
   }
 
+  /**
+   * Sets image with scaled proportions in its X and Y
+   *
+   * @param path Location of the file
+   * @param scaleX Amount of X scaled
+   * @param scaleY Amount of Y scaled
+   */
   public Image(String path, int scaleX, int scaleY) {
     image = new GreenfootImage(path);
     image.scale(scaleX, scaleY);
     setImage(image);
   }
 
+  /**
+   * Sets image with percentage scaled proportions
+   *
+   * @param path Location of the file
+   * @param scalePercent Percentage scaled
+   */
   public Image(String path, int scalePercent) {
     image = new GreenfootImage(path);
     double width = image.getWidth() * scalePercent / 100;

@@ -1,10 +1,10 @@
 import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class IndustryButton here.
+ * IndustryButton Class
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Jimmy, Adrian, Daniel
+ * @version April 24, 2024
  */
 public class IndustryButton extends Button {
   private GreenfootImage image;
@@ -23,8 +23,13 @@ public class IndustryButton extends Button {
     "UrbanDev"
   };
 
+  /**
+   * Constructor for IndustryButton
+   *
+   * @param type The index of the corresponding Industry
+   */
   public IndustryButton(int type) {
-      super(true);
+    super(true);
     this.type = type;
     image = new GreenfootImage("images/industry/" + icons[type] + "1.png");
     imageSelected = new GreenfootImage("images/industry/" + icons[type] + "Selected.png");
@@ -41,6 +46,7 @@ public class IndustryButton extends Button {
     // Add your action code here.
   }
 
+  /** Sets image and value for variable if it is toggled on/off */
   public void toggle() {
     if (toggleState) {
       toggleState = false;

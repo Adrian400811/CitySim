@@ -1,10 +1,10 @@
 import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class MyWorld here.
+ * The main world for the simulator.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Jimmy, Adrian, Daniel
+ * @version April 24, 2024
  */
 public class MainWorld extends World {
 
@@ -20,11 +20,8 @@ public class MainWorld extends World {
 
   Button nextBtn = new NextButton();
 
-  private static int SI, EPR, CWI;
-  private static int totalCoin;
-  private int numOfCycles;
-  private int eventCount;
-  private int timeElapsed;
+  private static int SI, EPR, CWI, totalCoin;
+  private int numOfCycles, maxCycle, eventCount, timeElapsed;
   private int dir;
   private boolean[] selIndustry;
 
@@ -33,7 +30,18 @@ public class MainWorld extends World {
   // 0 Energy, 1 Minerals, 2 Agriculture, 3 Conservation, 4 Manufacturing
   // 5 Recreation, 6 Technology, 7 Development, 8 Education
 
-  /** Constructor for objects of class MyWorld. */
+  /**
+   * Constructor for objects of class MainWorld.
+   *
+   * @param width The width of the world
+   * @param height The height of the world
+   * @param SI Initial values for Sustainability Index
+   * @param CWI Initial values for Community Well-being Index
+   * @param EPR Initial values for Economic Prosperity Rating
+   * @param sellIndustry Boolean for if each Industry is able to be sold
+   * @param event Boolean for if events can happen
+   * @param maxCycle Max Number of cycles
+   */
   public MainWorld(int width, int height, int SI, int CWI, int EPR, boolean[] selIndustry, boolean event, int numOfCycles, int initialMoney){
     super(width, height, 1);
     addObject(title, getWidth() / 10, 60);
@@ -43,19 +51,22 @@ public class MainWorld extends World {
     industry = new Industry[9];
     prepareIndustries();
 
-    this.numOfCycles = numOfCycles;
-
     this.SI = SI;
     this.CWI = CWI;
     this.EPR = EPR;
     this.selIndustry = selIndustry;
+    this.maxCycle = maxCycle;
+
+    numOfCycles = 0;
 
     // for dev use
     addObject(index, getWidth() / 4 * 3, getHeight() / 2);
     index.setValue("SI     " + SI + "\nEPR  " + EPR + "\nCWI " + CWI);
-    addObject(nextBtn, getWidth() - 110, 650);
+    // addObject(nextBtn, getWidth() - 110, 650);
 
     timeElapsed = 0;
+    Greenfoot.setSpeed(50);
+    Industry.init();
     setPaintOrder(
         Industry.class,
         Button.class,
@@ -65,17 +76,21 @@ public class MainWorld extends World {
         Earthquake.class);
   }
 
+  /** Act method */
   public void act() {
     m = Greenfoot.getMouseInfo();
     timeElapsed++;
 
+    index.setValue("SI:     " + getSI() + "\nEPR:  " + getEPR() + "\nCWI: " + getCWI());
     moneyNum.setValue("Money: $" + getTotalCoin());
     if (numOfCycles == 0) {
+      numOfCycles++;
       updateCycles();
-      moneyNum.setValue("Money: $" + getTotalCoin());
+    }
+    if (timeElapsed % 3 == 0) {
+      generatePassiveIncome();
     } else if (timeElapsed >= (55 * 20)) {
       updateCycles();
-      moneyNum.setValue("Money: $" + getTotalCoin());
       timeElapsed = 0;
     }
 
@@ -84,6 +99,16 @@ public class MainWorld extends World {
     }
   }
 
+  /** Creates passive income for the city */
+  public void generatePassiveIncome() {
+    if (getEPR() > 0) {
+      changeTotalCoin((int) 1 * (getEPR() / 2));
+    } else {
+      changeTotalCoin(1);
+    }
+  }
+
+  /** Updates total amount of cycles and calls other methods on certain cycles */
   public void updateCycles() {
     index.setValue("SI:     " + getSI() + "\nEPR:  " + getEPR() + "\nCWI: " + getCWI());
     cycleNum.setValue(numOfCycles);
@@ -96,7 +121,6 @@ public class MainWorld extends World {
           getRandomSelectedIndustry();
         }
         generateRandomEvent();
-        index.setValue("SI:     " + getSI() + "\nEPR:  " + getEPR() + "\nCWI: " + getCWI());
       }
 
       if (numOfCycles % 2 != 0) {
@@ -106,21 +130,25 @@ public class MainWorld extends World {
     numOfCycles++;
   }
 
+  /**
+   * Gets random selected industry
+   *
+   * @return randIndustry Industry that got selected
+   */
   public Industry getRandomSelectedIndustry() {
     Industry randIndustry = null;
     while (true) {
       int rand = Greenfoot.getRandomNumber(selIndustry.length);
       if (selIndustry[rand] == true) {
         randIndustry = industry[rand];
-        if (randIndustry.getLevel() != 3) {
-          randIndustry.levelUp();
-        }
+        randIndustry.levelUp();
         break;
       }
     }
     return randIndustry;
   }
 
+  /** Generates a random event and adds to the total event count */
   public void generateRandomEvent() {
     int rand = Greenfoot.getRandomNumber(3);
     if (rand == 0) {
@@ -133,12 +161,14 @@ public class MainWorld extends World {
     eventCount++;
   }
 
+  /** Generates all income for every Industry */
   public void generateIncome() {
     for (int i = 0; i < 9; i++) {
       changeTotalCoin((int) industry[i].income());
     }
   }
 
+  /** Adds all Industries to the MainWorld */
   public void prepareIndustries() {
     for (int i = 0; i < 9; i++) {
       switch (i) {
@@ -173,6 +203,7 @@ public class MainWorld extends World {
     }
   }
 
+  /** Sets the world to EndWorld */
   public void end() {
     EndWorld ew =
         new EndWorld(
@@ -180,6 +211,11 @@ public class MainWorld extends World {
     Greenfoot.setWorld(ew);
   }
 
+  /**
+   * Gets all the MouseInfo
+   *
+   * @return MouseInfo Information of the mouse
+   */
   public MouseInfo getMouseInfo() {
     if (m == null) {
       m = Greenfoot.getMouseInfo();
@@ -187,41 +223,93 @@ public class MainWorld extends World {
     return m;
   }
 
-  // adjusters
+  /**
+   * Changes Sustainability Index
+   *
+   * @param delta The amount to change the index
+   */
   public static void changeSI(int delta) {
     SI += delta;
   }
 
+  /**
+   * Changes Economic Prosperity Rating
+   *
+   * @param delta The amount to change the index
+   */
   public static void changeEPR(int delta) {
     EPR += delta;
   }
 
+  /**
+   * Changes Community Well-being Index
+   *
+   * @param delta The amount to change the index
+   */
   public static void changeCWI(int delta) {
     CWI += delta;
   }
 
+  /**
+   * Changes the Total Coins in the world
+   *
+   * @param delta The amount to change the coins
+   */
   public static void changeTotalCoin(int delta) {
     totalCoin += delta;
   }
 
-  // getters
+  /**
+   * Getter method for Sustainability Index
+   *
+   * @return SI Sustainability Index
+   */
   public static int getSI() {
     return SI;
   }
 
+  /**
+   * Getter method for Economic Prosperity Rating
+   *
+   * @return EPR Economic Prosperity Rating
+   */
   public static int getEPR() {
     return EPR;
   }
 
+  /**
+   * Getter method for Community Well-being Index
+   *
+   * @return CWI Community Well-being Index
+   */
   public static int getCWI() {
     return CWI;
   }
 
+  /**
+   * Getter method for Total coins
+   *
+   * @return totalCoin The total amount of coins
+   */
   public static int getTotalCoin() {
     return totalCoin;
   }
 
+  /**
+   * Getter method for Industry Level
+   *
+   * @param industryCode The index for the assigned industry
+   * @return industry[industryCode].getLevel() The level for the industry
+   */
   public static int getIndustryLevel(int industryCode) {
     return industry[industryCode].getLevel();
+  }
+
+  public void stopped() {
+    TitleScreen.stopBGM();
+  }
+
+  public void started() {
+    TitleScreen.playBGM();
   }
 }
