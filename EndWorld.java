@@ -65,13 +65,12 @@ public class EndWorld extends World {
     eprLevel = calculateLevel(EPR);
     cwiLevel = calculateLevel(CWI);
 
-    scBG=new Image("images/Background_endworld.png", 90);
-    addObject(scBG, getWidth()/2, getHeight()/2);
+    scBG = new Image("images/Background_endworld.png", 90);
+    addObject(scBG, getWidth() / 2, getHeight() / 2);
     generateIndexLabel();
     generateStatsLabel();
     earnedAchievements = getAchievements();
     generateAchievement();
-    
   }
 
   /**
@@ -185,7 +184,6 @@ public class EndWorld extends World {
       if (earnedAchievements[i] == true) {
         achievementString[count] = new Label(achievement[i], 28);
         ordinaryBG = new Image("images/achievement/ordinary_mid.png", 85);
-        
 
         specialBG = new Image("images/achievement/special_mid.png", 85);
         int dir = 0;
@@ -221,7 +219,7 @@ public class EndWorld extends World {
     int imgOffset = -60;
     int stringOffset = +60;
     int lrOffset = getWidth() / 4;
-    
+
     siImg = new Image("images/icon/SI.png", 50);
     siLabel = new Label("SI " + SI + "\n" + getLevelText(calculateLevel(SI)), 45);
     eprImg = new Image("images/icon/EPR.png", 45);
@@ -246,16 +244,15 @@ public class EndWorld extends World {
     cycleLabel = new Label(cycleCount, 40);
     eventLabel = new Label(eventCount, 40);
     coinLabel = new Label(coin, 40);
-    coinImg=new Image("images/icon/money.png", 50);
-    cycleImg =new Image("images/icon/cycle.png", 40);
-    eventImg=new Image("images/icon/event.png", 35);
+    coinImg = new Image("images/icon/money.png", 50);
+    cycleImg = new Image("images/icon/cycle.png", 40);
+    eventImg = new Image("images/icon/event.png", 35);
     addObject(cycleImg, anchorX + imfOffset - lrOffset, anchorY);
     addObject(cycleLabel, anchorX + stringOffset - lrOffset, anchorY);
     addObject(eventImg, anchorX + imfOffset, anchorY);
     addObject(eventLabel, anchorX + stringOffset, anchorY);
     addObject(coinImg, anchorX + imfOffset + lrOffset, anchorY);
     addObject(coinLabel, anchorX + stringOffset + lrOffset, anchorY);
-    
   }
 
   public void stopped() {
