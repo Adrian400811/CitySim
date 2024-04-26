@@ -7,14 +7,14 @@ import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version (a version number or a date)
  */
 public class NextButton extends Button {
-  private boolean ifDiscbetion=false;
+  private boolean ifDiscbetion = false;
   private GreenfootImage unclickedCycleButton = new GreenfootImage("button/buttonR_unpressed.png");
   private GreenfootImage clickedCycleButton = new GreenfootImage("button/buttonR_pressed.png");
 
-  public NextButton(){
-      super(false);
-      clickedCycleButton.scale(32, 32);
-      unclickedCycleButton.scale(32, 32);
+  public NextButton() {
+    super(false);
+    clickedCycleButton.scale(32, 32);
+    unclickedCycleButton.scale(32, 32);
   }
 
   /**

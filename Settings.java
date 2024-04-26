@@ -16,16 +16,16 @@ public class Settings extends World {
   Label eventLabel = new Label("ON", 36);
   Label round = new Label("", 24);
   Button nextBtn = new NextButton();
-  
+
   private EventButton eventButton = new EventButton();
   private RoundButton roundButton = new RoundButton();
-  private CycleButton cycleButton=new CycleButton();
-  private MoneyButton moneyButton=new MoneyButton();
+  private CycleButton cycleButton = new CycleButton();
+  private MoneyButton moneyButton = new MoneyButton();
   private Button[] indexButton;
   private IndustryButton[] industryButton;
   private boolean[] selectedIndustry = new boolean[9];
-  
-  private int[] btnY = {180, 300, 420};
+
+  private int[] btnY = {180, 240, 300};
   private int dir;
   private int buttonCount = 6;
   private int selectCount = 0;
@@ -70,7 +70,7 @@ public class Settings extends World {
     addObject(next, getWidth() - 175, 650);
     addObject(eventButton, getWidth() / 4, 400);
     addObject(moneyButton, getWidth() / 4, 560);
-    addObject(cycleButton, getWidth() / 4*3, 580);
+    addObject(cycleButton, getWidth() / 4 * 3, 580);
   }
 
   /** Spawns the Buttons */
@@ -111,36 +111,53 @@ public class Settings extends World {
         upDown = 1;
       }
       addObject(
-          industryButton[i], getWidth() / 4 * 3 + (135 * dir), getHeight() /7*3 + (135 * upDown));
+          industryButton[i],
+          getWidth() / 4 * 3 + (135 * dir),
+          getHeight() / 7 * 3 + (135 * upDown));
     }
   }
-  
+
   public void checkPressedButton() {
     for (int i = 0; i < indexButton.length; i++) {
-      if (i % 2 == 0) {
-        dir = 1;
-      } else {
-        dir = -1;
-      }
-      
-      if (indexButton[i] != null && indexButton[i].checkClicked()) {
-        switch (i / 2) {
+      if (indexButton[i].checkClicked()) {
+        switch (i) {
           case 0:
-            SI += dir;
-            sustainable.setValue("Sustainability Index: " + SI);
+            if (SI < 5) {
+              SI++;
+            }
             break;
           case 1:
-            EPR += dir;
-            economic.setValue("Economic Prosperity Rating: " + EPR);
+            if (SI > -5) {
+              SI--;
+            }
             break;
           case 2:
-            CWI += dir;
-            community.setValue("Community Well-being Index: " + CWI);
+            if (EPR < 5) {
+              EPR++;
+            }
+            break;
+          case 3:
+            if (EPR > -5) {
+              EPR--;
+            }
+            break;
+          case 4:
+            if (CWI < 5) {
+              CWI++;
+            }
+            break;
+          case 5:
+            if (CWI > -5) {
+              CWI--;
+            }
             break;
         }
+        sustainable.setValue("Sustainability Index: " + SI);
+        economic.setValue("Economic Prosperity Rating: " + EPR);
+        community.setValue("Community Well-being Index: " + CWI);
       }
     }
-    
+
     for (int i = 0; i < industryButton.length; i++) {
       IndustryButton button = industryButton[i];
       if (button != null && industryButton[i].checkClicked()) {
@@ -162,8 +179,18 @@ public class Settings extends World {
       addObject(test, getWidth() / 2, getHeight() / 2);
     }
 
-    if (nextBtn != null && nextBtn.checkClicked()&& selectCount >= 3) {
-      MainWorld main = new MainWorld(getWidth(), getHeight(), SI, CWI, EPR, selectedIndustry, eventButton.getState(), cycleButton.getCycle(), moneyButton.getInitialMoney());
+    if (nextBtn != null && nextBtn.checkClicked() && selectCount >= 3) {
+      MainWorld main =
+          new MainWorld(
+              getWidth(),
+              getHeight(),
+              SI,
+              CWI,
+              EPR,
+              selectedIndustry,
+              eventButton.getState(),
+              cycleButton.getCycle(),
+              moneyButton.getInitialMoney());
       Greenfoot.setWorld(main);
     }
   }
