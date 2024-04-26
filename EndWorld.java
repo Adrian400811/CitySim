@@ -246,9 +246,9 @@ public class EndWorld extends World {
     cycleLabel = new Label(cycleCount, 40);
     eventLabel = new Label(eventCount, 40);
     coinLabel = new Label(coin, 40);
-    coinImg=new Image("Images/icon/money.png", 50);
-    cycleImg =new Image("Images/icon/cycle.png", 40);
-    eventImg=new Image("Images/icon/event.png", 35);
+    coinImg=new Image("images/icon/money.png", 50);
+    cycleImg =new Image("images/icon/cycle.png", 40);
+    eventImg=new Image("images/icon/event.png", 35);
     addObject(cycleImg, anchorX + imfOffset - lrOffset, anchorY);
     addObject(cycleLabel, anchorX + stringOffset - lrOffset, anchorY);
     addObject(eventImg, anchorX + imfOffset, anchorY);
